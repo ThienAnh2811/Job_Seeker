@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" th:href="@{./css/global.css}" />
+    <link rel="stylesheet" th:href="@{./css/company-search.css}" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap"
+    />
+</head>
+<body>
+<div class="search-companies-results">
+    <section class="header-2-desktop1">
+        <img class="bg-icon6" alt="" />
+
+        <header class="top-nav21">
+            <div class="menu78">
+                <div class="logo-wrapper3">
+                    <a th:href="@{/home}" class="logo7">
+                        <div class="logo-15">
+                            <div class="logo-1-inner2">
+                                <img
+                                        class="frame-child145"
+                                        alt=""
+                                        th:src="@{./images/frame-318.svg}"
+                                />
+                            </div>
+                            <h3 class="jobhuntly33">JobHuntly</h3>
+                        </div>
+                        <div class="logo-226">
+                            <div class="logo-2-inner13">
+                                <img
+                                        class="frame-child146"
+                                        loading="lazy"
+                                        alt=""
+                                        th:src="@{/images/frame-3-3.svg}"
+                                />
+                            </div>
+                            <h3 class="jobhuntly34">JobHuntly</h3>
+                        </div>
+                    </a>
+                </div>
+                <div class="menu79">
+                    <div class="top-menu10">
+                        <a th:href="@{/findjobs}" class="caption559">Find Jobs</a>
+                        <div class="top-menu-child7"></div>
+                    </div>
+                    <div class="top-menu11">
+                        <a th:href="@{/findComapny}" class="caption560">Browse Companies</a>
+                        <div class="top-menu-child8"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons6">
+                <div th:if="${authentication.principal}">
+                    <a th:href="@{/logout}" class="button122">
+                        <b class="caption561">Sign Out</b>
+                    </a>
+                </div>
+                <div th:unless="${authentication.principal}">
+                    <a th:href="@{/login}" class="button122">
+                        <b class="caption561">Login</b>
+                    </a>
+                    <div class="divider-wrapper8">
+                        <div class="divider24"></div>
+                    </div>
+                    <a th:href="@{/registration}" class="button123">
+                        <b class="caption562">Sign Up</b>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div class="content-wrapper2">
+            <div class="content40">
+                <div class="headline-wrapper">
+                    <div class="headline4">
+                        <div class="headline5">
+                            <div class="find-your-parent">
+                                <h1 class="find-your1">Find your</h1>
+                                <div class="dream-job-parent">
+                                    <h1 class="dream-job1">dream companies</h1>
+                                    <img
+                                            class="group-icon3"
+                                            loading="lazy"
+                                            alt=""
+                                            th:src="@{./images/group2.svg}"
+                                    />
+                                </div>
+                            </div>
+                            <div class="find-your-next1">
+                                Find the dream companies you dream work for
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="search4">
+                    <form action="/findCompany" method="post" class="search-bar3">
+                    <div class="search-bar3">
+                        <div class="job-title79">
+                            <div class="icon-wrapper49">
+                                <img
+                                        class="icon486"
+                                        loading="lazy"
+                                        alt=""
+                                        th:src="@{./images/icon1.svg}"
+                                />
+                            </div>
+                            <div class="job-title-or-keyword-parent">
+                                <input
+                                        class="job-title-or3"
+                                        placeholder="Fintech"
+                                        type="text"
+                                        name="query"
+                                />
+                                <div class="frame-child147"></div>
+                            </div>
+                        </div>
+                        <div class="divider25"></div>
+                        <button type="submit" class="button124">
+                            <b class="caption563">Search</b>
+                        </button>
+                        </form>
+                    </div>
+                    <div class="popular-ui2">
+                        Popular : Twitter, Microsoft, Apple, Facebook
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="landing-page-company-list">
+        <div class="main-content20">
+            <div class="frame-parent39" >
+                <div class="all-jobs-group">
+                    <h1 class="all-jobs2">All Jobs</h1>
+                    <div class="showing-73-results2" th:text="${'Showing ' + companies.size() + ' results'}"></div>
+                </div>
+            </div>
+                <div class="results company-row">
+                <div th:each="company : ${companies}" >
+                    <div class="company5">
+                        <a  th:href="@{/aboutCompany(id=${company.id})}" class="fill-div">
+                        <div class="title44">
+                            <button class="company-logo12">
+                                <div class="company-logo-child3"></div>
+                                <img
+                                        class="stripe-logo-dp4f5yykm-1-icon7"
+                                        th:src="@{/company/image/{id}(id=${company.id})}" alt="Company Avatar"
+                                />
+                            </button>
+                            <button class="tag32">
+                                <div class="caption582" th:text="${company.posts.size() + ' Jobs' }" > </div>
+                            </button>
+                        </div>
+                        <div class="name-descriptions">
+                            <h3 class="komodo" th:text="${company.name}"></h3>
+                            <div class="komodo-is-an" th:text="${company.profileDescription}">
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer5">
+        <div class="frame-parent40">
+            <div class="left-wrapper1">
+                <div class="left5">
+                    <div class="logo-227">
+                        <div class="logo-2-inner14">
+                            <img
+                                    class="frame-child149"
+                                    loading="lazy"
+                                    alt=""
+                                    th:src="@{./images/frame-3-23.svg}"
+                            />
+                        </div>
+                        <h3 class="jobhuntly35">JobHuntly</h3>
+                    </div>
+                    <div class="great-platform-for6">
+                        Great platform for the job seeker that passionate about
+                        startups. Find your dream job easier.
+                    </div>
+                </div>
+            </div>
+            <div class="menu80">
+                <div class="first-column12">
+                    <div class="about-frame">
+                        <div class="about7">About</div>
+                    </div>
+                    <div class="description16">
+                        <div class="companies5">Companies</div>
+                        <div class="pricing5">Pricing</div>
+                        <div class="terms5">Terms</div>
+                        <div class="advice5">Advice</div>
+                        <div class="privacy-policy7">Privacy Policy</div>
+                    </div>
+                </div>
+                <div class="second-column5">
+                    <div class="resources5">Resources</div>
+                    <div class="description17">
+                        <div class="help-docs5">Help Docs</div>
+                        <div class="guide5">Guide</div>
+                        <div class="updates5">Updates</div>
+                        <div class="contact-us7">Contact Us</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right5">
+                <div class="get-job-notifications-parent1">
+                    <div class="get-job-notifications5">Get job notifications</div>
+                    <div class="the-latest-job5">
+                        The latest job news, articles, sent to your inbox weekly.
+                    </div>
+                </div>
+                <div class="subscribe5">
+                    <div class="input-parent">
+                        <div class="input25">
+                            <input
+                                    class="this-is-placeholder31"
+                                    placeholder="Email Address"
+                                    type="text"
+                            />
+                        </div>
+                        <button class="button125">
+                            <b class="caption606">Subscribe</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divider-parent1">
+            <img
+                    class="divider-icon5"
+                    loading="lazy"
+                    alt=""
+                    th:src="@{./images/divider.svg}"
+            />
+
+            <div class="frame-parent41">
+                <div class="copyright-container">
+                    <div class="copyright5">
+                        <div class="jobhuntly-all-rights5">
+                            2021 @ JobHuntly. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+                <div class="social-media-icons5">
+                    <img
+                            class="facebook-icon5"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/facebook.svg}"
+                    />
+
+                    <img
+                            class="instagram-icon5"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/instagram.svg}"
+                    />
+
+                    <img
+                            class="dribbble-icon5"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/dribbble.svg}"
+                    />
+
+                    <img
+                            class="linkedin-icon5"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/linkedin.svg}"
+                    />
+
+                    <img
+                            class="twitter-icon5"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/twitter.svg}"
+                    />
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

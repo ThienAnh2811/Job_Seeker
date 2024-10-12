@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+</html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" th:href="@{./css/Company/global.css}" />
+    <link rel="stylesheet" th:href="@{./css/Company/dashboard-company-settings-overview.css}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+  </head>
+  <body>
+    <div class="dashboard-company-settings1">
+      <div class="side-bar-dashboard-company8">
+        <div class="menu32">
+          <div class="list-item">
+            <div class="logo-28">
+              <div class="logo-2-inner5">
+                <img
+                  class="frame-child19"
+                  loading="lazy"
+                  alt=""
+                 th:src="@{./images/Company/frame-38.svg}"
+                />
+              </div>
+              <h3 class="jobhuntly8">JobHuntly</h3>
+            </div>
+          </div>
+          <div class="main-menu8">
+            <div class="menu33">
+              <div class="sidebar-menu72">
+                <img
+                  class="icon253"
+                  loading="lazy"
+                  alt=""
+                 th:src="@{./images/Company/icon1.svg}"
+                />
+
+                <a th:href="@{/dashboard}" class="caption223">Dashboard</a>
+              </div>
+              <div class="sidebar-menu74">
+                <img class="icon255" alt="" th:src="@{./images/Company/icon-2.svg}" />
+
+                <a th:href="@{/profile}" class="caption225">Company Profile</a>
+              </div>
+              <div class="sidebar-menu75">
+                <img class="icon256" alt="" th:src="@{./images/Company/icon-3.svg}" />
+
+                <a th:href="@{/allApplicants}" class="caption226">All Applicants</a>
+              </div>
+              <div class="sidebar-menu76">
+                <img class="icon257" alt="" th:src="@{./images/Company/icon-4.svg}" />
+
+                <a th:href="@{/joblisting}" class="caption227">Job Listing</a>
+              </div>
+              <div class="sidebar-menu77">
+                <img class="icon258" alt="" th:src="@{./images/Company/icon-5.svg}" />
+
+                <a th:href="@{/interviewSchedule}" class="caption228">My Schedule</a>
+              </div>
+              <div class="sidebar-menu78">
+                <img class="icon259" alt="" />
+
+                <div class="caption229">Employee</div>
+              </div>
+            </div>
+            <div class="main-menu-child3"></div>
+            <div class="settings18">
+              <div class="settings-wrapper5">
+                <div class="settings19">SETTINGS</div>
+              </div>
+              <div class="menu34">
+                <button class="sidebar-menu79">
+                  <img
+                    class="indicator-icon8"
+                    alt=""
+                   th:src="@{./images/Company/indicator.svg}"
+                  />
+
+                  <div class="menu35">
+                    <img class="icon260" alt="" th:src="@{./images/Company/icon-71.svg}" />
+
+                    <div class="caption230">Settings</div>
+                  </div>
+                </button>
+                <div class="sidebar-menu80">
+                  <img class="icon261" alt="" th:src="@{./images/Company/icon-8.svg}" />
+
+                  <div class="caption231">Help Center</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="pattern-icon8" alt="" />
+
+        <div class="profile17">
+          <div class="line11"></div>
+          <div class="profile-wrapper2">
+            <div class="profile18">
+              <div class="avatar-wrapper5">
+                <img
+                  class="avatar-icon32"
+                  loading="lazy"
+                  alt=""
+                 th:src="@{./images/Company/avatar12x.png}"
+                />
+              </div>
+              <div class="name-email8">
+                <div class="maria-kelly8">Maria Kelly</div>
+                <div class="mariakllyemailcom8">MariaKlly@email.com</div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-menu8">
+            <div class="rounded-rectangle8"></div>
+            <div class="frame8">
+              <div class="logout16">
+                <div class="logout17">Logout</div>
+                <img class="icon262" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="top-nav-parent3">
+        <header class="top-nav11">
+          <div class="job-list16">
+            <img
+              class="company-logo-icon17"
+              th:src="@{/company/image/{id}(id=${companyLoggedIn.id})}" alt="Company Avatar"
+            />
+            <img class="company-logo-icon17"
+                 alt=""
+                 th:src="@{./images/Company/company-logo.svg}"
+                 th:unless="${companyLoggedIn.avatar}"
+            />
+            <div class="job-title16">
+              <div class="company8">Company</div>
+            </div>
+          </div>
+          <div class="action11">
+            <img
+              class="notification-icon8"
+              loading="lazy"
+              alt=""
+             th:src="@{./images/Company/notification4.svg}"
+            />
+
+            <button class="button38">
+              <img class="icon264" alt="" th:src="@{./images/Company/icon-112.svg}" />
+
+              <a th:href="@{/postjobs}" class="caption232">Post a job</a>
+            </button>
+          </div>
+        </header>
+        <section class="header12">
+          <h1 class="settings20">Settings</h1>
+          <div class="tabs6">
+            <div class="tab-menu39">
+              <div class="caption233">Overview</div>
+              <img
+                class="tab-menu-child2"
+                alt=""
+               th:src="@{./images/Company/rectangle-173.svg}"
+              />
+            </div>
+            <div class="tab-menu42">
+              <div class="caption236">Notifications</div>
+            </div>
+            <div class="tab-menu43">
+              <div class="caption237">Notifications</div>
+            </div>
+            <div class="tab-menu44">
+              <div class="caption238">Notifications</div>
+            </div>
+          </div>
+        </section>
+        <form class="company-dashboard-settings" th:action="@{/settings}" th:object="${companyLoggedIn}" method="post"  enctype="multipart/form-data">
+          <div class="function-caller1"></div>
+          <div class="company-logo1">
+            <div class="company-logo2">
+              <div class="company-logo3">Company Logo</div>
+              <div class="this-image-will">
+                This image will be shown publicly as company logo.
+              </div>
+            </div>
+            <div class="logo">
+              <img
+                      class="company-logo-icon18"
+                      th:if="${companyLoggedIn.avatar}"
+                      th:src="@{/company/image/{id}(id=${companyLoggedIn.id})}" alt="Company Avatar"
+              />
+
+              <div class="textfield5">
+                <div class="data-merger1">
+                  <img class="icon265" alt="" th:src="@{./images/Company/icon-126.svg}" />
+
+                  <div class="decision-tree">
+                    <div class="click-to-replace-container">
+                      <span class="click-to-replace">Click to replace</span>
+                      <span class="or-drag-and-drop">
+                        <span class="span16"> </span>
+                        <span class="or-drag-and">or drag and drop</span>
+                      </span>
+                    </div>
+                    <div class="svg-png-jpg">
+                      SVG, PNG, JPG or GIF (max. 400 x 400px)
+                    </div>
+                    <input type="file" accept=".svg, .png, .jpg, .gif" name="avatarFile" />                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="function-caller2"></div>
+          <div class="company-details">
+            <div class="company-logo4">
+              <div class="company-details1">Company Details</div>
+              <div class="introduce-your-company">
+                Introduce your company core info quickly to users by fill up
+                company details
+              </div>
+            </div>
+              <div class="textfield6">
+                <div class="label90">Company Name</div>
+                <div class="input7">
+                  <input
+                    class="this-is-placeholder9"
+                    placeholder="Nomad"
+                    type="text"
+                    th:field="*{name}"
+                  />
+                </div>
+              </div>
+              <div class="textfield7">
+                <div class="label91">Website</div>
+                <div class="input8">
+                  <input
+                    class="this-is-placeholder10"
+                    placeholder="Https://www.nomad.com"
+                    type="text"
+                    th:field="*{companyWebsite}"
+                  />
+                </div>
+              </div>
+          </div>
+          <div class="function-caller3"></div>
+          <div class="about-company">
+            <div class="about-company1">
+              <div class="about-company2">About Company</div>
+              <div class="brief-description-for">
+                Brief description for your company. URLs are hyperlinked.
+              </div>
+            </div>
+            <div class="textfield13">
+              <div class="label97">Description</div>
+              <div class="content14">
+                  <label>
+        <textarea class="form" placeholder="Nomad is part of the Information Technology Industry. We
+            believe travellers want to experience real life and meet
+            local people. Nomad has 30 total employees across all of its
+            locations and generates $1.50 million in sales."
+                  th:field="*{profileDescription}">
+        </textarea>
+                  </label>
+              </div>
+            </div>
+          </div>
+          <div class="function-caller4"></div>
+          <button type="submit" class="button39">
+            <b class="caption245">Save Changes</b>
+          </button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>

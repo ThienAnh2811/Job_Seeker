@@ -1,0 +1,36 @@
+C
+C++
+Rust
+Python
+Java
+JavaScript
+Ruby
+Swift
+Kotlin
+Go
+TypeScript
+PHP
+SQL
+MATLAB
+R
+Perl
+Lua
+Shell
+Scala
+Haskell
+Dart
+Objective-C
+Assembly language
+Visual Basic
+Cobol
+Fortran
+Lisp
+Scheme
+Prolog
+C#
+HTML
+CSS
+Shell
+Assembly
+.NET
+IOS

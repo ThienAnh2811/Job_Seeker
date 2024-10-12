@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" type="text/css" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" />
+</head>
+
+<body>
+    <div class="login">
+        <div class="element">
+            <div class="rectangle"></div>
+            <div class="bg">
+                <div class="bg-inner">
+                    <div class="frame-parent10">
+                        <div class="frame-parent11">
+                            <div class="frame-wrapper2">
+                                <img class="frame-child30" loading="lazy" alt="" th:src="@{images/frame-3.svg}" />
+                            </div>
+                            <h3 class="jobhuntly7">JobHuntly</h3>
+                        </div>
+                        <div class="frame-wrapper3">
+<!--                            <div class="rectangle-parent1">-->
+<!--                                <div class="frame-child31"></div>-->
+<!--                                <div class="rectangle-parent2">-->
+<!--                                    <div class="frame-child32"></div>-->
+<!--                                    <div class="frame-child33"></div>-->
+<!--                                    <div class="frame-child34"></div>-->
+<!--                                    <div class="frame-child35"></div>-->
+<!--                                </div>-->
+<!--                                <div class="k-parent">-->
+<!--                                    <b class="k">100K+</b>-->
+<!--                                    <div class="people-got-hired">People got hired</div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                <div class="frame-parent12">
+                    <div class="rectangle-parent3">
+                        <div class="frame-child36"></div>
+                        <div class="button-instance">
+<!--                            <div class="adam-sandler">Adam Sandler</div>-->
+<!--                            <div class="lead-engineer-at">Lead Engineer at Canva</div>-->
+                        </div>
+                        <div class="parent">
+<!--                            <h1 class="h1">“</h1>-->
+                            <div class="paragraph-wrapper">
+<!--                                <div class="paragraph1">“Great platform for the job seeker that searching for new-->
+<!--                                    career heights.”</div>-->
+                            </div>
+                        </div>
+                        <div class="design-7b051895-a4ce-4319-b607-parent">
+                            <img class="design-7b051895-a4ce-4319-b607-icon" alt=""
+<!--                                th:src="@{images/design7b051895a4ce4319b60711f9ae6a2e9c-1@2x.png}" />-->
+                            <div class="shadow"></div>
+<!--                            <img class="frame-child37" loading="lazy" alt="" th:src="@{images/group-111@2x.png}" />-->
+                            <textarea class="shadow1" rows="{8}" cols="{8}"> </textarea>
+                        </div>
+                    </div>
+                    <img class="pattern-icon5" alt="" />
+                </div>
+            </div>
+        </div>
+        <div class="landing-page-login-desktop-wrapper">
+            <div class="landing-page-login-desktop">
+                <div class="sign-up-options-parent">
+
+                    <h1 class="welcome-back-dude">Welcome Back, Dude</h1>
+<!--                    <button class="button18">-->
+<!--                        <img class="icon67" alt="" th:src="@{images/icon.svg}" />-->
+<!--                        <b class="caption91">Login with Google</b>-->
+<!--                    </button>-->
+                </div>
+                <div class="or-sign-up-with-email">
+                    <div class="line-wrapper">
+                        <div class="line5"></div>
+                    </div>
+                    <div class="or-login-with">Login with email</div>
+                    <div class="line-container">
+                        <div class="line6"></div>
+                    </div>
+                </div>
+                <form class="forms" th:action="@{/login}" method="post" >
+                    <div class="textfield8">
+                        <div class="label89">Email Address</div>
+                        <div class="input8">
+                            <input for="username" class="this-is-placeholder8" placeholder="Enter email address" type="text"
+                                id="username" name="username" required autofocus="autofocus" />
+                        </div>
+                        <div th:if="${param.emailwrong}">
+                            <div class="alert alert-info"> Your email is not correct</div>
+                        </div>
+                    </div>
+                    <div class="textfield9">
+                        <div class="label90">Password</div>
+                        <div class="input9">
+                            <input  for="password" class="this-is-placeholder9" placeholder="Enter password" type="password"
+                                id="password" name="password"  required />
+                        </div>
+                        <div th:if="${param.passwordwrong}">
+                            <div class="alert alert-info"> Your password is not correct</div>
+                    </div>
+                    </div>
+                    <div class="remember-me">
+                        <div class="checkbox">
+                            <div class="checkboxchecked3-wrapper">
+                                <input class="checkboxchecked3" checked="{true}" type="checkbox" />
+                            </div>
+                            <div class="caption92">Remember me</div>
+                        </div>
+                    </div>
+                    <button class="button19">
+                        <b class="caption93">Login</b>
+                    </button>
+                </form>
+                <div class="already-have-an-account">
+                    <div class="dont-have-an">Don’t have an account?</div>
+                    <a class="sign-up" th:href="@{/registration}" >Sign Up</a>
+                    
+                </div>
+            </div>
+        </div>
+<!--        <div class="rectangle1"></div>-->
+    </div>
+</body>

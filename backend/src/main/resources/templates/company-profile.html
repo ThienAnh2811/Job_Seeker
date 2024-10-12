@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" th:href="@{./css/global.css}" />
+    <link rel="stylesheet" th:href="@{./css/company-profile.css}" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap"
+    />
+</head>
+<body>
+<div class="company-profile4">
+    <section class="header-4-desktop">
+        <div class="bg2"></div>
+        <img class="patterns-icon" alt="" />
+
+        <header class="top-nav20">
+            <div class="menu75">
+                <div class="logo-wrapper2">
+                    <div class="logo6">
+                        <div class="logo-14">
+                            <div class="logo-1-inner1">
+                                <img
+                                        class="frame-child139"
+                                        alt=""
+                                        th:src="@{/images/frame-3.svg}"
+                                />
+                            </div>
+                            <h3 class="jobhuntly30">JobHuntly</h3>
+                        </div>
+                        <div class="logo-224">
+                            <div class="logo-2-inner12">
+                                <img
+                                        class="frame-child140"
+                                        loading="lazy"
+                                        alt=""
+                                        th:src="@{./images/frame-3-14.svg}"
+                                />
+                            </div>
+                            <h3 class="jobhuntly31">JobHuntly</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu76">
+                    <div class="top-menu8">
+                        <div class="caption530">Find Jobs</div>
+                        <div class="top-menu-child5"></div>
+                    </div>
+                    <div class="top-menu9">
+                        <div class="caption531">Browse Companies</div>
+                        <div class="top-menu-child6"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons5">
+                <button class="button115">
+                    <b class="caption532">Login</b>
+                </button>
+                <div class="divider-wrapper7">
+                    <div class="divider23"></div>
+                </div>
+                <button class="button116">
+                    <b class="caption533">Sign Up</b>
+                </button>
+            </div>
+        </header>
+        <div class="home-companies-nomad-wrapper">
+            <div class="home-companies-container2">
+                <span>Home / Companies / </span>
+                <span class="nomad67" th:text="${company.getName()}"></span>
+            </div>
+        </div>
+        <div class="title-container">
+            <div class="title39">
+                <div class="company-logo11">
+                    <div class="company-logo-child2"></div>
+                    <img
+                            class="stripe-logo-dp4f5yykm-1-icon6"
+                            loading="lazy"
+                            th:src="@{/company/image/{id}(id=${company.id})}" alt="Company Avatar"
+                    />
+                </div>
+                <div class="content-wrapper1">
+                    <div class="content37">
+                        <div class="title40">
+                            <div class="stripe-group">
+                                <h1 class="stripe3" th:text="${company.name}"></h1>
+                                <button class="tag31">
+                                    <div class="jobs12" th:text="${company.posts.size() + 'Jobs'}"></div>
+                                </button>
+                            </div>
+                            <div class="httpsstripecom" th:text="${company.companyWebsite}"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="landing-page-company-profile">
+        <div class="left-content">
+            <div class="company-profile-container">
+                <div class="company-profile5">
+                    <h1 class="company-profile6">Company Profile</h1>
+                    <div class="stripe-is-a3"  th:text="${company.profileDescription}">
+                    </div>
+                </div>
+<!--                <div class="contact3">-->
+<!--                    <h1 class="contact4">Contact</h1>-->
+<!--                    <div class="logic-tree">-->
+<!--                        <button class="twitter9">-->
+<!--                            <img class="icon462" alt="" th:src="@{./images/icon-44.svg}" />-->
+
+<!--                            <div class="twittercomstripe" th:text="${company.}"></div>-->
+<!--                        </button>-->
+<!--                        <button class="twitter10">-->
+<!--                            <img class="icon463" alt="" th:src="@{./images/icon-54.svg}" />-->
+
+<!--                            <div class="facebookcomstripehq">facebook.com/StripeHQ</div>-->
+<!--                        </button>-->
+<!--                    </div>-->
+<!--                    <button class="twitter11">-->
+<!--                        <img class="icon464" alt="" th:src="@{./images/icon-63.svg}" />-->
+
+<!--                        <div class="linkedincomcompanystripe">-->
+<!--                            linkedin.com/company/stripe-->
+<!--                        </div>-->
+<!--                    </button>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </section>
+    <div class="line-frame">
+        <div class="line45"></div>
+    </div>
+
+    <div class="line-wrapper1">
+        <div class="line46"></div>
+    </div>
+    <section class="landing-page-latest-job-open2">
+        <img class="bg-icon5" alt="" th:src="@{./images/bg.svg}" />
+
+        <div class="wrapper-pattern-group">
+            <div class="wrapper-pattern4">
+                <img class="pattern-icon37" alt="" th:src="@{./images/pattern30.svg}" />
+            </div>
+            <div class="content39">
+                <div class="title43">
+                    <h1 class="latest-jobs-open1">Open Jobs</h1>
+                    <div class="button-wrapper3">
+                    </div>
+                </div>
+                <div class="list6">
+                    <div th:each="post : ${company.getPosts()}">
+                    <div class="col-16">
+                        <a class="fill-div" th:href="@{/jobdetails(id=${post.id})}">
+                        <div class="job-list64">
+                            <img
+                                    class="company-logo-icon73"
+                                    loading="lazy"
+                                    th:src="@{/company/image/{id}(id=${company.id})}" alt="Company Avatar"
+                            />
+
+                            <div class="job-title71">
+                                <div class="social-media-assistant70" th:text="${post.getTitle()}">
+                                </div>
+                                <div class="company-name-location-job54">
+                                    <div class="nomad68" th:text="${company.getName()}"></div>
+                                    <div class="input-processor-wrapper">
+                                        <div class="input-processor3"></div>
+                                    </div>
+                                    <div class="paris-france57"  th:if="${post.location != null }" th:text="${post.getLocation().name}"></div>
+                                </div>
+                                <div class="label271">
+                                    <button class="label272">
+                                        <div class="caption534" th:text="${post.level.name}"></div>
+                                    </button>
+                                    <div class="value-filter1"></div>
+                                    <button class="label273">
+                                        <div class="label-child167"></div>
+                                        <div class="caption535" th:if="${post.categories != null}" th:text="${post.categories[0].name}"></div>
+                                    </button>
+                                    <button class="label274">
+                                        <div class="label-child168"></div>
+                                        <div class="caption536" th:if="${post.programingLanguages[0] != null}" th:text="${post.programingLanguages[0].name}"></div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer4">
+        <div class="icon-positioner">
+            <div class="layout-builder">
+                <div class="left4">
+                    <div class="logo-225">
+                        <div class="font-manager">
+                            <img
+                                    class="matrix-multiplier-icon"
+                                    loading="lazy"
+                                    alt=""
+                                    th:src="@{./images/frame-3-23.svg}"
+                            />
+                        </div>
+                        <h3 class="jobhuntly32">JobHuntly</h3>
+                    </div>
+                    <div class="great-platform-for5">
+                        Great platform for the job seeker that passionate about
+                        startups. Find your dream job easier.
+                    </div>
+                </div>
+            </div>
+            <div class="menu77">
+                <div class="first-column11">
+                    <div class="rounded-corners">
+                        <div class="about6">About</div>
+                    </div>
+                    <div class="description14">
+                        <div class="companies4">Companies</div>
+                        <div class="pricing4">Pricing</div>
+                        <div class="terms4">Terms</div>
+                        <div class="advice4">Advice</div>
+                        <div class="privacy-policy6">Privacy Policy</div>
+                    </div>
+                </div>
+                <div class="second-column4">
+                    <div class="resources4">Resources</div>
+                    <div class="description15">
+                        <div class="help-docs4">Help Docs</div>
+                        <div class="guide4">Guide</div>
+                        <div class="updates4">Updates</div>
+                        <div class="contact-us6">Contact Us</div>
+                    </div>
+                </div>
+            </div>
+            <div class="right4">
+                <div class="get-job-notifications-container">
+                    <div class="get-job-notifications4">Get job notifications</div>
+                    <div class="the-latest-job4">
+                        The latest job news, articles, sent to your inbox weekly.
+                    </div>
+                </div>
+                <div class="subscribe4">
+                    <div class="feature-extractor1">
+                        <div class="input24">
+                            <input
+                                    class="this-is-placeholder30"
+                                    placeholder="Email Address"
+                                    type="text"
+                            />
+                        </div>
+                        <button class="button121">
+                            <b class="caption558">Subscribe</b>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="italic-toggle">
+            <img
+                    class="divider-icon4"
+                    loading="lazy"
+                    alt=""
+                    th:src="@{./images/divider.svg}"
+            />
+
+            <div class="strikethrough-handler">
+                <div class="subscript-handler">
+                    <div class="copyright4">
+                        <div class="jobhuntly-all-rights4">
+                            2021 @ JobHuntly. All rights reserved.
+                        </div>
+                    </div>
+                </div>
+                <div class="social-media-icons4">
+                    <img
+                            class="facebook-icon4"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/facebook.svg}"
+                    />
+
+                    <img
+                            class="instagram-icon4"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/instagram.svg}"
+                    />
+
+                    <img
+                            class="dribbble-icon4"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/dribbble.svg}"
+                    />
+
+                    <img
+                            class="linkedin-icon4"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/linkedin.svg}"
+                    />
+
+                    <img
+                            class="twitter-icon4"
+                            loading="lazy"
+                            alt=""
+                            th:src="@{./images/twitter.svg}"
+                    />
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

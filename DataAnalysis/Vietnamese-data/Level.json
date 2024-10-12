@@ -1,0 +1,13 @@
+{
+    "Intern": 1,
+    "Fresher": 2,
+    "Junior": 3,
+    "Middle": 4,
+    "Associate": 5,
+    "Senior": 6,
+    "Lead": 7,
+    "Manager": 8,
+    "Director": 9,
+    "Principal": 10
+  }
+  

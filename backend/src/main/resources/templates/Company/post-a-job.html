@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <script th:src="@{./js/Company/dashboard-company-post-a-job.js}"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" th:href="@{./css/Company/global.css}" />
+  <link rel="stylesheet" th:href="@{./css/Company/dashboard-company-post-a-job.css}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap" />
+</head>
+
+<body>
+  <div class="dashboard-company-post-a-job2">
+    <div class="side-bar-dashboard-company11">
+      <div class="menu44">
+        <div class="input-field">
+          <div class="logo-211">
+            <div class="divider12">
+              <img class="divider-child" loading="lazy" alt="" th:src="@{./images/Company/frame-311.svg}" />
+            </div>
+            <h3 class="jobhuntly11">JobHuntly</h3>
+          </div>
+        </div>
+        <div class="main-menu11">
+          <div class="menu45">
+            <div class="sidebar-menu99">
+              <img class="icon347" loading="lazy" alt="" th:src="@{./images/Company/icon1.svg}" />
+
+              <a th:href="@{/dashboard}" class="caption269">Dashboard</a>
+            </div>
+            <div class="sidebar-menu101">
+              <img class="icon349" alt="" th:src="@{./images/Company/icon-2.svg}" />
+
+              <a th:href="@{/profile}" class="caption271">Company Profile</a>
+            </div>
+            <button class="sidebar-menu102">
+              <div class="indicator-wrapper7">
+                <img class="indicator-icon11" alt="" th:src="@{./images/Company/indicator.svg}" />
+              </div>
+              <div class="menu46">
+                <img class="icon350" alt="" th:src="@{./images/Company/icon-35.svg}" />
+
+                <a th:href="@{/allApplicants}" class="caption272">All Applicants</a>
+              </div>
+            </button>
+            <div class="sidebar-menu103">
+              <img class="icon351" alt="" th:src="@{./images/Company/icon-4.svg}" />
+
+              <a th:href="@{joblisting}" class="caption273">Job Listing</a>
+            </div>
+            <div class="sidebar-menu104">
+              <img class="icon352" alt="" th:src="@{./images/Company/icon-5.svg}" />
+
+              <a th:href="@{/interviewSchedule}" class="caption274">My Schedule</a>
+            </div>
+            <div class="sidebar-menu105">
+              <img class="icon353" alt=""  src=""/>
+
+              <div class="caption275">Employee</div>
+            </div>
+          </div>
+          <div class="main-menu-child6"></div>
+          <div class="settings25">
+            <div class="tab-container">
+              <div class="settings26">SETTINGS</div>
+            </div>
+            <div class="menu47">
+              <div class="sidebar-menu106">
+                <img class="icon354" alt="" th:src="@{./images/Company/icon-7.svg}" />
+
+                <a th:href="@{/settings}" class="caption276">Settings</a>
+              </div>
+              <div class="sidebar-menu107">
+                <img class="icon355" alt="" th:src="@{./images/Company/icon-8.svg}" />
+
+                <div class="caption277">Help Center</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img class="pattern-icon11" alt="" />
+
+      <div class="profile23">
+        <div class="color-picker"></div>
+        <div class="profile-wrapper4">
+          <div class="profile24">
+            <div class="alert-message">
+              <img class="avatar-icon35" loading="lazy" alt=""                  th:src="@{/user/image/{id}(id=${user.getID()})}"/>
+            </div>
+            <div class="name-email11">
+              <div class="maria-kelly11" th:text="${user.getUserDisplayName()}"></div>
+              <div class="mariakllyemailcom11" th:text="${user.getEmail()}"></div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-menu11">
+          <div class="rounded-rectangle11"></div>
+          <div class="frame11">
+            <div class="logout22">
+              <a href="/logout" class="logout23">Logout</a>
+              <img class="icon356" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <main class="breadcrumbs">
+      <header class="top-nav16">
+        <div class="job-list19">
+          <img class="company-logo-icon21" alt="" th:src="@{/company/image/{id}(id=${user.getCompany().getId()})}"
+          />
+
+          <div class="job-title19">
+            <div class="company11">Company</div>
+            <div class="steps">
+              <div class="nomad20" th:text="${user.getCompany().getName()}"></div>
+              <img class="icon357" alt="" th:src="@{./images/Company/icon-10.svg}" />
+            </div>
+          </div>
+        </div>
+        <div class="action14">
+          <img class="notification-icon11" loading="lazy" alt="" th:src="@{./images/Company/notification1.svg}" />
+
+          <button class="button45">
+            <img class="icon358" alt="" th:src="@{./images/Company/icon-11.svg}" />
+
+            <b class="caption278">Post a job</b>
+          </button>
+        </div>
+      </header>
+      <section class="top-nav17">
+        <img class="icon359" alt="" th:src="@{./images/Company/icon-128.svg}" />
+
+        <div class="data-aggregator3">
+          <h1 class="post-a-job2">Post a Job</h1>
+        </div>
+      </section>
+      <section class="string-manipulator">
+        <div class="steppers2">
+          <div class="stepper7">
+
+            <div class="step-1312">
+              <div class="job-information6">Job Information</div>
+            </div>
+          </div>
+          <div class="list-manager1">
+            <div class="divider13"></div>
+          </div>
+        </div>
+      </section>
+      <section class="step-2">
+        <form action="/postjobs" method="post" th:object="${postdto}">
+          <div class="basic-information4">
+            <div class="basic-information5">Basic Information</div>
+            <label>
+              <textarea type="text" class="this-information-will" value="This information will be displayed publicly" th:field="*{content}"></textarea>
+            </label>
+          </div>
+          <div class="line21"></div>
+          <div class="job-title20">
+            <div class="job-title21">
+              <div class="job-title22">Job Title</div>
+              <div class="job-titles-must1">
+                Job titles must be describe one position
+              </div>
+            </div>
+            <div class="textfield18">
+              <div class="input9">
+                <input class="this-is-placeholder16" placeholder="e.g. Software Engineer" type="text"  th:field="*{title}"/>
+              </div>
+              <div class="this-is-helper">At least 80 characters</div>
+            </div>
+          </div>
+          <div class="line22"></div>
+          <div class="type-of-employment">
+            <div class="type-of-employment1">
+              <div class="type-of-employment2">Type of Employment</div>
+              <div class="you-can-select">
+                You can select one type of employment
+              </div>
+            </div>
+            <div class="type-of-employment3">
+              <label for="employmentTypeDropdown"></label><select id="employmentTypeDropdown" class="dropdown7" th:field="*{levelId}">
+                <option th:each="level : ${levels}" th:value="${level.id}" th:text="${level.name}"></option>
+              </select>
+            </div>
+          </div>
+          <div class="line23"></div>
+          <div class="salary2">
+            <div class="salary3">
+              <div class="salary4">Salary</div>
+              <div class="please-specify-the">
+                Please specify the estimated salary range for the role. *You can
+                leave this blank
+              </div>
+            </div>
+            <div class="slider">
+              <div class="range-wrapper">
+                <div class="range">
+                  <div class="textfield19">
+
+                    <div class="divider-wrapper4">
+                      <div class="divider15"></div>
+                    </div>
+                    <label>
+                      <input class="div69" placeholder="Min Salary (in millions VND)" th:field="*{minSalary}"></input>                    </label>
+                  </div>
+
+                  <div class="to-wrapper">
+                    <div class="to">to</div>
+                  </div>
+                  <div class="textfield20">
+                    <div class="divider-wrapper5">
+                      <div class="divider16"></div>
+                    </div>
+                    <label>
+                      <input class="div71" placeholder="Max Salary (in millions VND)" th:field="*{maxSalary}"></input>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="line24"></div>
+              <div class="categories2">
+                <div class="categories3">
+                  <div class="categories4"></div>
+                  <div class="you-can-select1">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="required-skills2">
+            <div class="basic-information5">Select Job Categories</div>
+            <label for="categoryDropdown"></label>
+            <select id="categoryDropdown" class="dropdown7">
+              <!-- Iterate over categories and populate options -->
+              <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
+            </select>
+            <button class="button46" onclick="addCategoryTag(event)">
+              <b class="caption284">Add Category</b>
+            </button>
+            <div id="categoryTags"></div>
+            <!-- Hidden input to store selected category IDs -->
+            <input type="hidden" id="selectedCategoryIds" name="categoriesID" />
+          </div>
+
+          <div class="line25"></div>
+          <div class="required-skills2">
+            <div class="basic-information5">Programming Languages</div>
+            <label for="programingLanguagesDropdown"></label>
+            <select id="programingLanguagesDropdown" class="dropdown7">
+              <option th:each="programingLanguage : ${programingLanguages}" th:value="${programingLanguage.id}" th:text="${programingLanguage.name}"></option>
+            </select>
+            <button class="button46" onclick="addProgrammingLanguageTag(event)">
+              <b class="caption284">Add Programming Languages</b>
+            </button>
+            <div id="requiredProgramingLanguagesTags"></div>
+            <input type="hidden" id="selectedProgrammingLanguagesIds" name="programmingLanguagesID" />
+          </div>
+          <div class="line26"></div>
+<!--          Nice to haves-->
+          <div class="line25"></div>
+          <div class="required-skills2">
+            <div class="basic-information5">Nice-to-haves</div>
+            <label for="niceToHavesDropdown"></label>
+            <select id="niceToHavesDropdown" class="dropdown7">
+              <option th:each="niceToHave : ${niceToHaves}" th:value="${niceToHave.id}" th:text="${niceToHave.name}"></option>
+            </select>
+            <button class="button46" onclick="addNiceToHaveTag(event)">
+              <b class="caption284">Add Nice-to-have</b>
+            </button>
+            <div id="niceToHavesTags"></div>
+            <input type="hidden" id="selectedNiceToHavesIds" name="niceToHavesID" />
+          </div>
+
+          <div class="line26"></div>
+
+<!--          ---------------------Phone number-->
+          <div class="line25"></div>
+          <div class="required-skills2">
+            <div class="basic-information5">Phone number</div>
+            <label>
+              <input for="phoneNumber" class="button46" placeholder="Phone number" th:field="*{phoneNumber}">
+              </input>
+            </label>
+          </div>
+          <div class="line26"></div>
+<!--          Email -->
+          <div class="line25"></div>
+          <div class="required-skills2">
+            <div class="basic-information5">Email</div>
+            <label>
+              <input  for="email" class="button46" placeholder="Email" th:field="*{email}">
+              </input>
+            </label>
+          </div>
+          <div class="line26"></div>
+          <div class="required-skills2">
+            <div class="basic-information5">Experience Required</div>
+            <label>
+              <input  for="experience" class="button46" placeholder="Experience (E.g :1 (Stand for atleast 1 year experience)" th:field="*{experience}">
+              </input>
+            </label>
+          </div>
+          <div class="line26"></div>
+<!--          Location-->
+          <div class="line25"></div>
+          <div class="required-skills2">
+            <label for="locationDropdown"></label><select id="locationDropdown" class="dropdown7" th:field="*{locationId}">
+              <option th:each="location : ${locations}" th:value="${location.id}" th:text="${location.name}" ></option>
+            </select>
+          </div>
+          <div class="line26"></div>
+
+          <div class="required-skills2">
+            <div class="basic-information5">Attach Images</div>
+            <label>
+              <input type="file" class="button46" id="imageUpload" multiple onchange="displaySelectedImage(event)">
+            </label>
+            <img id="selectedImage" src="" alt="Selected image" style="width: 100px; height: 100px;">
+          </div>
+          <div class="line25"></div>
+          <button  type="submit"  class="button47">
+            <b class="caption288">Post job</b>
+          </button>
+        </form>
+      </section>
+    </main>
+  </div>
+</body>
+
+</html>

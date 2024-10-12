@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <link rel="shortcut icon" th:href="@{./images/devchallenges.png}" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{css/error.css}">
+</head>
+<body>
+    <header id="header">
+        <p class="header-p">404: Not Found</p>
+    </header>
+    <main id="main">
+        <div class="main-div-img">
+            <img class="main-img" th:src="@{./images/Scarecrow.png}" alt="Scarecrow">
+        </div>
+        <div class="main-div-txt">
+            <h1>I have bad news</h1>
+            <p class="main-p">The page you are looking for may have been removed or is temporarily unavailable</p>
+            <a href="/home">
+                <button class="main-btn">Return to Home</button>
+            </a>
+        </div>
+    </main>
+    <footer id="footer">
+        <p>Created by <a class="footer-anchor" target="blank">Nguyen Ba Xuan An</a></p>
+    </footer>
+
+    <script th:src="@{js/error.js}"></script>
+</body>
+</html>

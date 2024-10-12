@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <script th:src="@{js/dashboard-job-descriptions.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/dashboard-job-descriptions.css}" />
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />-->
+<!--    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>-->
+
+    <!-- Add the jQuery and Font Awesome links -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" />
+</head>
+
+<body>
+<div class="dashboard-job-descriptions">
+    <div class="side-bar-dashboard-applica1">
+        <div class="menu19">
+            <div class="connection-hub">
+                <div class="logo-210">
+                    <div class="logo-2-inner4">
+                        <img class="frame-child74" loading="lazy" alt="" th:src="@{/images/frame-33.svg}" />
+                    </div>
+                    <h3 class="jobhuntly16">JobHuntly</h3>
+                </div>
+            </div>
+            <div class="main-menu1">
+                <div class="menu20">
+                    <div class="sidebar-menu8">
+                        <img class="icon133" loading="lazy" alt="" th:src="@{/images/icon2.svg}" />
+
+                        <a th:href="@{/dashboard}" class="caption206">Dashboard</a>
+                    </div>
+                    <div class="sidebar-menu10">
+                        <div class="icon135">
+                            <img class="vector-stroke-icon1" alt="" th:src="@{/images/vector-stroke.svg}" />
+
+                            <div class="icon-inner"></div>
+                            <div class="icon-child1"></div>
+                        </div>
+                        <a th:if="${userLoggedIn.getRole() == 'user'}" th:href="@{/jobApplied}" class="caption208">My Applications</a>
+                        <a th:if="${userLoggedIn.getRole() == 'company'}" th:href="@{/profile}" class="caption208">Company Profile</a>
+                    </div>
+                    <button class="sidebar-menu11">
+                        <div class="indicator-container">
+                            <img class="indicator-icon1" alt="" th:src="@{/images/indicator.svg}" />
+                        </div>
+                        <div class="menu21">
+                            <img class="icon136" alt="" th:src="@{/images/icon-214.svg}" />
+
+                            <div th:if="${userLoggedIn.getRole() == 'user'}" class="caption209">Find Jobs</div>
+                            <div th:if="${userLoggedIn.getRole() == 'company'}" class="caption209">Job Listing</div>
+                        </div>
+                    </button>
+                    <div class="sidebar-menu12">
+                        <img class="icon137" loading="lazy" alt="" th:src="@{/images/icon-32.svg}" />
+
+                        <a th:if="${userLoggedIn.getRole() == 'user'}" th:href="@{/findCompany}" class="caption210">Browse Companies</a>
+                        <a th:if="${userLoggedIn.getRole() == 'company'}" th:href="@{/allApplicants}" class="caption210">All Applicants</a>
+                    </div>
+                    <div class="sidebar-menu13">
+                        <img class="icon138" loading="lazy" alt="" th:src="@{/images/icon-41.svg}" />
+
+                        <a th:if="${userLoggedIn.getRole()=='user'}" th:href="@{/profile}" class="caption211">
+                            My Profile
+                        </a>
+
+                        <a th:if="${userLoggedIn.getRole()=='company'}" th:href="@{/interviewSchedule}" class="caption211">
+                            My Schedule
+                        </a>
+                    </div>
+                </div>
+                <div class="main-menu-item"></div>
+                <div class="settings6">
+                    <div class="settings-frame">
+                        <div class="settings7">SETTINGS</div>
+                    </div>
+                    <div class="menu22">
+                        <div class="sidebar-menu14">
+                            <img class="icon139" alt="" th:src="@{/images/icon-51.svg}" />
+
+                            <a th:href="@{/settings}" class="caption212">Settings</a>
+                        </div>
+                        <div class="sidebar-menu15">
+                            <img class="icon140" alt="" th:src="@{/images/icon-61.svg}" />
+
+                            <div class="caption213">Help Center</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="pattern-icon12" alt="" />
+
+        <div class="profile3">
+            <div class="line13"></div>
+            <div class="profile-container">
+                <div class="profile4">
+                    <img class="avatar-icon3" loading="lazy" th:src="@{/user/image/{id}(id=${userLoggedIn.ID})}" alt="Avatar"/>
+
+                    <div class="name-email1">
+                        <div th:if="${userLoggedIn != null}" class="jake-gyll-container">
+                            <div class="jake-gyll5" th:if="${userLoggedIn.getUserDisplayName() != null}" th:text="${userLoggedIn.getUserDisplayName()}"></div>
+                        </div>
+                        <div th:if="${userLoggedIn != null}"  class="jakegyllemailcom5" th:text="${userLoggedIn.getEmail()}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-menu1">
+                <div class="rounded-rectangle1"></div>
+                <div class="frame2">
+                    <div class="logout2">
+                        <div class="logout3">Logout</div>
+                        <img class="icon141" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="line14"></div>
+    <div class="line15"></div>
+    <main class="top-nav-group">
+        <section class="top-nav5">
+            <img class="pattern-icon13" alt="" />
+
+            <div class="top-nav-inner">
+                <div class="icon-parent16">
+                    <img class="icon142" loading="lazy" alt="" th:src="@{/images/icon-83.svg}" />
+
+                    <div class="dashboard-container">
+                        <h1 class="dashboard3">Job Description</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="action1">
+                <a th:href="@{/home}" class="button51">
+                    <b class="caption214">Back to homepage</b>
+                </a>
+                <div class="notification-container">
+                    <img class="notification-icon2" loading="lazy" alt="" th:src="@{/images/notification1.svg}" />
+                </div>
+            </div>
+        </section>
+        <section class="header-5-desktop">
+            <div class="header11">
+                <div class="header-item"></div>
+                <img class="pattern-icon14" alt="" />
+
+                <img class="pattern-icon15" alt="" />
+                <div class="job-list42">
+                    <div class="logic-branch">
+                        <div class="company-logo7">
+                            <div class="output-container"></div>
+                            <img class="stripe-logo-dp4f5yykm-1-icon4" loading="lazy"
+                                 th:if="${post.getCompany().avatar}"
+                                 th:src="@{/company/image/{id}(id=${post.getCompany().id})}" alt="Company Avatar" />
+                        </div>
+                        <div class="sequential-flow">
+                            <div class="job-title36">
+                                <h1 th:if="${post.title == null }" class="social-media-assistant36"
+                                    th:text="${post.categories[0].name + ' Engineer'}">
+                                </h1>
+                                <h1 th:if="${post.title != null }" class="social-media-assistant36"
+                                    th:text="${post.title}">
+                                </h1>
+                                <div class="company-name-location-job35">
+                                    <div class="nomad34" th:text="${post.getCompany().name}"></div>
+                                    <div class="iteration-loop">
+                                        <div class="function-caller1"></div>
+                                    </div>
+                                    <div class="paris-france35" th:text="${post.location.name}">
+                                    </div>
+                                    <div class="iteration-loop1">
+                                        <div class="iteration-loop-child"></div>
+                                    </div>
+                                    <div class="full-time7" th:text="${post.level.name}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="error-handler3">
+                        <div class="data-merger">
+                            <div id="predict-icon"   th:attr="data-post-id=${post.id}"  class="icon-wrapper15">
+                                <img class="icon143" loading="lazy" alt="" th:src="@{/images/predict.png}" />
+                            </div>
+                            <div id="predict-modal" class="modal">
+                                <div class="modal-content">
+                                    <span class="close">&times;</span>
+                                    <h2>Estimating Analyst Salaries Based on Facebook Posts</h2>
+                                    <p id="modal-content">Loading...</p>
+                                </div>
+                            </div>
+                            <div class="line16"></div>
+                            <button id="applyButton" class="button52" th:attr="data-is-live=${post.isLive()}">
+                                <b class="caption215">Apply</b>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="applicant-dashboard-descript">
+            <div class="paragraph4">
+                <div class="description12">
+                    <h3 class="description13">Description</h3>
+                    <div class="stripe-is-looking2" th:text="${post.content}">
+                    </div>
+                </div>
+                <div class="responsibilities4">
+                    <h3 class="responsibilities5">Level Required </h3>
+                    <div class="training-set">
+                        <div class="test-set">
+                            <img class="icon144" loading="lazy" alt="" th:src="@{/images/icon-102.svg}" />
+
+                            <div class="community-engagement-to2" th:text="${post.level.name}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="who-you-are4">
+                    <h3 class="who-you-are5">Categories </h3>
+                    <div class="frame-parent27">
+                        <div th:each="category : ${post.categories}">
+                            <div class="icon-parent20">
+                                <img class="icon149" loading="lazy" alt="" th:src="@{/images/icon-102.svg}" />
+                                <div class="you-get-energy2" th:text="${category.name}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="required-skills3">
+                    <div class="required-skills-container">
+                        <h3 class="required-skills4">
+                            Required Programing Languages
+                        </h3>
+                    </div>
+                    <div class="link-handler" th:each="language : ${post.programingLanguages}">
+                        <button class="tag23">
+                            <div class="caption218" th:text="${language.name}">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="nice-to-haves4">
+                    <h3 class="nice-to-haves5">Nice-To-Haves</h3>
+                    <div class="frame-parent28" th:each="nicetoHave : ${post.getNiceToHaves()}">
+                        <div class="icon-parent25">
+                            <img class="icon154" loading="lazy" alt="" th:src="@{/images/icon-102.svg}" />
+                            <div class="fluent-in-english2" th:text="${nicetoHave.getName()}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content1">
+                <div class="about-role1">
+                    <h3 class="about-this-role2">About this role</h3>
+                    <div class="progress-bar11">
+                        <div class="applied-of-10-container9">
+                            <span class="applied9" th:text="${post.getApplications().size() } + ' Applied'"> </span>
+                        </div>
+                        <div class="progress-bar12">
+                            <div class="progress-bar-child34"></div>
+                            <div class="progress-bar-child35"></div>
+                            <div class="progress-bar-child36"></div>
+                            <div class="progress-bar-child37"></div>
+                            <div class="progress-bar-child38"></div>
+                        </div>
+                    </div>
+                    <div class="apply-before4">
+                        <div class="apply-before5">Active</div>
+                        <div class="july-31-20212">
+                            <span th:if="${post.isLive()}">Is active</span>
+                            <span th:if="${!post.isLive()}">Not available</span>
+                        </div>                    </div>
+                    <div class="job-posted-on4">
+                        <div class="job-posted-on5">Job Posted On</div>
+                        <div class="july-1-20212" th:text="${post.datePosted}"></div>
+                    </div>
+                    <div class="job-type4">
+                        <div class="job-type5">Experience</div>
+                        <div class="full-time8" th:text="${'Above ' + post.experience  + ' years'}"></div>
+                    </div>
+                    <div class="salary4">
+                        <div class="salary5">Salary</div>
+                        <div class="k-85k-usd2"
+                             th:text="${post.minSalary/1000000+ ' -> ' +  post.maxSalary/1000000 + 'M VND'}"></div>
+                    </div>
+                </div>
+                <div class="line17"></div>
+                <div class="categories6">
+                    <h3 class="categories7">Location</h3>
+                    <div class="label-parent5">
+                        <button class="label156">
+                            <div class="caption216" th:text="${post.location.name}"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="categories6">
+                    <h3 class="categories7">Email</h3>
+                    <div class="label-parent5">
+                        <button class="label156">
+                            <div class="caption216" th:text="${post.email}"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="categories6">
+                    <h3 class="categories7">Phone Number</h3>
+                    <div class="label-parent5">
+                        <button class="label156">
+                            <div class="caption216" th:text="${post.phoneNumber}"></div>
+                        </button>
+                    </div>
+                </div>
+                <div class="line18"></div>
+            </div>
+        </section>
+        <section class="landing-page-company-deskt2">
+            <div class="container mt-5 mb-5">
+                <div class="coment-bottom bg-white p-2 px-4">
+                    <form th:action="@{/addComment}" method="post">
+                        <div class="d-flex flex-row add-comment-section mt-4 mb-4">
+                            <img class="img-fluid img-responsive rounded-circle mr-2" th:src="@{/user/image/{id}(id=${userLoggedIn.getID()})}" width="38">
+                            <input type="text" name="content" class="form-control mr-3" placeholder="Add comment">
+                            <input type="hidden" name="postId" th:value="${post.id}" /> <!-- Add this line -->
+                            <button class="btn btn-primary" type="submit">Comment</button>
+                        </div>
+                    </form>
+                    <div th:each="comment : ${comments}" class="commented-section mt-2" style="border: 1px solid #000; padding: 10px; margin-bottom: 10px;">
+                        <div class="d-flex flex-row align-items-center commented-user">
+                            <img class="img-fluid img-responsive rounded-circle mr-2" th:src="@{/user/image/{id}(id=${comment.user.getID()})}" width="38">
+                            <h5 class="mr-2" th:text="${comment.getUser().getUserDisplayName()}"></h5>
+                            <span class="dot mb-1"></span>
+                        </div>
+                        <div class="comment-text-sm">
+                            <span th:text="${comment.content}"></span>
+                        </div>
+                        <div th:if="${userLoggedIn.getID() == comment.user.getID()}">
+                            <form th:action="@{/deleteComment}" method="post">
+                                <input type="hidden" name="commentId" th:value="${comment.id}" />
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="landing-page-company-deskt2">
+            <div class="background-color">
+                <div class="content16">
+                    <div class="more-about-company1">
+                        <button class="company-logo8">
+                            <div class="padding"></div>
+                            <img class="stripe-logo-dp4f5yykm-1-icon5" th:src="@{/company/image/{id}(id=${post.getCompany().id})}" alt="Company Avatar" />
+                        </button>
+                        <div class="box-shadow">
+                            <div class="company-name1">
+                                <h1 class="stripe2" th:text="${post.getCompany().name}"></h1>
+                                <div class="buttonsmallicon-rightsmall5">
+                                    <a th:href="@{/aboutCompany(id=${post.company.id})}" class="button53" th:text="${'Read more about '+ post.getCompany().name}">
+                                    </a>
+                                    <div class="disabled-state">
+                                        <img class="icon164" loading="lazy" alt="Company Avatar"
+                                             th:src="@{/images/icon-30.svg}" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stripe-is-a2" th:text="${post.getCompany().profileDescription}">
+                    </div>
+                </div>
+            </div>
+            <img class="images-icon2" loading="lazy" alt="" th:src="@{/images/images1@2x.png}" />
+        </section>
+    </main>
+</div>
+<!-- Modal -->
+<div id="myModal" class="modal">
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <!-- Your form goes here -->
+                                <form th:action="@{/jobdetails}" th:object="${ApplicationDTO}" method="post" id="applicationForm" class="landing-page-submit-applicat" enctype="multipart/form-data">
+                                <div class="landing-page-submit-applicat">
+                                        <div class="base1"></div>
+                                        <img class="icon56" loading="lazy" alt="" th:src="@{/images/icon-211.svg}" />
+
+                                        <div class="input-splitter">
+                                            <div class="input-fields">
+                                                <div class="role">
+                                                    <img class="company-logo-icon16" loading="lazy"
+                                                         th:src="@{/company/image/{id}(id=${post.getCompany().id})}" alt="Company Avatar" />
+                                                    />
+
+                                                    <div class="job-title-container">
+                                                        <div class="job-title10">
+                                                            <h3 class="social-media-assistant10" th:if="${post.getTitle() != null}" th:text="${post.getTitle()}"></h3>                                    </h3>
+                                                            <div class="frame">
+                                                                <div class="nomad9" th:text="${post.getCompany().getName()}"></div>
+                                                                <div class="error-handler1"></div>
+                                                                <div class="paris-france10" th:text="${post.getLocation().getName()}">
+                                                                </div>
+                                                                <div class="error-handler2"></div>
+                                                                <div class="full-time2" th:text="${post.getLevel().name}">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="divider5"></div>
+                                                <div class="submit-your-application">
+                                                    <h3 class="submit-your-application1">
+                                                        Submit your application
+                                                    </h3>
+                                                    <div class="the-following-is" th:text="${'The following is required and will only be shared with ' + post.getCompany().getName()}">
+                            </div>
+                        </div>
+                        <input hidden="hidden" name="id" th:value="${post.id}">
+                        <div class="textfield">
+                            <div class="label50">Fullname</div>
+                            <div class="input1">
+                                <input class="this-is-placeholder1" placeholder="Enter your fullname" type="text" th:field="*{fullName}" />
+                            </div>
+                        </div>
+                        <div class="textfield1">
+                            <div class="label51">Email address</div>
+                            <div class="input2">
+                                <input class="this-is-placeholder2" placeholder="Enter your email address"
+                                       type="text" th:field="*{emailAddress}" />
+                            </div>
+                        </div>
+                        <div class="textfield2">
+                            <div class="label52">Phone number</div>
+                            <div class="input3">
+                                <input class="this-is-placeholder3" placeholder="Enter your phone number"
+                                       type="text" th:field="*{phoneNumber}" />
+                            </div>
+                        </div>
+                        <div class="textfield3">
+                            <div class="label53">
+                                Current of previous job title
+                            </div>
+                            <div class="input4">
+                                <input class="this-is-placeholder4"
+                                       placeholder="What’s your current or previous job title?" type="text" th:field="*{jobTitle}" />
+                            </div>
+                        </div>
+                        <div class="divider6"></div>
+                        <b class="links">LINKS</b>
+                        <div class="textfield4">
+                            <div class="label54">LinkedIn URL</div>
+                            <div class="input5">
+                                <input class="this-is-placeholder5" placeholder="Link to your LinkedIn URL"
+                                       type="text" th:field="*{linkedInUrl}"/>
+                            </div>
+                        </div>
+                        <div class="textfield5">
+                            <div class="label55">Github URL</div>
+                            <div class="input6">
+                                <input class="this-is-placeholder6" placeholder="Link to your github URL"
+                                       type="text" th:field="*{portfolioUrl}" />
+                            </div>
+                        </div>
+                        <div class="divider7"></div>
+                        <div class="textfield6">
+                            <div class="label56">
+                                Additional information
+                            </div>
+                            <div class="content3">
+                                    <textarea class="form"
+                                              placeholder="Add a cover letter or anything else you want to share" rows="{8}"
+                                              cols="{29}" th:field="*{additionalInformation}">
+                                </textarea>
+
+                            </div>
+                        </div>
+<!--                        <div class="textfield7">-->
+<!--                            <div class="attach-your-resume-wrapper">-->
+<!--                                <div class="attach-your-resume">-->
+<!--                                    Attach your resume-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <button class="form-attach">-->
+<!--                                <div class="icon-wrapper6">-->
+<!--                                    <img class="icon64" alt="" th:src="@{/images/icon-281.svg}" />-->
+<!--                                </div>-->
+<!--                                <div class="attach-resumecv">-->
+<!--                                    Attach Resume/CV-->
+<!--                                </div>-->
+<!--                            </button>-->
+<!--                        </div>-->
+                        <div class="divider8"></div>
+                        <button type="submit" class="button14">
+                            <b class="caption63">Submit Application</b>
+                        </button>
+                        <div class="by-sending-the-container">
+                                <span>By sending the request you can confirm that
+                                    you accept our
+                                </span>
+                            <span class="terms-of-service">Terms of Service</span>
+                            <span> and </span>
+                            <span class="privacy-policy1">Privacy Policy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

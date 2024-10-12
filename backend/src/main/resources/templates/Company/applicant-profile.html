@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> </html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" th:href="@{./css/Company/global.css}" />
+    <link rel="stylesheet" th:href="@{./css/Company/dashboard-company-applicant-profile.css}" />
+    <script th:src="@{./js/Company/applicant-profile.js}"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+  </head>
+  <body>
+    <div class="dashboard-company-applicant">
+      <div class="side-bar-dashboard-company4">
+        <div class="menu16">
+          <div class="logo-2-frame">
+            <div class="logo-24">
+              <div class="logo-2-inner2">
+                <img
+                  class="frame-child12"
+                  loading="lazy"
+                  alt=""
+                  th:src="@{./images/Company/frame-34.svg}"
+                />
+              </div>
+              <h3 class="jobhuntly4">JobHuntly</h3>
+            </div>
+          </div>
+          <div class="main-menu4">
+            <div class="menu17">
+              <div class="sidebar-menu36">
+                <img
+                  class="icon124"
+                  loading="lazy"
+                  alt=""
+                  th:src="@{./images/Company/icon1.svg}"
+                />
+
+                <a th:href="@{/dashboard}" class="caption124">Dashboard</a>
+              </div>
+              <div class="sidebar-menu38">
+                <img class="icon126" alt="" th:src="@{./images/Company/icon-2.svg}" />
+
+                <a th:href="@{/profile}" class="caption126">Company Profile</a>
+              </div>
+              <button class="sidebar-menu39">
+                <div class="indicator-wrapper2">
+                  <img
+                    class="indicator-icon4"
+                    alt=""
+                    th:src="@{./images/Company/indicator.svg}"
+                  />
+                </div>
+                <div class="menu18">
+                  <img class="icon127" alt="" th:src="@{./images/Company/icon-35.svg}" />
+
+                  <a th:href="@{/allApplicants}" class="caption127">All Applicants</a>
+                </div>
+              </button>
+              <div class="sidebar-menu40">
+                <img class="icon128" alt="" th:src="@{./images/Company/icon-4.svg}" />
+
+                <a th:href="@{/joblisting}" class="caption128">Job Listing</a>
+              </div>
+              <div class="sidebar-menu41">
+                <img class="icon129" alt="" th:src="@{./images/Company/icon-5.svg}" />
+
+                <a th:href="@{/interviewSchedule}" class="caption129">My Schedule</a>
+              </div>
+              <div class="sidebar-menu42">
+                <img class="icon130" alt="" />
+
+                <div class="caption130">Employee</div>
+              </div>
+            </div>
+            <div class="downward-connection"></div>
+            <div class="settings8">
+              <div class="settings-wrapper1">
+                <div class="settings9">SETTINGS</div>
+              </div>
+              <div class="menu19">
+                <div class="sidebar-menu43">
+                  <img class="icon131" alt="" th:src="@{./images/Company/icon-7.svg}" />
+
+                  <a th:href="@{/settings}" class="caption131">Settings</a>
+                </div>
+                <div class="sidebar-menu44">
+                  <img class="icon132" alt="" th:src="@{./images/Company/icon-8.svg}" />
+
+                  <div class="caption132">Help Center</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="pattern-icon4" alt="" />
+
+        <div class="profile8">
+          <div class="hierarchical-tree"></div>
+          <div class="binary-tree">
+            <div class="profile9">
+              <div class="avatar-wrapper1">
+                <img
+                  class="avatar-icon14"
+                  loading="lazy"
+                  alt=""
+                  th:src="@{user/image/{id}(id=${applyForm.getPost().getCompany().getUser().getID()})}"
+                />
+              </div>
+              <div class="name-email4">
+                <div class="maria-kelly4" th:text="${applyForm.getPost().getCompany().getUser().getUserDisplayName()}"></div>
+                <div class="mariakllyemailcom4" th:text="${applyForm.getPost().getCompany().getUser().getEmail()}"></div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-menu4">
+            <div class="rounded-rectangle4"></div>
+            <div class="frame4">
+              <div class="logout8">
+                <div class="logout9">Logout</div>
+                <img class="icon133" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="top-nav-container">
+        <header class="top-nav6">
+          <div class="job-list8">
+            <img
+              class="company-logo-icon8"
+              th:if="${applyForm.getPost().getCompany().avatar}"
+              th:src="@{/company/image/{id}(id=${applyForm.getPost().getCompany().id})}" alt="Company Avatar"
+            />
+
+            <div class="job-title8">
+              <div class="company4">Company</div>
+              <div class="meta-tree">
+                <div class="nomad8" th:text="${applyForm.getPost().getCompany().getName()}"></div>
+                <img class="icon134" alt="" th:src="@{./images/Company/icon-411.svg}" />
+              </div>
+            </div>
+          </div>
+          <div class="action6">
+            <img
+              class="notification-icon4"
+              loading="lazy"
+              alt=""
+              th:src="@{./images/Company/notification4.svg}"
+            />
+
+            <button class="button8">
+              <img class="icon135" alt="" th:src="@{./images/Company/icon-112.svg}" />
+
+              <a th:href="@{/postjobs}" class="caption133">Post a job</a>
+            </button>
+          </div>
+        </header>
+        <section class="top-nav7">
+          <div class="data-aggregator-wrapper">
+            <div class="data-aggregator2">
+              <img class="icon136" alt="" th:src="@{./images/Company/icon-124.svg}" />
+
+              <div class="branching-tree">
+                <h3 class="applicant-details">Applicant Details</h3>
+              </div>
+            </div>
+          </div>
+          <div class="button9">
+<!--            <div class="icon-wrapper2">-->
+<!--              <img class="icon137" alt="" th:src="@{./images/Company/icon-133.svg}" />-->
+<!--            </div>-->
+<!--            <b class="caption134" onclick="showDropdown()">More Action</b>-->
+            <form id="statusForm" method="post" th:action="@{/updateStatus}" th:object="${applyForm}">
+              <input type="hidden" name="id" th:field="*{id}" />
+              <select class="select" name="status" id="statusSelect">
+                <option value="Live" th:selected="${applyForm.status == 'Live'}">Live</option>
+                <option value="Unsuitable" th:selected="${applyForm.status == 'Unsuitable'}">Unsuitable</option>
+                <option value="Interview" th:selected="${applyForm.status == 'Interview'}">Interview</option>
+                <option value="Accepted" th:selected="${applyForm.status == 'Accepted'}">Accepted</option>
+              </select>
+
+              <div id="interviewModal" class="modal">
+                <div class="modal-content">
+                  <label for="interviewDate">Date:</label>
+                  <input type="date" id="interviewDate" name="interviewDate">
+                  <label for="interviewTime">Time:</label>
+                  <input type="time" id="interviewTime" name="interviewTime">
+                  <button id="saveButton" type="button">Save</button>
+                </div>
+              </div>
+
+              <input type="submit" class="button8" value="Update Status">
+            </form>
+          </div>
+        </section>
+        <button id="downloadBtn">Download PDF</button>
+        <section class="binary-tree-leaf" >
+          <div class="binary-tree-internal">
+            <div class="company-dashboard-applicant">
+              <div class="header9">
+                <img
+                  class="avatar-icon15"
+                  th:if="${applyForm.getUser().photo}"
+                  th:src="@{/user/image/{id}(id=${applyForm.getUser().getID()})}" alt="Company Avatar"
+                />
+
+                <div class="name10">
+                  <h3 class="jerome-bell" th:text="${applyForm.getFullName()}"></h3>
+                  <div class="product-designer" th:text="${applyForm.getCurrentPreviousJobTitle()}">-->
+                  </div>
+                </div>
+              </div>
+              <div class="applied-jobs">
+                <div class="title5">
+                  <div class="applied-jobs1">Applied Jobs</div>
+                  <div class="days-ago" th:text="${applyForm.getDaysSinceApplied()} + ' days ago'"></div>                </div>
+                <div class="line4"></div>
+                <div class="jobs">
+                  <div class="product-development" th:text="${applyForm.getPost().getTitle()}"></div>
+                  <div class="company-name-location-job2">
+                    <div class="marketing" th:text="${applyForm.getPost().getLocation().name}"></div>
+                    <div class="stack1">
+                      <div class="tree-traversal"></div>
+                    </div>
+                    <div class="full-time3">Full-Time</div>
+                  </div>
+                </div>
+              </div>
+              <div class="line9"></div>
+              <div class="social-links">
+                <div class="linked-list-merge">
+                  <div class="contact">Contact</div>
+                </div>
+                <div class="email">
+                  <img class="icon140" alt="" th:src="@{./images/Company/icon-162.svg}" />
+
+                  <div class="content5">
+                    <div class="email1">Email</div>
+                    <div class="jeromebell45emailcom" th:text="${applyForm.getEmailAddress()}">
+                    </div>
+                  </div>
+                </div>
+                <div class="email2">
+                  <img class="icon141" alt="" th:src="@{./images/Company/icon-171.svg}" />
+
+                  <div class="content6">
+                    <div class="phone">Phone</div>
+                    <div class="div42" th:text="${applyForm.getPhoneNumber()}"></div>
+                  </div>
+                </div>
+                <div class="email3">
+                  <img class="icon142" alt="" th:src="@{./images/linkedin.jpg}" />
+
+                  <div class="content7">
+                    <div class="instagram">LinkedIn</div>
+                    <div class="instagramcomjeromebell" th:text="${applyForm.getLinkedinUrl()}">
+                    </div>
+                  </div>
+                </div>
+                <div class="email3">
+                  <img class="icon142" alt="" th:src="@{./images/github.jpg}" />
+
+                  <div class="content7">
+                    <div class="instagram">Github</div>
+                    <div class="instagramcomjeromebell" th:text="${applyForm.getGithubUrl()}">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="company-dashboard-applicant1">
+              <div class="tab">
+                <div class="tabs3">
+                  <div class="tab-menu24">
+                    <div class="caption136">Applicant Profile</div>
+                    <img
+                      class="rectangle-icon"
+                      alt=""
+                      th:src="@{./images/Company/rectangle-173.svg}"
+                    />
+                  </div>
+
+                </div>
+              </div>
+              <div class="content-wrapper">
+                <div class="content10">
+                  <div class="personal-info">
+                    <div class="personal-info1">Personal Info</div>
+                    <div class="content11">
+                      <div class="col-1">
+                        <div class="name11">
+                          <div class="full-name2">Full Name</div>
+                          <div class="jerome-bell1" th:text="${applyForm.getFullName()}"></div>
+                        </div>
+                        <div class="dob">
+                          <div class="date-of-birth">Date of Birth</div>
+                          <div class="march-23-1995-container">
+                            <span th:text="${#dates.format(applyForm.getUser().getDob(), 'dd/MM/yyyy')}"></span>
+<!--                            <span class="yo" th:text="'(' + #temporals.yearsBetween(applyForm.getUser().getDob(), #temporals.createNow()) + ' y.o)'"></span>-->
+<!--                            <span> </span>-->
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="gender">
+                          <div class="gender1">Gender</div>
+                          <div class="male" th:if="${applyForm.getUser().getGender() == 1}" th:text="'Male'"> </div>
+                          <div class="male" th:if="${applyForm.getUser().getGender() != 1}" th:text="'Female'"> </div>
+                          <div class="language">
+                          <div class="language1"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="address">
+                      <div class="address1">Address</div>
+                      <div class="washington-ave-manchester"  th:if="${applyForm.getUser().getLocation() != null }" th:text="${applyForm.getUser().getLocation().name}" >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="logical-operators"></div>
+                  <div class="professional-info">
+                    <div class="professional-info1">Professional Info</div>
+                    <div class="about-me">
+                      <div class="about-me1">About Me</div>
+                      <div class="about-me2">
+                        <div class="im-a-product" th:if="${applyForm.getUser().bio != null}" th:text="${applyForm.getUser().bio}">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="content12">
+                      <div class="col-11">
+                        <div class="current-job">
+                          <div class="current-job1">Current Job</div>
+                          <div class="product-designer1" th:if="${!applyForm.user.experienceDetail.isEmpty() && applyForm.user.experienceDetail.getLast().getTitle() != null}" th:text="${applyForm.user.experienceDetail.getLast().getTitle()}"></div>
+                        </div>
+                        <div class="highest-qualification">
+                          <div class="highest-qualification-held">
+                            Highest Qualification Held
+                          </div>
+                          <div class="bachelors-in-engineering">
+    <span th:switch="${applyForm.getUser().getEducationDetail().getLast().getCertificateDegreeName()}">
+        <span th:case="'PhD'" th:text="${applyForm.getUser().getEducationDetail().getLast().getUniversity().getName()}"></span>
+        <span th:case="'Master\'s'" th:text="${applyForm.getUser().getEducationDetail().getLast().getUniversity().getName()}"></span>
+        <span th:case="'Bachelor\'s'" th:text="${applyForm.getUser().getEducationDetail().getLast().getUniversity().getName()}"></span>
+        <span th:case="*" th:text="''"></span>
+    </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-21">
+                        <div class="experience-in-years">
+                          <div class="experience-in-years1">
+                            Experience in Years
+                          </div>
+                          <div class="years" th:text="${applyForm.getUser().experienceInYears + ' years'}"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="about-me">
+                      <div class="about-me1">Addition Information</div>
+                      <div class="about-me2">
+                        <div class="im-a-product" th:if="${applyForm.getUser().bio != null}" th:text="${applyForm.additionalInformation}">
+                        </div>
+                      </div>
+                    </div>
+<!--                    <div class="about-me">-->
+<!--                      <div class="about-me1">Resume </div>-->
+<!--                      <div class="about-me2">-->
+<!--                        <a th:href="@{/resume/pdf/{id}(id=${applyForm.user.getID()})}" target="_blank">View Resume</a>-->
+<!--                        </div>-->
+<!--                      </div>-->
+                    <div class="about-me2">
+                      <a th:href="@{/viewProfile(id=${applyForm.id})}" target="_blank">View Profile</a>                  </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div> <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  </body>
+</html>

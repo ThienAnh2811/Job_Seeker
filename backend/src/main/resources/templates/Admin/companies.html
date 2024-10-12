@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .container {
+            overflow-x: auto;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+        }
+        .btn {
+            padding: 5px 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-edit {
+            background-color: #4CAF50;
+        }
+        .btn-delete {
+            background-color: #f44336;
+        }
+        .btn-save {
+            background-color: #2196F3;
+        }
+        .btn-cancel {
+            background-color: #ff9800;
+        }
+        input[type="text"], input[type="date"], input[type="email"], input[type="password"], select {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        img {
+            max-width: 50px;
+        }
+        .btn1 {
+            padding: 5px 10px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            background-color: #4CAF50;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<h1>Company CRUD</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="company : ${companies}">
+        <form th:action="@{/admin/companies/save/{id}(id=${company.id})}" method="post" enctype="multipart/form-data">
+            <td><input type="text" name="id" th:value="${company.id}" readonly></td>
+            <td><input type="text" name="name" th:value="${company.name}"></td>
+            <td>
+                <img th:src="@{/companies/image/{id}(id=${company.id})}" alt="Company Image">
+                <input type="file" name="image" accept="image/*">
+            </td>
+            <td class="action-buttons">
+                <button type="submit" class="btn btn-save">Save</button>
+                <button type="reset" class="btn btn-cancel">Cancel</button>
+            </td>
+        </form>
+        <td class="action-buttons">
+            <a th:href="@{/admin/companies/edit/{id}(id=${company.id})}" class="btn btn-edit">Edit</a>
+            <a th:href="@{/admin/companies/delete/{id}(id=${company.id})}" class="btn btn-delete">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<form th:action="@{/admin/companies/add}" th:method="post">
+<button   class="btn1">Add New Company</button></form>
+<a href="/admin/users" class="btn1">Users</a>
+<a href="/admin/universities" class="btn1">Universities</a>
+<a href="/logout" class="btn1">Log out</a>
+
+<script>
+    document.querySelectorAll('.btn-edit').forEach(button => {
+        button.addEventListener('click', () => {
+            const row = button.closest('tr');
+            row.querySelectorAll('input, select').forEach(input => input.removeAttribute('disabled'));
+            row.querySelector('.btn-save').style.display = 'inline-block';
+            row.querySelector('.btn-cancel').style.display = 'inline-block';
+            button.style.display = 'none';
+        });
+    });
+
+    document.querySelectorAll('.btn-save').forEach(button => {
+        button.addEventListener('click', () => {
+            const row = button.closest('tr');
+            const companyId = row.querySelector('td:first-child').textContent;
+            const companyData = {}; // Collect company data from the input fields
+
+            row.querySelectorAll('input, select').forEach(input => {
+                companyData[input.name] = input.value;
+                input.setAttribute('disabled', 'true');
+            });
+
+            // AJAX call to save the data to the server
+            fetch(`/admin/companies/edit/${companyId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(companyData),
+            });
+
+            row.querySelector('.btn-edit').style.display = 'inline-block';
+            row.querySelector('.btn-cancel').style.display = 'none';
+            button.style.display = 'none';
+        });
+    });
+
+    document.querySelectorAll('.btn-cancel').forEach(button => {
+        button.addEventListener('click', () => {
+            const row = button.closest('tr');
+            row.querySelectorAll('input, select').forEach(input => input.setAttribute('disabled', 'true'));
+            row.querySelector('.btn-edit').style.display = 'inline-block';
+            row.querySelector('.btn-save').style.display = 'none';
+            button.style.display = 'none';
+        });
+    });
+
+    document.querySelectorAll('.btn-delete').forEach(button => {
+        button.addEventListener('click', () => {
+            const row = button.closest('tr');
+            row.remove();
+        });
+    });
+
+</script>
+</body>
+</html>

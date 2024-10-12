@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"></html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/dashboard-profile.css}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="dashboard-profile">
+      <main class="side-bar-dashboard-applica-parent">
+        <div class="side-bar-dashboard-applica">
+          <div class="menu15">
+            <div class="logic-gate2">
+              <div class="logo-29">
+                <a class="fill-div" th:href="@{/home}">
+                <div class="logo-2-inner3">
+                  <img
+                    class="frame-child68"
+                    loading="lazy"
+                    alt=""
+                   th:src="@{/images/frame-32.svg}"
+                  />
+                </div>
+                <h3 class="jobhuntly15">JobHuntly</h3>
+                </a>
+              </div>
+            </div>
+            <div class="main-menu">
+              <div class="menu16">
+                <div class="sidebar-menu">
+                  <img
+                    class="icon101"
+                    loading="lazy"
+                    alt=""
+                   th:src="@{/images/icon2.svg}"
+                  />
+
+                  <a th:href="@{/dashboard}" class="caption191">Dashboard</a>
+                </div>
+
+                <div class="sidebar-menu2">
+                  <div class="icon103">
+                    <img
+                      class="vector-stroke-icon"
+                      alt=""
+                     th:src="@{/images/vector-stroke.svg}"
+                    />
+
+                    <div class="icon-child"></div>
+                    <div class="icon-item"></div>
+                  </div>
+                  <a th:href="@{/jobApplied}" class="caption193">My Applications</a>
+                </div>
+                <div class="sidebar-menu3">
+                  <img class="icon104" alt=""th:src="@{/images/icon-210.svg}" />
+
+                  <a th:href="@{/findjobs}" class="caption194">Find Jobs</a>
+                </div>
+                <div class="sidebar-menu4">
+                  <img class="icon105" alt=""th:src="@{/images/icon-32.svg}" />
+
+                  <a th:href="@{/findCompany}" class="caption195">Browse Companies</a>
+                </div>
+                <button class="sidebar-menu5">
+                  <div class="indicator-wrapper">
+                    <img
+                      class="indicator-icon"
+                      alt=""
+                     th:src="@{/images/indicator.svg}"
+                    />
+                  </div>
+                  <div class="menu17">
+                    <img class="icon106" alt=""th:src="@{/images/icon-41.svg}" />
+
+                    <div class="caption196">My Profile</div>
+                  </div>
+                </button>
+              </div>
+              <div class="main-menu-child"></div>
+              <div class="settings4">
+                <div class="settings-container">
+                  <div class="settings5">SETTINGS</div>
+                </div>
+                <div class="menu18">
+                  <div class="sidebar-menu6">
+                    <img class="icon107" alt=""th:src="@{/images/icon-51.svg}" />
+
+                    <a th:href="@{/settings}" class="caption197">Settings</a>
+                  </div>
+                  <div class="sidebar-menu7">
+                    <img class="icon108" alt=""th:src="@{/images/icon-61.svg}" />
+
+                    <div class="caption198">Help Center</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="pattern-icon10" loading="lazy" alt="" />
+
+          <div class="profile1">
+            <div class="profile-menu">
+              <div class="rounded-rectangle"></div>
+              <div class="frame1">
+                <div class="logout">
+                  <div class="icon-wrapper14">
+                    <img class="icon109" alt=""th:src="@{/images/icon-71.svg}" />
+                  </div>
+                  <div class="logout1">Logout</div>
+                </div>
+              </div>
+            </div>
+            <div class="line12"></div>
+            <div class="profile-wrapper">
+              <div class="profile2">
+                <img
+                  class="avatar-icon2"
+                  loading="lazy"
+                  alt=""
+                 th:src="@{/user/image/{id}(id=${user.getID()})}"
+                />
+                <div class="name-email">
+                  <div class="jake-gyll-wrapper">
+                    <div class="jake-gyll3" th:text="${user.getUserDisplayName()}"></div>
+                  </div>
+                  <div class="jakegyllemailcom3" th:text="${user.getEmail()}"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <section class="top-nav-parent">
+          <header class="top-nav4">
+            <img class="pattern-icon11" alt="" />
+
+            <div class="dashboard-wrapper">
+              <h1 class="dashboard2">My Profile</h1>
+            </div>
+            <div class="action">
+              <button class="button39">
+                <a th:href="@{/home}" class="caption199">Back to homepage</a>
+              </button>
+              <div class="notification-wrapper">
+                <img
+                  class="notification-icon1"
+                  loading="lazy"
+                  alt=""
+                 th:src="@{/images/notification.svg}"
+                />
+              </div>
+            </div>
+          </header>
+          <div class="logic-operator">
+            <div class="frame-parent22">
+              <div class="applicant-dashboard-profile-parent">
+                <div class="applicant-dashboard-profile">
+                  <div class="header10">
+                    <img
+                      class="header-photo-icon"
+                      alt=""
+                     th:src="@{/images/header-photo@2x.png}"
+                    />
+
+                    <div class="wrapper-photo-wrapper">
+                      <div class="wrapper-photo">
+                        <img
+                          class="photo-icon"
+                          loading="lazy"
+                          th:if="${user.getPhoto() != null}" th:src="@{/user/image/{id}(id=${user.getID()})}" alt="User Avatar"
+                        />
+                      </div>
+                    </div>
+                    <div class="edit">
+                      <img class="icon110" alt="" th:src="@{/images/icon-82.svg}" />
+                    </div>
+                  </div>
+                  <div class="content8">
+                    <div class="name3">
+                      <h3 class="jake-gyll4" th:text="${user.getUserDisplayName()}"></h3>
+                      <div class="product-designer-at-container">
+                        <span>
+                          <span class="span9" th:text="${user.major}"> </span>
+                        </span>
+
+                      </div>
+                      <div class="location2">
+                        <img
+                          class="icon111"
+                          alt=""
+                         th:src="@{/images/icon-91.svg}"
+                        />
+<div th:if="${user.location != null}">
+                        <div class="manchester-uk" th:text="${user.location.name}"></div>
+                      </div>  </div>
+                      <button class="open-for-opportunities">
+                        <img
+                          class="icon112"
+                          alt=""
+                         th:src="@{/images/icon-101.svg}"
+                        />
+
+                        <div class="open-for-opportunities1">
+                          OPEN FOR OPPORTUNITIES
+                        </div>
+                      </button>
+                    </div>
+                    <button class="button40">
+                      <a th:href="@{/settings}" class="caption200">Edit Profile</a>
+                    </button>
+                  </div>
+                </div>
+                <div class="applicant-dashboard-about-me">
+                  <div class="about-me-parent">
+                    <div class="about-me">About Me</div>
+                    <div class="button41">
+                      <i class="bi bi-x-circle"></i>
+                    </div>
+                  </div>
+                  <div class="im-a-product" th:text="${user.getBio()}">
+                  </div>
+                </div>
+<!--                <div class="applicant-dashboard-about-me">-->
+<!--                  <div class="about-me-parent">-->
+<!--                    <div class="about-me">Additional Information</div>-->
+<!--                    <div class="button41">-->
+<!--                      <input class="icon113" type="checkbox" />-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                  <div class="im-a-product" th:text="${user.getBio()}">-->
+<!--                  </div>-->
+<!--                </div>-->
+                <div class="applicant-dashboard-experien">
+                  <div class="conditional-splitter">
+                    <div class="value-filter">
+                      <div class="experiences">Experiences</div>
+                    </div>
+                    <div class="edit1">
+                      <a th:if="${user.getRole()=='user'}" class="fill-div" th:href="@{/settings?type=experience}">
+                      <img class="icon114" alt="" th:src="@{/images/icon-121.svg}" /></a>
+                    </div>
+                  </div>
+                  <div th:each ="experience : ${user.experienceDetail}">
+                  <div class="experience-card">
+                    <img
+                      class="company-logo-icon39"
+                      loading="lazy"
+                      alt=""
+                      th:src="@{/companies/image/{id}(id=${experience.getCompany().getId()})}"
+                    />
+
+                    <div class="main-content7">
+                      <div class="role-experience-detail">
+                        <div class="frame-parent23">
+                          <div class="product-designer-wrapper">
+                            <div class="product-designer" th:text="${experience.getTitle()}"></div>
+                          </div>
+                          <button class="button42" th:attr="data-experience-id=${experience.id}">
+                            <img th:src="@{/images/x-circle.svg}">
+                          </button>
+                        </div>
+                        <div class="company-name-location-job33">
+                          <div class="twitter-parent">
+                            <div class="twitter1" th:text="${experience.getCompany().getName()}"></div>
+                            <div class="ellipse-wrapper4">
+                              <div class="frame-child69"></div>
+                            </div>
+                            <div class="full-time5"></div>
+                            <div class="ellipse-wrapper5">
+                              <div class="frame-child70"></div>
+                            </div>
+                            <div class="jun-2019-" th:text="${experience.getStartDate() + ' - ' + experience.getEndDate()   }">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="image-processor-wrapper">
+                    <div class="image-processor"></div>
+                  </div>
+                </div>
+                <div class="applicant-dashboard-educatio">
+                  <div class="frame-parent25">
+                    <div class="educations-wrapper">
+                      <div class="educations">Educations</div>
+                    </div>
+                    <div class="edit2">
+                      <a th:if="${user.getRole()=='user'}" class="fill-div" th:href="@{/settings?type=education}">
+
+                      <img class="icon119" alt=""th:src="@{/images/icon-121.svg}" />
+                        </a>
+                    </div>
+                  </div>
+                  <div th:each ="education : ${user.educationDetail}">
+                  <div class="education-card">
+                    <img
+                      class="company-logo-icon41"
+                      th:src="@{/university/image/{id}(id=${education.getUniversity().getId()})}" alt="University Logo"
+                    />
+
+                    <div class="main-content9">
+                      <div class="role-experience-detail2">
+                        <div class="harvard-university-parent">
+                          <div class="harvard-university" th:text="${education.getUniversity().name}">
+                          </div>
+                          <div class="button44"  th:attr="data-education-id=${education.id}" >
+                            <img th:src="@{/images/x-circle.svg}">
+                          </div>
+                        </div>
+                        <div class="bachelors-degree-applied" th:text="${education.getCertificateDegreeName() + ', ' + education.getMajor()}">
+                        </div>
+                        <div class="div11" th:text="${education.getStartDate() + ' - ' +  education.getGradDate()}"></div>
+                      </div>
+                      <div class="as-an-applied">
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                  <div class="applicant-dashboard-educatio-inner">
+                    <div class="frame-child73"></div>
+                  </div>
+                  <div class="nav-wrapper">
+                    <div class="nav1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="applicant-dashboard-contact">
+                <div class="additional-details">
+                  <div class="additional-details-parent">
+                    <div class="additional-details1">Additional Details</div>
+                    <div class="button46">
+                      <input class="icon122" type="checkbox" />
+                    </div>
+                  </div>
+                  <div class="email6">
+                    <img class="icon123" alt=""th:src="@{/images/icon-191.svg}" />
+
+                    <div class="content9">
+                      <div class="email7">Email</div>
+                      <div class="jakegyllemailcom4" th:text="${user.email}"></div>
+                    </div>
+                  </div>
+                  <div class="email8">
+                    <img class="icon124" alt=""th:src="@{/images/icon-202.svg}" />
+                    <div class="jakegyllemailcom4" th:text="${user.contactNumber}"></div>
+                  </div>
+                  <div class="email9">
+                    <img class="icon125" alt=""th:src="@{/images/dob.jpg}" />
+                    <div class="jakegyllemailcom4" th:text="${#dates.format(user.dob, 'dd/MM/yyyy')}"></div>                  </div>
+                </div>
+                <div class="social-links">
+                  <div class="social-links-parent">
+                    <div class="social-links1">Social Links</div>
+                    <div class="button47">
+                      <input class="icon126" type="checkbox" />
+                    </div>
+                  </div>
+                  <div class="email10">
+                    <img class="icon127" alt=""th:src="@{/images/github.jpg}" />
+
+                    <div class="content12">
+                      <div class="instagram">Github</div>
+                      <div class="instagramcomjakegyll" th:text="${user.github}">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="email11">
+                    <img class="icon128" alt=""th:src="@{/images/linkedin.jpg}" />
+
+                    <div class="content13">
+                      <div class="twitter3">LinkedIn</div>
+                      <div class="twittercomjakegyll" th:text="${user.linkedin}"></div>
+                    </div>
+                  </div>
+                  <div class="email12">
+                    <img class="icon129" alt=""th:src="@{/images/fb.jpg}" />
+
+                    <div class="content14">
+                      <div class="website">Facebook</div>
+                      <div class="wwwjakegyllcom" th:text="${user.socialLink}"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script th:src="@{/js/profile.js}"></script>
+  </body>
+</html>

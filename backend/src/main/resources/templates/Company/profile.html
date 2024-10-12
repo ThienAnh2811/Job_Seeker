@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+</html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" th:href="@{./css/Company/global.css}" />
+    <link rel="stylesheet" th:href="@{./css/Company/dashboard-company-company-profile.css}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+  </head>
+  <body>
+    <div class="dashboard-company-company-pr">
+      <section class="side-bar-dashboard-company-parent">
+        <div class="side-bar-dashboard-company6">
+          <div class="menu24">
+            <div class="logo-2-wrapper1">
+              <div class="logo-26">
+                <div class="logo-2-inner3">
+                  <img
+                    class="frame-child13"
+                    loading="lazy"
+                    alt=""
+                   th:src="@{./images/Company/frame-36.svg}"
+                  />
+                </div>
+                <h3 class="jobhuntly6">JobHuntly</h3>
+              </div>
+            </div>
+            <div class="main-menu6">
+              <div class="menu25">
+                <div class="sidebar-menu54">
+                  <img class="icon189" alt=""th:src="@{./images/Company/icon1.svg}" />
+
+                  <a th:href="@{/dashboard}" class="caption181">Dashboard</a>
+                </div>
+                <button class="sidebar-menu56">
+                  <div class="indicator-wrapper4">
+                    <img
+                      class="indicator-icon6"
+                      alt=""
+                     th:src="@{./images/Company/indicator.svg}"
+                    />
+                  </div>
+                  <div class="menu26">
+                    <img class="icon191" alt=""th:src="@{./images/Company/icon-23.svg}" />
+
+                    <div  th:href="@{/profile}" class="caption183">Company Profile</div>
+                  </div>
+                </button>
+                <div class="sidebar-menu57">
+                  <img class="icon192" alt=""th:src="@{./images/Company/icon-3.svg}" />
+
+                  <a th:href="@{/allApplicants}" class="caption184">All Applicants</a>
+                </div>
+                <div class="sidebar-menu58">
+                  <img class="icon193" alt=""th:src="@{./images/Company/icon-4.svg}" />
+
+                  <a th:href="@{/joblisting}" class="caption185">Job Listing</a>
+                </div>
+                <div class="sidebar-menu59">
+                  <img class="icon194" alt=""th:src="@{./images/Company/icon-5.svg}" />
+
+                  <a th:href="@{/interviewSchedule}" class="caption186">My Schedule</a>
+                </div>
+                <div class="sidebar-menu60">
+                  <img class="icon195" alt="" />
+
+                  <div class="caption187">Employee</div>
+                </div>
+              </div>
+              <div class="main-menu-child2"></div>
+              <div class="settings12">
+                <div class="settings-wrapper3">
+                  <div class="settings13">SETTINGS</div>
+                </div>
+                <div class="menu27">
+                  <div class="sidebar-menu61">
+                    <img class="icon196" alt=""th:src="@{./images/Company/icon-7.svg}" />
+
+                    <a th:href="@{/settings}" class="caption188">Settings</a>
+                  </div>
+                  <div class="sidebar-menu62">
+                    <img class="icon197" alt=""th:src="@{./images/Company/icon-8.svg}" />
+
+                    <div class="caption189">Help Center</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img class="pattern-icon6" alt="" />
+
+          <div class="profile12">
+            <div class="line10"></div>
+            <div class="profile-frame">
+              <div class="profile13">
+                <div class="avatar-wrapper2">
+<!--                  <img-->
+<!--                    class="avatar-icon27"-->
+<!--                    loading="lazy"-->
+<!--                    alt=""-->
+<!--                   th:src="@{/user/image/{id}(id=${user.getID()})}"-->
+<!--                  />-->
+                </div>
+                <div class="name-email6">
+                  <div class="maria-kelly6" th:text="${user.getUserDisplayName()}"></div>
+                  <div class="mariakllyemailcom6" th:text="${user.getEmail()}"></div>
+                </div>
+              </div>
+            </div>
+            <div class="profile-menu6">
+              <div class="rounded-rectangle6"></div>
+              <div class="frame6">
+                <div class="logout12">
+                  <a href="/logout" class="logout13">Logout</a>
+                  <img class="icon198" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="top-nav-parent1">
+          <div class="top-nav9">
+            <div class="job-list10">
+              <img
+                class="company-logo-icon10"
+                th:if="${user.getCompany().avatar}"
+                th:src="@{/company/image/{id}(id=${user.getCompany().id})}" alt="Company Avatar"
+              />
+
+              <div class="job-title10">
+                <div class="company6">Company</div>
+                <div class="nomad-container">
+                  <div class="nomad10" th:tex="${user.getCompany().getName()}"></div>
+<!--                  <img class="icon199" th:if="${user.getCompany().avatar}"-->
+<!--                       th:src="@{/image/{id}(id=${user.getCompany().id})}" alt="Company Avatar" />-->
+                </div>
+              </div>
+            </div>
+            <div class="action9">
+              <img
+                class="notification-icon6"
+                loading="lazy"
+                alt=""
+               th:src="@{./images/Company/notification4.svg}"
+              />
+
+              <button class="button13">
+                <img class="icon200" alt="" th:src="@{./images/Company/icon-112.svg}" />
+
+                <a class="caption190" th:href="@{/postjobs}">Post a job</a>
+              </button>
+            </div>
+          </div>
+          <div class="condition-splitter">
+            <div class="company-dashboard-job-list">
+              <div class="input-combiner">
+                <img
+                  class="company-logo-icon11"
+                  th:if="${user.getCompany().avatar}"
+                  th:src="@{/company/image/{id}(id=${user.getCompany().id})}" alt="Company Avatar"
+                />
+              </div>
+              <div class="content-container">
+                <div class="content13">
+                  <div class="title7">
+                    <div class="parent-selector">
+                      <h1 class="nomad11" th:text="${user.getCompany().name}"></h1>
+                      <div class="button-group">
+                        <div class="button15">
+                          <img
+                            class="icon202"
+                            alt=""
+                           th:src="@{./images/Company/icon-134.svg}"
+                          />
+
+                          <b class="caption191">Public View</b>
+                        </div>
+                        <button class="button16">
+                          <img
+                            class="icon203"
+                            alt=""
+                           th:src="@{./images/Company/icon-144.svg}"
+                          />
+
+                          <a th:href="@{/settings}" class="caption192">Profile Settings</a>
+                        </button>
+                      </div>
+                    </div>
+                    <div class="httpsnomadcom" th:text="${user.getCompany().getCompanyWebsite()}"></div>
+                  </div>
+                  <div class="about">
+                    <div class="founded">
+                      <div class="rate-limiter">
+                        <img
+                          class="icon204"
+                          alt=""
+                         th:src="@{./images/Company/icon-153.svg}"
+                        />
+                      </div>
+                      <div class="founded1">
+                        <div class="founded2">Posts</div>
+                        <div class="july-31-2011" th:text="${user.getCompany().getPosts().size()}"></div>
+                      </div>
+                    </div>
+                    <div class="employees">
+                      <div class="icon-wrapper5">
+<!--                        <img-->
+<!--                          class="icon205"-->
+<!--                          alt=""-->
+<!--                         th:src="@{./images/Company/icon-163.svg}"-->
+<!--                        />-->
+                      </div>
+<!--                      <div class="founded3">-->
+<!--                        <div class="employees1">Applicants</div>-->
+<!--                        <div class="div60" th:text="${}"></div>-->
+<!--                      </div>-->
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="condition-splitter-inner">
+              <div class="frame-parent3">
+                <div class="company-profile-parent">
+                  <div class="company-profile">
+                    <div class="company-profile-group">
+                      <h3 class="company-profile1">Company Profile</h3>
+                      <div class="button17">
+                        <input class="icon208" type="checkbox" />
+                      </div>
+                    </div>
+                    <div class="nomad-is-a" th:text="${user.getCompany().getProfileDescription()}">
+                    </div>
+                  </div>
+                  <div class="divider3"></div>
+                  <div class="contact1">
+                    <div class="contact-parent">
+                      <h3 class="contact2">Contact</h3>
+                      <div class="button-container">
+                        <div class="button18">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="twitter-parent">
+                      <button class="twitter1">
+                        <img
+                          class="icon211"
+                          alt=""
+                         th:src="@{./images/Company/website.png}"
+                        />
+
+                        <div class="twittercomnomad" th:text="${user.getCompany().getCompanyWebsite()}"></div>
+                      </button>
+                      <button class="twitter2">
+                        <img
+                          class="icon212"
+                          alt=""
+                         th:src="@{./images/Company/icon-231.svg}"
+                        />
+
+                        <div class="facebookcomnomadhq" th:text="${user.getSocialLink()}">
+                        </div>
+                      </button>
+                    </div>
+                    <div class="twitter-group">
+                      <button class="twitter3">
+                        <img
+                          class="icon213"
+                          alt=""
+                         th:src="@{./images/Company/icon-241.svg}"
+                        />
+
+                        <div class="linkedincomcompanynomad" th:text="${user.getLinkedin()}">
+                        </div>
+                      </button>
+                      <div class="twitter4">
+                        <img
+                          class="icon214"
+                          alt=""
+                         th:src="@{./images/Company/icon-251.svg}"
+                        />
+                        <div class="nomadgmailcom" th:text="${user.getEmail()}"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="divider4"></div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </section>
+      <div class="divider-container">
+        <div class="divider5"></div>
+      </div>
+      <div class="divider-frame">
+        <div class="divider6"></div>
+      </div>
+      <div class="divider-wrapper1">
+        <div class="divider7"></div>
+      </div>
+    </div>
+  </body>
+</html>

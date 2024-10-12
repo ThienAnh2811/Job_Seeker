@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> </html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" th:href="@{./css/global.css}" />
+    <link rel="stylesheet" th:href="@{./css/resume.css}" />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap"
+    />
+</head>
+<body>
+<div class="div100">
+    <div class="image-holder-parent">
+        <div class="image-holder">
+            <img
+                    class="image-265-icon"
+                    loading="lazy"
+                    th:src="@{/user/image/{id}(id=${app.getID()})}" alt="Avatar"
+            />
+        </div>
+        <div class="education-label">
+            <div class="experience">experience</div>
+        </div>
+        <div class="education">Education</div>
+        <div class="languages-parent">
+            <div class="languages1">Languages</div>
+            <div class="skills1">Skills</div>
+            <div class="links9">Links</div>
+        </div>
+    </div>
+    <div class="p-d-u-bber">
+        <div class="designer-info">
+            <div class="san-francisco-california" th:text="${app.getLocation().getName()}"></div>
+            <div class="university-info">
+                <div class="div101" th:text="${app.getContactNumber()}"></div>
+                <div class="ricktanggmailcom" th:text="${app.getEmail()}"></div>
+            </div>
+        </div>
+        <div class="english-italian-bg">
+            <h2 class="rick-tang-product" th:text="${app.getUserDisplayName()+ ', ' + app.getMajor()}"></h2>
+            <h3 class="uxui-specialist-focused" th:text="${app.getBio()}">
+            </h3>
+        </div>
+        <div class="experience" th:each="experience : ${app.getExperienceDetail()}">
+            <div class="rider-safety-exp">
+                <div class="product-design">
+                    <b class="product-designer-uber" th:text="${ experience.getCompany().getName()+ ' , ' + experience.getTitle() }"></b>
+                    <div class="mar-2015-" th:text="${experience.getStartDate() + ' - ' + experience.getEndDate()}"></div>
+                </div>
+            </div>
+        </div>
+        <div class="education" th:each="education : ${app.getEducationDetail()}">
+            <div class="rhode-island-school">
+                <b class="rhode-island-school" th:text="${education.getUniversity().getName()}"></b>
+                <div class="bfa-industrial-design" th:text="${education.getCertificateDegreeName() + ', ' + education.getGradDate()}"></div>
+            </div>
+        </div>
+        <div class="english-c2-parent">
+            <div class="english-c2">English: C2</div>
+            <div class="wrapper9">
+                <img class="icon492" loading="lazy" alt="" src="./public/.svg" />
+            </div>
+            <div class="italian-b2">Italian: B2</div>
+        </div>
+        <div class="frame-parent42">
+            <div class="frame-parent43">
+                <div class="figma-parent">
+                    <div th:each="nice_to_have : ${app.getNiceToHaves()}" class="frame-parent44">
+                        <div class="parent9">
+                            <img
+                                    class="icon493"
+                                    loading="lazy"
+                                    alt=""
+                                    src="./public/-1.svg"
+                            />
+
+                            <div class="sketch" th:text="${nice_to_have.name}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="linkedin-parent">
+                    <a th:href="${app.getLinkedin()}" class="linkedin">LinkedIn</a>
+                    <div class="wrapper10">
+                        <img
+                                class="icon498"
+                                loading="lazy"
+                                alt=""
+                                src="./public/-1.svg"
+                        />
+                    </div>
+                    <div th:href="${app.getGithub()}" class="dribbble">Github</div>
+                    <div class="wrapper11">
+                        <img
+                                class="icon499"
+                                loading="lazy"
+                                alt=""
+                                src="./public/-1.svg"
+                        />
+                    </div>
+                    <div th:href="${app.getSocialLink()}" class="behance">Facebook</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

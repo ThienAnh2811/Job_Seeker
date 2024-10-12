@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" th:href="@{./css/Company/global.css}" />
+    <link rel="stylesheet" th:href="@{./css/Company/index.css}" />
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <script th:src="@{./js/Company/index.js}"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+  </head>
+  <body>
+    <div class="dashboard-company">
+      <div class="side-bar-dashboard-company">
+        <div class="menu">
+          <div class="logo-2-wrapper">
+            <a th:href="@{/home}" class="fill-div">
+            <div class="logo-2">
+              <div class="logo-2-inner">
+                <img
+                  class="frame-child"
+                  loading="lazy"
+                  alt=""
+                 th:src="@{./images/Company/frame-3.svg}"
+                />
+              </div>
+              <h3 class="jobhuntly">JobHuntly</h3>
+            </div>
+            </a>
+          </div>
+          <div class="main-menu">
+            <div class="menu1">
+              <div class="sidebar-menu">
+                <div class="indicator-wrapper">
+                  <img
+                    class="indicator-icon"
+                    alt=""
+                   th:src="@{./images/Company/indicator.svg}"
+                  />
+                </div>
+                <div class="menu2">
+                  <img
+                    class="icon"
+                    loading="lazy"
+                    alt=""
+                   th:src="@{./images/Company/icon.svg}"
+                  />
+
+                  <div class="caption">Dashboard</div>
+                </div>
+              </div>
+              <div  class="sidebar-menu2">
+<!--                <a th:href="@{/profile}" class="fill-div">-->
+                <img class="icon2" alt="" th:src="@{./images/Company/icon-2.svg}" />
+                <a th:href="@{/profile}" class="caption2">Company Profile</a>
+<!--                </a>-->
+              </div>
+              <div class="sidebar-menu3">
+                <img class="icon3" alt=""th:src="@{./images/Company/icon-3.svg}" />
+
+                <a th:href="@{/allApplicants}" class="caption3">All Applicants</a>
+              </div>
+              <div class="sidebar-menu4">
+                <img class="icon4" alt="" th:src="@{./images/Company/icon-4.svg}" />
+
+                <a class="caption4" th:href="@{/joblisting}">Job Listing</a>
+              </div>
+              <div class="sidebar-menu5">
+                <img class="icon5" alt="" th:src="@{./images/Company/icon-5.svg}" />
+
+                <a th:href="@{/interviewSchedule}" class="caption5">My Schedule</a>
+              </div>
+              <div class="sidebar-menu6">
+                <img class="icon6" alt="" />
+
+                <div class="caption6">Employee</div>
+              </div>
+            </div>
+            <div class="main-menu-child"></div>
+            <div class="settings">
+              <div class="settings-wrapper">
+                <div class="settings1">SETTINGS</div>
+              </div>
+              <div class="menu3">
+                <div class="sidebar-menu7">
+                  <img class="icon7" alt=""th:src="@{./images/Company/icon-7.svg}" />
+
+                  <a class="caption7" th:href="@{/settings}">Settings</a>
+                </div>
+                <div class="sidebar-menu8">
+                  <img class="icon8" alt="" th:src="@{./images/Company/icon-8.svg}" />
+
+                  <div class="caption8">Help Center</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="pattern-icon" loading="lazy" alt="" />
+
+        <div class="profile">
+          <div class="line"></div>
+          <div class="profile-wrapper">
+            <div class="profile1">
+              <div class="avatar-wrapper">
+                <img
+                  class="avatar-icon"
+                  loading="lazy"
+                  alt=""
+                 th:src="@{/user/image/{id}(id=${userLoggedIn.getID()})}"
+                />
+              </div>
+              <div class="name-email">
+                <div class="maria-kelly" th:text="${userLoggedIn.getUserDisplayName()}"></div>
+                <div class="mariakllyemailcom" th:text="${userLoggedIn.getEmail()}"></div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-menu">
+            <div class="rounded-rectangle"></div>
+            <div class="frame">
+              <div class="logout">
+                <div class="logout1">Logout</div>
+                <img class="icon9" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="top-nav-parent">
+        <header class="top-nav">
+          <div class="job-list">
+            <img
+              class="company-logo-icon"
+              alt=""
+             th:src="@{/company/image/{id}(id=${userLoggedIn.getCompany().getId()})}"
+            />
+
+            <div class="job-title">
+              <div class="company">Company</div>
+              <div class="nomad-parent">
+                <div class="nomad" th:text="${userLoggedIn.getCompany().getName()}"></div>
+                <img class="icon10" alt=""th:src="@{./images/Company/icon-10.svg}" />
+              </div>
+            </div>
+          </div>
+          <div class="action">
+            <img
+              class="notification-icon"
+              loading="lazy"
+              alt=""
+             th:src="@{./images/Company/notification.svg}"
+            />
+
+            <button class="button">
+              <img class="icon11" alt=""th:src="@{./images/Company/icon-11.svg}" />
+
+              <a th:href="@{/postjobs}" class="caption9">Post a job</a>
+            </button>
+          </div>
+        </header>
+        <section class="greeting-filter">
+          <div class="box-bunch">
+            <h3 class="good-morning-maria" th:text="${'Good Morning , ' + userLoggedIn.getUserDisplayName()}"></h3>
+            <div class="here-is-your">
+            </div>
+          </div>
+          <div class="dropdown-wrapper">
+            <div class="dropdown">
+              <div class="image-inventory">
+                <img class="icon12" alt=""th:src="@{./images/Company/icon-12.svg}" />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="audio-bank">
+          <div class="action-parent">
+            <div class="action1">
+              <div class="new-candidates">
+                <div class="div1" th:text="${numberLiveCompany}"></div>
+                <div class="new-candidates-to">New candidates to review</div>
+                <img class="icon13" alt="" th:src="@{./images/Company/icon-13.svg}" />
+              </div>
+              <div class="schedule">
+                <div class="shape-shift-parent">
+                  <div class="shape-shift" th:text="${numberInterviewCompany}"></div>
+                  <div class="schedule-for-today">Interview Applicants</div>
+                </div>
+                <img class="icon14" alt=""th:src="@{./images/Company/icon-13.svg}" />
+              </div>
+              <div class="messages">
+                <div class="parent">
+                  <div class="div2" th:text="${numberAcceptedCompany}"></div>
+                  <div class="messages-received">Accept applicant</div>
+                </div>
+                <img class="icon15" alt=""th:src="@{./images/Company/icon-13.svg}" />
+              </div>
+            </div>
+            <div class="job-statistic-parent">
+              <div class="job-statistic">
+                <div class="header">
+                  <div class="title">
+                    <div class="job-statistics-parent">
+                      <div class="job-statistics">Job statistics</div>
+                    </div>
+
+                  </div>
+                  <div class="tabs">
+                    <div class="tab-menu3">
+                      <div class="caption13">Overview</div>
+                      <img
+                        class="tab-menu-child"
+                        loading="lazy"
+                        alt=""
+                       th:src="@{./images/Company/rectangle-173.svg}"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="job-statistic-inner">
+                  <div class="frame-parent">
+                    <div class="frame-group">
+                      <figure class="highcharts-figure">
+                        <div id="container-bar"></div>
+                      </figure>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="path-pattern-pathway">
+                <div class="job-open">
+                  <div class="job-open1">Job Open</div>
+                  <div class="color-color-picker">
+                    <div class="gradient-gradient-editor" th:text="${userLoggedIn.getCompany().getPosts().size()}"></div>
+                    <div class="blend-box-blender">
+                      <div class="jobs-opened">Jobs Opened</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="applicant-summary">
+                  <div class="corner-corners">
+                    <div class="applicants-summary">Applicants Summary</div>
+                  </div>
+                  <div class="distribute-distributor">
+                    <div class="spacer-sizer-sizer">
+                      <div class="arrange-arranger">
+<!--                        <div class="proximity-proximate" th:text="${userLoggedIn.}">67</div>-->
+<!--                        <div class="applicants">Applicants</div>-->
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <figure class="highcharts-figure">
+              <div id="container-bar-levels"></div>
+            </figure>
+            <div class="job-updates">
+              <div class="title3">
+                <div class="job-updates1">Job Updates</div>
+                <a th:href="@{/joblisting}" class="button-parent">
+                  <div class="button1">View All</div>
+                  <div class="icon-container">
+                    <img class="icon20" alt=""th:src="@{./images/Company/icon-20.svg}" />
+                  </div>
+                </a>
+              </div>
+              <div class="row" >
+                <div class="col-md-4" th:each="post : ${userLoggedIn.getCompany().getPosts()}">
+
+                <div class="job-list1">
+                  <div class="content">
+                    <div class="header1">
+                      <img
+                        class="company-logo-icon1"
+                        loading="lazy"
+                        th:src="@{/company/image/{id}(id=${userLoggedIn.getCompany().id})}" alt="Company Avatar"
+
+                      />
+
+                      <button class="label">
+                        <div class="caption19" th:text="${post.getLevel().name}"></div>
+                      </button>
+                    </div>
+                    <div class="job-title1">
+                      <div class="social-media-assistant" th:text="${post.getTitle()}">
+                      </div>
+                      <div class="location">
+                        <div class="nomad1" th:text="${post.getCompany().getName()}"></div>
+                        <div class="location-inner">
+                          <div class="frame-inner"></div>
+                        </div>
+                        <div class="paris-france" th:text="${post.getLocation().getName()}"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="labels" th:each="category : ${post.getCategories()}">
+                    <button class="label1">
+                      <div class="label-child"></div>
+                      <div class="caption20" th:text="${category.name}"></div>
+                    </button>
+                  </div>
+                  <div class="progress-bar-parent">
+                    <div class="progress-bar">
+                      <div class="progress-bar-child"></div>
+                      <div class="progress-bar-item"></div>
+                      <div class="rectangle-parent">
+                        <div class="frame-child1"></div>
+                        <div class="frame-child2"></div>
+                      </div>
+                      <div class="progress-bar-inner"></div>
+                    </div>
+                    <div class="applied-of-10-container">
+                      <span class="applied" th:text="${post.getApplicants().size() + ' Applied'}"></span>
+                      <span class="of-10-capacity">
+                        <span class="span5"> </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+ <script th:inline="javascript">
+    /*<![CDATA[*/
+    var weeklyStatistics = /*[[${weeklyStatistics}]]*/ 'default';
+    var monthlyStatistics = /*[[${monthlyStatistics}]]*/ 'default';
+    var yearlyStatistics = /*[[${yearlyStatistics}]]*/ 'default';
+
+    Highcharts.chart('container-bar', {
+      chart: {
+        type: 'bar',
+        width: null,
+        height:400
+      },
+      title: {
+        text: 'Company Statistics'
+      },
+      xAxis: {
+        categories: Object.keys(weeklyStatistics)
+      },
+      yAxis: {
+        title: {
+          text: 'Number of Applications'
+        }
+      },
+      series: [{
+        name: 'Weekly',
+        data: Object.values(weeklyStatistics)
+      }, {
+        name: 'Monthly',
+        data: Object.values(monthlyStatistics)
+      }, {
+        name: 'Yearly',
+        data: Object.values(yearlyStatistics)
+      }]
+    });
+    /*]]>*/
+    /*<![CDATA[*/
+    var applicationCountsByLevel = /*[[${applicationCountsByLevel}]]*/ 'default';
+
+    Highcharts.chart('container-bar-levels', {
+      chart: {
+        type: 'bar',
+        width:null,
+        height:400
+      },
+      title: {
+        text: 'Application Counts by Level and Company'
+      },
+      xAxis: {
+        categories: Object.keys(applicationCountsByLevel)
+      },
+      yAxis: {
+        title: {
+          text: 'Number of Applications'
+        }
+      },
+      series: [{
+        name: 'Applications',
+        data: Object.values(applicationCountsByLevel)
+      }]
+    });
+    /*]]>*/
+  </script>
+</html>

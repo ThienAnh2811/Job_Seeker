@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+  <link rel="stylesheet" th:href="@{./css/global.css}" />
+  <link rel="stylesheet" th:href="@{css/sign-up.css}" />
+  <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap}" />
+  <link rel="stylesheet"
+    th:href="@{https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap}" />
+  <link rel="stylesheet"
+    th:href="@{https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap}" />
+  <link rel="stylesheet"
+    th:href="@{https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap}" />
+  <link rel="stylesheet" th:href="@{https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap}" />
+</head>
+
+<body>
+  <div class="sign-up1">
+    <div class="element1">
+      <div class="rectangle2"></div>
+      <div class="bg1">
+        <div class="frame-parent13">
+          <div class="rectangle-parent4">
+            <div class="frame-child38"></div>
+            <div class="adam-sandler-parent">
+              <div class="adam-sandler1">Adam Sandler</div>
+              <div class="lead-engineer-at1">Lead Engineer at Canva</div>
+            </div>
+            <div class="group">
+              <h1 class="h11">“</h1>
+              <div class="description-paragraph">
+                <div class="paragraph2">
+                  “Great platform for the job seeker that searching for new
+                  career heights.”
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="design-7b051895-a4ce-4319-b607-group">
+            <img class="design-7b051895-a4ce-4319-b607-icon1" alt=""
+              th:src="@{images/design7b051895a4ce4319b60711f9ae6a2e9c-1@2x.png}" />
+
+            <div class="shadow2"></div>
+            <img class="frame-child39" loading="lazy" alt="" th:src="@{images/group-111@2x.png}" />
+
+            <div class="rectangle-parent5">
+              <div class="frame-child40"></div>
+              <textarea class="shadow3" rows="{8}" cols="{8}"> </textarea>
+              <div class="rectangle-parent6">
+                <div class="frame-child41"></div>
+                <div class="frame-child42"></div>
+                <div class="frame-child43"></div>
+                <div class="frame-child44"></div>
+                <div class="frame-child45"></div>
+                <b class="k1">100K+</b>
+                <div class="people-got-hired1">People got hired</div>
+              </div>
+              <img class="frame-child46" loading="lazy" alt="" th:src="@{images/frame-31.svg}" />
+
+              <h3 class="jobhuntly8">JobHuntly</h3>
+            </div>
+          </div>
+        </div>
+        <img class="pattern-icon6" alt="" />
+      </div>
+    </div>
+    <div class="landing-page-sign-up-deskt-wrapper">
+      <div class="landing-page-sign-up-deskt">
+        <div class="sign-up-options-group">
+          <div class="sign-up-options1">
+            <button class="tab-menu2">
+              <div class="caption94">Job Seeker</div>
+            </button>
+            <div class="tab-menu3">
+              <div class="caption95">Company</div>
+            </div>
+          </div>
+          <h1 class="get-more-opportunities">Get more opportunities</h1>
+          <button class="button20">
+            <img class="icon68" alt="" th:src="@{images/icon.svg}" />
+
+            <b class="caption96">Sign Up with Google</b>
+          </button>
+        </div>
+        <div class="or-sign-up-with-email1">
+          <div class="login-button-instance">
+            <div class="line7"></div>
+          </div>
+          
+          <div class="or-sign-up">Or sign up with email</div>
+          <div class="login-button-instance1">
+            <div class="line8"></div>
+          </div>
+        </div>
+        <form class="forms1" th:action="@{/registration}" method="post" th:object="${userdto}">
+          <div th:if="${param.success}">
+            <div class="alert alert-info"> You are successfull registered to our awsome app!</div>
+          </div>
+          <div class="textfield10">
+            <div class="label91">Full name</div>
+            <div class="input10">
+              <input class="this-is-placeholder10" placeholder="Enter your full name" type="text"
+                th:field="*{userDisplayName}" required />
+            </div>
+          </div>
+          <div class="textfield11">
+            <div class="label92">Email Address</div>
+            <div class="input11">
+              <input class="this-is-placeholder11" placeholder="Enter email address" type="text" th:field="*{email}"
+                required />
+            </div>
+            <div th:if="${param.emailexist}">
+              <div class="alert alert-info"> You email have exist please register other email</div>
+            </div>
+          </div>
+          <div class="textfield12">
+            <div class="label93">Password</div>
+            <div class="input12">
+              <input class="this-is-placeholder12" placeholder="Enter password" type="text" th:field="*{password}"
+                required />
+            </div>
+          </div>
+          <button class="button21">
+            <b class="caption97">Continue</b>
+          </button>
+        </form>
+        <div class="already-have-an-account1">
+          <div class="already-have-an">Already have an account?</div>
+          <div class="login1">Login</div>
+        </div>
+        <div class="by-clicking-continue-container">
+          <span>By clicking 'Continue', you acknowledge that you have read and
+            accept the
+          </span>
+          <span class="terms-of-service1">Terms of Service</span>
+          <span> and </span>
+          <span class="privacy-policy3">Privacy Policy.</span>
+        </div>
+      </div>
+    </div>
+    <div class="rectangle3"></div>
+  </div>
+</body>
+
+</html>

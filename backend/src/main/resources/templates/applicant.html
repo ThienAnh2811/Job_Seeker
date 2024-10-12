@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1, width=device-width" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <link rel="stylesheet"
+              href="https://code.highcharts.com/css/highcharts.css" />
+        <script
+                src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script
+                src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="https://code.highcharts.com/modules/export-data.js"></script>
+        <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+        <link rel="stylesheet" th:href="@{/css/global.css}" />
+        <script th:src="@{/js/applicant.js}"></script>
+        <link
+            rel="stylesheet"
+            th:href="@{/css/dashboard-applicant.css}"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap"
+        />
+    </head>
+    <body>
+                            <div class="dashboard-applicant">
+            <div class="side-bar-dashboard-applica4">
+                <div class="menu31">
+                    <div class="control-flow">
+                        <div class="logo-213">
+                            <div class="output-generator">
+                                <img
+                                    class="condition-checker-icon"
+                                    loading="lazy"
+                                    alt=""
+                                    th:src="@{images/frame-36.svg}"
+                                />
+                            </div>
+                            <h3 class="jobhuntly19">JobHuntly</h3>
+                        </div>
+                    </div>
+                    <div class="main-menu4">
+                        <div class="menu32">
+                            <div class="sidebar-menu32">
+                                <div class="data-expander">
+                                    <img
+                                        class="indicator-icon4"
+                                        loading="lazy"
+                                        alt=""
+                                        th:src="@{images/indicator.svg}"
+                                    />
+                                </div>
+                                <div class="menu33">
+                                    <img
+                                        class="icon204"
+                                        loading="lazy"
+                                        alt=""
+                                        th:src="@{images/icon.svg}"
+                                    />
+
+                                    <div class="caption299">Dashboard</div>
+                                </div>
+                            </div>
+                            <div class="sidebar-menu34">
+                                <div class="icon206">
+                                    <img
+                                        class="vector-stroke-icon4"
+                                        loading="lazy"
+                                        alt=""
+                                        th:src="@{images/vector-stroke.svg}"
+                                    />
+
+                                    <div class="data-transformer"></div>
+                                    <div class="data-transformer1"></div>
+                                </div>
+                                <a th:href="@{/jobApplied}" class="caption301">My Applications</a>
+                            </div>
+                            <div class="sidebar-menu35">
+                                <img
+                                    class="icon207"
+                                    alt=""
+                                    th:src="@{images/icon-216.svg}"
+                                />
+
+                                <a  th:href="@{/findjobs}"class="caption302">Find Jobs</a>
+                            </div>
+                            <div class="sidebar-menu36">
+                                <img
+                                    class="icon208"
+                                    alt=""
+                                    th:src="@{images/icon-32.svg}"
+                                />
+
+                                <a th:href="@{/findCompany}" class="caption303">Browse Companies</a>
+                            </div>
+                            <div class="sidebar-menu37">
+                                <img
+                                    class="icon209"
+                                    alt=""
+                                    th:src="@{images/icon-41.svg}"
+                                />
+
+                                <a  th:href="@{/profile}" class="caption304">
+                                    My Profile
+                                </a>
+                            </div>
+                        </div>
+                        <div class="data-replacer"></div>
+                        <div class="settings12">
+                            <div class="data-scaler">
+                                <div class="settings13">SETTINGS</div>
+                            </div>
+                            <div class="menu34">
+                                <div class="sidebar-menu38">
+                                    <img
+                                        class="icon210"
+                                        alt=""
+                                        th:src="@{images/icon-51.svg}"
+                                    />
+
+                                    <a th:href="@{/settings}"  class="caption305">Settings</a>
+                                </div>
+                                <div class="sidebar-menu39">
+                                    <img
+                                        class="icon211"
+                                        alt=""
+                                        th:src="@{images/icon-61.svg}"
+                                    />
+
+                                    <div class="caption306">Help Center</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wrapper-pattern3">
+                    <img
+                        class="pattern-icon20"
+                        loading="lazy"
+                        alt=""
+                        th:src="@{images/pattern.svg}"
+                    />
+                </div>
+                <div class="profile9">
+                    <div class="data-comparator-bank"></div>
+                    <div class="data-transformer-chain">
+                        <div class="profile10">
+                            <img
+                                class="avatar-icon6"
+                                loading="lazy"
+                                alt=""
+                                th:src="@{user/image/{id}(id=${userLoggedIn.getID()})}"
+                            />
+
+                            <div class="name-email4">
+                                <div class="data-canvas">
+                                    <div class="jake-gyll8" th:text="${userLoggedIn.getUserDisplayName()}"></div>
+                                </div>
+                                <div class="jakegyllemailcom8" th:text="${userLoggedIn.getEmail()}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-menu4">
+                        <div class="rounded-rectangle4"></div>
+                        <div class="frame5">
+                            <div class="logout8">
+                                <a class="logout9" href="/logout" >Logout</a>
+                                <img class="icon212" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <main class="frame-main">
+                <header class="top-nav8">
+                    <img class="pattern-icon21" alt="" />
+
+                    <div class="data-mesh">
+                        <h1 class="dashboard6">Dashboard</h1>
+                    </div>
+                    <div class="action4">
+                        <button class="button65">
+                            <a th:href="@{/home}" class="caption307">Back to homepage</a>
+                        </button>
+                        <div class="data-torus">
+                            <img
+                                class="notification-icon5"
+                                loading="lazy"
+                                alt=""
+                                th:src="@{images/notification2.svg}"
+                            />
+                        </div>
+                    </div>
+                </header>
+                <section class="applicant-dashboard-greeting1">
+                    <div class="greeting1">
+                        <h3 class="good-morning-jake1" th:text="${'Good morning , ' + userLoggedIn.getUserDisplayName()}"></h3>
+                    </div>
+                    <div class="function-call">
+                    </div>
+                </section>
+                <section class="parallel-container">
+                    <div class="matrix-manipulator">
+                        <div class="string-editor">
+                            <div class="number-cruncher1">
+                                <div class="card-dashboard2">
+                                    <div class="icon214">
+                                        <img
+                                            class="vector-stroke-icon5"
+                                            alt=""
+                                            th:src="@{images/vector-stroke-1.svg}"
+                                        />
+
+                                        <div class="network-manager"></div>
+                                        <div class="timer-controller"></div>
+                                    </div>
+                                    <div class="randomizer">
+                                        <div class="total-jobs-applied">
+                                            Total Jobs Applied
+                                        </div>
+                                        <div class="user-interface" th:text="${userLoggedIn.getApplications().size()}"></div>
+                                    </div>
+                                </div>
+                                <div class="card-dashboard3">
+                                    <div class="interviewed">Interviewed</div>
+                                    <div class="parent1">
+                                        <div class="div34" th:text="${numberInterview}"></div>
+                                        <div class="icon-wrapper18">
+                                            <img
+                                                class="icon215"
+                                                alt=""
+                                                th:src="@{images/icon-94.svg}"
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-dashboard4">
+                                <div class="jobs-applied-status">
+                                    Jobs Applied Status
+                                </div>
+                                <figure class="myChart">
+                                    <div id="myChart"></div>
+                                </figure>
+                                <div class="button66">
+                                    <a th:href="@{/jobApplied}" class="view-all-applications">
+                                        View All Applications
+                                    </a>
+                                    <div class="graphic-user-interface">
+                                        <img
+                                            class="icon216"
+                                            alt=""
+                                            th:src="@{images/icon-104.svg}"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-dashboard5">
+
+                                <div class="upcomming-interviews">
+<!--                                    <div class="rounded-rectangle5"></div>-->
+                                    <div class="upcomming-interviews-wrapper">
+                                        <div class="upcomming-interviews1">
+                                            Upcomming Interviews
+                                        </div>
+                                    </div>
+                                    <div class="link-list" th:each="interview : ${upComingInterviews}">
+                                        <div>
+                                            <img th:src="@{/company/image/{id}(id=${interview.post.company.id})}" alt="Company Avatar" class="company-logo-icon52" />
+                                            <h4 th:text="${interview.post.title}"></h4>
+                                            <p>Company: <span th:text="${interview.post.company.name}"></span></p>
+                                            <p>Location: <span th:text="${interview.post.location.name}"></span></p>
+                                            <p>Start Time: <span th:text="${#temporals.format(interview.interviewStartTime, 'HH:mm dd-MM-yyyy')}"></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="applicant-dashboard-recent-a">
+                            <div class="base2"></div>
+                            <div class="tree-view">
+                                <div class="line22"></div>
+                            </div>
+                            <div class="data-wrapper">
+                                <div class="data3" >
+                                    <div th:each="applicant : ${userLoggedIn.getApplications()}">
+                                    <div class="recent-applications-row">
+                                        <div class="title19">
+                                            <img
+                                                class="company-logo-icon53"
+                                                loading="lazy"
+                                                th:src="@{/company/image/{id}(id=${applicant.getPost().getCompany().id})}" alt="Company Avatar"
+                                            />
+
+                                            <div class="alert-message">
+                                                <div class="job-title45">
+                                                    <b
+                                                        class="social-media-assistant49"
+                                                         th:text="${applicant.getPost().getTitle()}"></b
+                                                    >
+                                                    <div
+                                                        class="company-name-location-job43"
+                                                    >
+                                                        <div class="nomad47" th:text="${applicant.getPost().getCompany().getName()}">
+
+                                                        </div>
+                                                        <div
+                                                            class="stepper-control"
+                                                        >
+                                                            <div
+                                                                class="star-rating"
+                                                            ></div>
+                                                        </div>
+                                                        <div
+                                                            class="paris-france43"  th:text="${applicant.getPost().getLocation().getName()}">
+                                                        >
+                                                        </div>
+                                                        <div class="info-box">
+                                                            <div
+                                                                class="table-row"
+                                                            ></div>
+                                                        </div>
+                                                        <div class="full-time9" th:text="${applicant.getPost().getLevel().getName()}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="date-applied-wrapper">
+                                            <div class="date-applied7">
+                                                <div class="date-applied8">
+                                                    Date Applied
+                                                </div>
+                                                <div class="july-20215" th:text="${applicant.getTimeApplied()}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="banner-wrapper">
+                                            <div class="banner">
+                                                <div class="label192">
+                                                    <div
+                                                        class="label-child114"
+                                                    ></div>
+                                                    <div class="caption308" th:text="${applicant.getStatus()}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="time-picker">
+                                            <img
+                                                class="icon219"
+                                                alt=""
+                                                th:src="@{images/icon-131.svg}"
+                                            />
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <footer class="tabbed-pane">
+                                <div class="nav2">
+                                    <a th:href="@{/jobApplied}" class="view-all-applications1">
+                                        View all applications history
+                                    </a>
+                                    <div class="tool-panel">
+                                        <img
+                                            class="icon222"
+                                            alt=""
+                                            th:src="@{images/icon-163.svg}"
+                                        />
+                                    </div>
+                                </div>
+                            </footer>
+                        </form>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>

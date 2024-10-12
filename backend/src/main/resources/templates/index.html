@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+</html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var datePosted = /*[[${datePosted}]]*/ 'default';
+    var maxSalary = /*[[${maxSalary}]]*/ 'default';
+
+    /*]]>*/
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script th:src="@{./js/index.js}"></script>
+  <link rel="stylesheet" th:href="@{/css/global.css}" />
+  <link rel="stylesheet" th:href="@{/css/index.css}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" />
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet"
+        href="https://code.highcharts.com/css/highcharts.css" />
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+<body>
+  <div class="landing-page">
+    <section class="header-1-desktop">
+      <img class="pattern-icon" alt="" />
+
+      <div class="pic">
+        <img class="design-b3dcb2a2-23f6-41f0-b740-icon" alt=""
+          th:src="@{/images/designb3dcb2a223f641f0b740595184e6d3e9-1@2x.png}" />
+
+        <img class="pic-child" alt="" />
+      </div>
+      <img class="confident-man-with-hand-chin-l-icon" alt=""
+        th:src="@{/images/confidentmanwithhandchinlookingcameraremovebgpreview-1@2x.png}" />
+
+      <header class="top-nav">
+        <div class="menu">
+          <div class="output-formatter">
+            <div class="logo">
+              <div class="logo-1">
+                <div class="assignment-operator">
+                  <img class="assignment-operator-child" alt="" th:src="@{/images/frame-3.svg}" />
+              </div>
+                <h3 class="jobhuntly">JobHuntly</h3>
+              </div>
+              <div class="logo-2">
+                <div class="assignment-operator1">
+                  <img class="assignment-operator-item" alt="" th:src="@{/images/frame-3-1.svg}" />
+                </div>
+                <h3 class="jobhuntly1">JobHuntly</h3>
+              </div>
+            </div>
+          </div>
+          <div class="menu1">
+            <div class="top-menu">
+              <a class="caption" th:href="@{findjobs}">Find Jobs</a>
+              <div class="top-menu-child"></div>
+            </div>
+            <div class="top-menu1">
+              <a th:href="@{/findCompany}" class="caption1">Browse Companies</a>
+              <div class="top-menu-item"></div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons" th:if="${userLoggedIn == null}">
+          <button class="button">
+            <a class="caption2" th:href="@{login}">Login</a>
+          </button>
+          <div class="divider-wrapper">
+            <div class="divider"></div>
+          </div>
+          <button class="button1">
+            <a class="caption3" th:href="@{/registration}">Sign Up</a>
+          </button>
+        </div>
+        <div class="buttons" th:if="${userLoggedIn != null}">
+          <button class="button">
+            <a href="/logout" class="caption2">Sign out</a>
+          </button>
+          <div class="divider-wrapper">
+            <div class="divider"></div>
+          </div>
+          <button class="button1">
+            <a th:href="@{/dashboard}" class="caption3">Dashboard</a>
+          </button>
+        </div>
+      </header>
+      <div class="center-div">
+        <div class="title-wrapper">
+        <div align="center">
+          <select id="type-selector">
+            <option value="category">Category</option>
+            <option value="location">Location</option>
+            <option value="language">Language</option>
+          </select>
+        </div>
+        <div>
+          <label id="from" for="from-date">From:</label>
+          <input type="date" id="from-date">
+        </div>
+        <div>
+          <label id="to" for="to-date">To:</label>
+          <input type="date" id="to-date">
+        </div>
+        <button id="filter-button">Confirm Filter</button>
+      </div>
+      <figure class="highcharts-figure">
+        <div id="container-bar"></div>
+      </figure>
+      </div>
+    </section>
+    <section class="landing-page-category-desk">
+      <div class="title2">
+        <h1 class="explore-by-category-container">
+          <span>Explore by </span>
+          <span class="category">category</span>
+        </h1>
+        <div class="button-wrapper">
+          <a class="button3" th:href="@{/findjobs}">
+            <div class="show-all-jobs">Show all jobs</div>
+            <div class="frame-div">
+              <img class="icon3" alt="" th:src="@{/images/icon-3.svg}" />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="content">
+        <div class="row-1">
+          <div class="job-category">
+            <a class="fill-div" th:href="@{/findjobs(filterCategory=${categories[0].name})}">
+            <img class="icon4" alt="" th:src="@{/images/web.jpg}" />
+            <div class="category-name">
+              <h3 class="design" th:text="${categories[0].name}"></h3>
+              <div class="jobs-available">
+                <div class="jobs-available1" th:text="${categories[0].quantity + ' jobs available'}"></div>
+                <img class="icon5" alt="" th:src="@{/images/icon-5.svg}" />
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="job-category1">
+            <a class="fill-div" th:href="@{/findjobs(filterCategory=${categories[1].name})}">
+            <img class="icon6" alt="" th:src="@{/images/android.jpg}" />
+
+            <div class="category-name1">
+              <h3 class="design1" th:text="${categories[1].name}"></h3>
+              <div class="jobs-available2">
+                <div class="jobs-available3" th:text="${categories[1].quantity + ' jobs available'}"></div>
+                <img class="icon7" alt="" th:src="@{/images/icon-5.svg}" />
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="job-category2">
+            <a class="fill-div" th:href="@{/findjobs(filterCategory=${categories[2].name})}">
+            <img class="icon8" alt="" th:src="@{/images/ios.png}" />
+
+            <div class="category-name2">
+              <h3 class="marketing" th:text="${categories[2].name}"></h3>
+              <div class="jobs-available4">
+                <div class="jobs-available5" th:text="${categories[2].quantity + ' jobs available'}"></div>
+                <img class="icon9" alt="" th:src="@{/images/icon-9.svg}" />
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="job-category3">
+            <a class="fill-div" th:href="@{/findjobs(filterCategory=${categories[3].name})}">
+            <img class="icon10" alt="" th:src="@{/images/backend.jpg}" />
+
+            <div class="category-name3">
+              <h3 class="design2" th:text="${categories[3].name}"></h3>
+              <div class="jobs-available6">
+                <div class="jobs-available7" th:text="${categories[3].quantity + ' jobs available'}"></div>
+                <img class="icon11" alt="" th:src="@{/images/icon-5.svg}" />
+              </div>
+            </div>
+            </a>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="job-category4">
+            <a class="fill-div" th:href="@{/findjobs(filterCategory=${categories[4].name})}">
+            <img class="icon12" alt="" th:src="@{/images/frontend.png}" />
+
+            <div class="category-name4">
+              <h3 class="design3" th:text="${categories[4].name}"></h3>
+              <div class="jobs-available8">
+                <div class="jobs-available9" th:text="${categories[0].quantity + ' jobs available'}"></div>
+                <img class="icon13" alt="" th:src="@{/images/icon-5.svg}" />
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="job-category5">
+            <a class="fill-div" th:href="@{/findjobs(filterCategory=${categories[5].name})}">
+            <img class="icon14" alt="" th:src="@{/images/machinelearning.jpg}" />
+
+            <div class="category-name5">
+              <h3 class="design4" th:text="${categories[5].name}"></h3>
+              <div class="jobs-available10">
+                <div class="jobs-available11" th:text="${categories[5].quantity + ' jobs available'}"></div>
+                <img class="icon15" alt="" th:src="@{/images/icon-5.svg}" />
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="job-category6">
+            <a class="fill-div" th:href="@{/findjobs(filterCategory=${categories[6].name})}">
+            <img class="icon16" alt="" th:src="@{/images/icon-16.svg}" />
+
+            <div class="category-name6">
+              <h3 class="design5" th:text="${categories[6].name}"></h3>
+              <div class="jobs-available12">
+                <div class="jobs-available13" th:text="${categories[6].quantity + ' jobs available'}"></div>
+                <img class="icon17" alt="" th:src="@{/images/icon-5.svg}" />
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="job-category7">
+            <a class="fill-div" th:href="@{/findjobs(filterCategory=${categories[7].name})}">
+            <img class="icon18" alt="" th:src="@{/images/game.jpg}" />
+
+            <div class="category-name7">
+              <h3 class="design6" th:text="${categories[7].name}"></h3>
+              <div class="jobs-available14">
+                <div class="jobs-available15" th:text="${categories[7].quantity + ' jobs available'}"></div>
+                <img class="icon19" alt="" th:src="@{/images/icon-5.svg}" />
+              </div>
+            </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="landing-page-featured-jobs">
+      <div class="title4">
+        <h1 class="featured-jobs">
+          <span>Featured</span>
+          <span class="span"> </span>
+          <span class="jobs1">jobs</span>
+        </h1>
+        <div class="button-container" >
+          <a class="button8" th:href="@{findjobs}">
+            <div class="show-all-jobs1">Show all jobs</div>
+            <div class="icon-wrapper3">
+              <img class="icon33" alt="" th:src="@{/images/icon-33.svg}" />
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="list">
+        <div class="row-11">
+          <div class="job-list">
+            <a class="fill-div" th:href="@{/jobdetails(id=${posts[0].getId()})}">
+            <div class="header1">
+              <img class="company-logo-icon1" alt="" th:src="@{/company/image/{id}(id=${posts[0].getCompany().id})}" />
+
+              <button class="tag">
+                <div class="jobs2" th:text="${posts[0].level.name}"></div>
+              </button>
+            </div>
+            <div class="title5">
+              <div class="email-marketing" th:text="${posts[0].categories[0].name}"></div>
+              <div class="job-title-label">
+                <div class="revolut" th:text="${posts[0].getCompany().getName()}"></div>
+                <div class="company-logo-wrapper">
+                  <div class="company-logo"></div>
+                </div>
+                <div class="madrid-spain" th:text="${posts[0].location.name}"></div>
+              </div>
+            </div>
+            <div class="revolut-is-looking" th:text="${#strings.abbreviate(posts[0].content, 50)}">
+            </div>
+            <div class="right-column">
+              <button class="label">
+                <div class="caption10" th:text="${posts[0].categories[0].name}"></div>
+              </button>
+              <button class="label1">
+                <div class="caption11" th:text="${posts[0].programingLanguages[0].name}" ></div>
+              </button>
+            </div>
+            </a>
+          </div>
+          <div class="job-list1">
+            <a class="fill-div" th:href="@{/jobdetails(id=${posts[1].getId()})}">
+            <div class="header2">
+              <img class="company-logo-icon2" alt="" th:src="@{/company/image/{id}(id=${posts[1].getCompany().id})}" />
+
+              <button class="tag1">
+                <div class="jobs3" th:text="${posts[1].level.name}"></div>
+              </button>
+            </div>
+            <div class="title6">
+              <div class="email-marketing1" th:text="${posts[1].categories[0].name}"></div>
+              <div class="revolut-parent">
+                <div class="revolut1"  th:text="${posts[1].getCompany().getName()}"></div>
+                <div class="left-column-wrapper">
+                  <div class="left-column"></div>
+                </div>
+                <div class="madrid-spain1" th:text="${posts[1].location.name}"></div>
+              </div>
+            </div>
+            <div class="revolut-is-looking1"  th:text="${#strings.abbreviate(posts[1].content, 50)}">
+            </div>
+            <div class="label-parent">
+              <button class="label2">
+                <div class="caption12" th:text="${posts[1].categories[0].name}"></div>
+              </button>
+              <button class="label3">
+                <div class="label-child"></div>
+                <div class="caption13" th:text="${posts[1].programingLanguages[0].name}"></div>
+              </button>
+            </div>
+            </a>
+          </div>
+          <div class="job-list2">
+            <a class="fill-div" th:href="@{/jobdetails(id=${posts[2].getId()})}">
+            <div class="header3">
+              <img class="company-logo-icon3" alt="" th:src="@{/company/image/{id}(id=${posts[2].getCompany().id})}" />
+
+              <button class="tag2">
+                <div class="jobs4" th:text="${posts[2].level.name}"></div>
+              </button>
+            </div>
+            <div class="title7">
+              <div class="email-marketing2" th:text="${posts[2].categories[0].name}"></div>
+              <div class="revolut-group">
+                <div class="revolut2"  th:text="${posts[2].getCompany().getName()}"></div>
+                <div class="ellipse-wrapper">
+                  <div class="ellipse-div"></div>
+                </div>
+                <div class="madrid-spain2" th:text="${posts[2].location.name}"></div>
+              </div>
+            </div>
+            <div class="revolut-is-looking2" th:text="${#strings.abbreviate(posts[2].content, 50)}">
+            </div>
+            <button class="label-group">
+              <button class="label4">
+                <div class="caption14" th:text="${posts[2].categories[0].name}"></div>
+              </button>
+              <div class="label5">
+                <div class="caption15" th:text="${posts[2].programingLanguages[0].name}"></div>
+              </div>
+            </button>
+            </a>
+          </div>
+          <div class="job-list3">
+            <a class="fill-div" th:href="@{/jobdetails(id=${posts[3].getId()})}">
+            <div class="header4">
+              <img class="company-logo-icon4" alt="" th:src="@{/company/image/{id}(id=${posts[3].getCompany().id})}" />
+
+              <button class="tag3">
+                <div class="jobs5" th:text="${posts[3].level.name}"></div>
+              </button>
+            </div>
+            <div class="title8">
+              <div class="email-marketing3" th:text="${posts[3].categories[0].name}"></div>
+              <div class="revolut-container">
+                <div class="revolut3"  th:text="${posts[3].getCompany().getName()}"></div>
+                <div class="ellipse-container">
+                  <div class="frame-child4"></div>
+                </div>
+                <div class="madrid-spain3" th:text="${posts[3].location.name}"></div>
+              </div>
+            </div>
+            <div class="revolut-is-looking3" th:text="${#strings.abbreviate(posts[3].content, 50)}" >
+            </div>
+            <button class="label-container">
+              <div class="label6">
+                <div class="caption16" th:text="${posts[3].categories[0].name}"></div>
+              </div>
+              <button class="label7">
+                <div class="caption17" th:text="${posts[3].programingLanguages[0].name}"></div>
+              </button>
+            </button>
+            </a>
+          </div>
+        </div>
+        <div class="row-21">
+          <div class="job-list4">
+            <a class="fill-div" th:href="@{/jobdetails(id=${posts[4].getId()})}">
+            <div class="header5">
+              <img class="company-logo-icon5" alt="" th:src="@{/company/image/{id}(id=${posts[4].getCompany().id})}" />
+
+              <button class="tag4">
+                <div class="jobs6" th:text="${posts[4].level.name}"></div>
+              </button>
+            </div>
+            <div class="title9">
+              <div class="email-marketing4" th:text="${posts[4].categories[0].name}"></div>
+              <div class="revolut-parent1">
+                <div class="revolut4"  th:text="${posts[4].getCompany().getName()}"></div>
+                <div class="ellipse-frame">
+                  <div class="frame-child5"></div>
+                </div>
+                <div class="madrid-spain4" th:text="${posts[4].location.name}"></div>
+              </div>
+            </div>
+            <div class="revolut-is-looking4" th:text="${#strings.abbreviate(posts[4].content, 50)}">
+            </div>
+            <div class="divider3">
+              <button class="label8">
+                <div class="caption18" th:text="${posts[4].categories[0].name}"></div>
+              </button>
+              <button class="label9">
+                <div class="caption19" th:text="${posts[4].programingLanguages[0].name}"></div>
+              </button>
+            </div>
+            </a>
+          </div>
+          <div class="job-list5">
+            <a class="fill-div" th:href="@{/jobdetails(id=${posts[5].getId()})}">
+            <div class="header6">
+              <button class="company-logo1">
+                <div class="container-logo-title"></div>
+                <img class="v-6ghzad-400x400-icon" alt="" th:src="@{/company/image/{id}(id=${posts[5].getCompany().id})}" />
+              </button>
+              <button class="tag5">
+                <div class="jobs7" th:text="${posts[5].level.name}"></div>
+              </button>
+            </div>
+            <div class="title10">
+              <div class="email-marketing5" th:text="${posts[5].categories[0].name}"></div>
+              <div class="revolut-parent2">
+                <div class="revolut5"  th:text="${posts[5].getCompany().getName()}"></div>
+                <div class="ellipse-wrapper1">
+                  <div class="frame-child6"></div>
+                </div>
+                <div class="madrid-spain5" th:text="${posts[5].location.name}"></div>
+              </div>
+            </div>
+            <div class="revolut-is-looking5" th:text="${#strings.abbreviate(posts[5].content, 50)}">
+            </div>
+            <div class="label-parent1">
+              <button class="label10">
+                <div class="caption20" th:text="${posts[5].categories[0].name}"></div>
+              </button>
+              <button class="label11">
+                <div class="label-item"></div>
+                <div class="caption21" th:text="${posts[5].programingLanguages[0].name}"></div>
+              </button>
+            </div>
+            </a>
+          </div>
+          <div class="job-list6">
+            <a class="fill-div" th:href="@{/jobdetails(id=${posts[6].getId()})}">
+            <div class="header7">
+              <img class="company-logo-icon6" alt="" th:src="@{/company/image/{id}(id=${posts[6].getCompany().id})}" />
+
+              <button class="tag6">
+                <div class="jobs8" th:text="${posts[6].level.name}"></div>
+              </button>
+            </div>
+            <div class="title11">
+              <div class="email-marketing6" th:text="${posts[6].categories[0].name}"></div>
+              <div class="revolut-parent3">
+                <div class="revolut6"  th:text="${posts[6].getCompany().getName()}"></div>
+                <div class="ellipse-wrapper2">
+                  <div class="frame-child7"></div>
+                </div>
+                <div class="madrid-spain6" th:text="${posts[6].location.name}"></div>
+              </div>
+            </div>
+            <div class="revolut-is-looking6" th:text="${#strings.abbreviate(posts[6].content, 50)}">
+            </div>
+            <button class="frame-button">
+              <div class="label12">
+                <div class="caption22" th:text="${posts[6].categories[0].name}"></div>
+              </div>
+              <div class="label13">
+                <div class="caption23" th:text="${posts[6].programingLanguages[0].name}"></div>
+              </div>
+            </button>
+            </a>
+          </div>
+          <div class="job-list7">
+            <a class="fill-div" th:href="@{/jobdetails(id=${posts[7].getId()})}">
+            <div class="header8">
+              <img class="company-logo-icon7" alt="" th:src="@{/company/image/{id}(id=${posts[7].getCompany().id})}" />
+
+              <button class="tag7">
+                <div class="jobs9" th:text="${posts[7].level.name}"></div>
+              </button>
+            </div>
+            <div class="title12">
+              <div class="email-marketing7" th:text="${posts[7].categories[0].name}"></div>
+              <div class="revolut-parent4">
+                <div class="revolut7"  th:text="${posts[7].getCompany().getName()}"></div>
+                <div class="ellipse-wrapper3">
+                  <div class="frame-child8"></div>
+                </div>
+                <div class="madrid-spain7" th:text="${posts[7].location.name}"></div>
+              </div>
+            </div>
+            <div class="revolut-is-looking7"  th:text="${#strings.abbreviate(posts[7].content, 50)}" >
+            </div>
+            <button class="label-parent2">
+              <div class="label14">
+                <div class="caption24" th:text="${posts[7].categories[0].name}"></div>
+              </div>
+              <div class="label15">
+                <div class="label-inner"></div>
+                <div class="caption25" th:text="${posts[7].programingLanguages[0].name}"></div>
+              </div>
+            </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="landing-page-latest-job-open">
+      <img class="bg-icon" alt="" />
+
+      <img class="pattern-icon1" alt="" />
+
+      <div class="content1">
+        <div class="title13">
+          <h1 class="latest-jobs-open-container">
+            <span>Latest</span>
+            <span class="span1"> </span>
+            <span class="jobs-open">jobs open</span>
+          </h1>
+          <div class="button-frame">
+            <a class="button9" th:href="@{findjobs}">
+              <div class="show-all-jobs2">Show all jobs</div>
+              <div class="icon-wrapper4">
+                <img class="icon34" alt="" th:src="@{/images/icon-33.svg}" />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="list1">
+          <div class="col-1">
+            <div class="job-list8">
+              <img class="company-logo-icon8" alt=""  th:src="@{/company/image/{id}(id=${posts_newest[0].getCompany().id})}" />
+            <div class="job-title1">
+              <a class="fill-div" th:href="@{/jobdetails(id=${posts_newest[0].getId()})}">
+                <div class="social-media-assistant"  th:text="${posts_newest[0].categories[0].name + ' Engineer'}"></div>
+                <div class="company-name-location-job">
+                  <div class="nomad" th:text="${posts_newest[0].getCompany().getName()}"></div>
+                  <div class="logo-wrapper">
+                    <div class="logo1"></div>
+                  </div>
+                  <div class="paris-france" th:text="${posts_newest[0].location.name}"></div>
+                </div>
+                <div class="label16">
+                  <button class="label17">
+                    <div class="caption26" th:text="${posts_newest[0].level.name}"></div>
+                  </button>
+                  <div class="job-list-container"></div>
+                  <button class="label18">
+                    <div class="label-child1"></div>
+                    <div class="caption27" th:text="${posts_newest[0].categories[0].name}"></div>
+                  </button>
+                  <button class="label19">
+                    <div class="label-child2"></div>
+                    <div  class="caption28" th:text="${posts_newest[0].programingLanguages[0].name}"></div>
+                  </button>
+                </div>
+              </a>
+              </div>
+            </div>
+            <div class="job-list9">
+              <img class="company-logo-icon9" alt="" th:src="@{/company/image/{id}(id=${posts_newest[1].getCompany().id})}" />
+
+              <div class="job-title2">
+                <a class="fill-div" th:href="@{/jobdetails(id=${posts_newest[1].getId()})}">
+
+                <div class="social-media-assistant1" th:text="${posts_newest[1].categories[1] + ' Engineer'}"></div>
+                <div class="company-name-location-job1">
+                  <div class="nomad1" th:text="${posts_newest[1].getCompany().getName()}" ></div>
+                  <div class="company-name-location-job-inner">
+                    <div class="frame-child9"></div>
+                  </div>
+                  <div class="paris-france1" th:text="${posts_newest[1].location.name}" ></div>
+                </div>
+                <div class="label20">
+                  <button class="label21">
+                    <div class="caption29" th:text="${posts_newest[1].level.name}"  ></div>
+                  </button>
+                  <div class="paris-france2"></div>
+                  <button class="label22">
+                    <div class="label-child3"></div>
+                    <div class="caption30" th:text="${posts_newest[1].categories[0].name}"></div>
+                  </button>
+                  <button class="label23">
+                    <div class="label-child4"></div>
+                    <div class="caption31"  th:text="${posts_newest[1].programingLanguages[0].name}"></div>
+                  </button>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="job-list10">
+              <img class="company-logo-icon10" alt="" th:src="@{/company/image/{id}(id=${posts_newest[2].getCompany().id})}" />
+
+              <div class="job-title3">
+                <a class="fill-div" th:href="@{/jobdetails(id=${posts_newest[2].getId()})}">
+                <div class="social-media-assistant2" th:text="${posts_newest[2].categories[0].name + ' Engineer'}"></div>
+                <div class="company-name-location-job2">
+                  <div class="nomad2" th:text="${posts_newest[2].getCompany().getName()}"></div>
+                  <div class="company-name-location-job-child">
+                    <div class="frame-child10"></div>
+                  </div>
+                  <div class="paris-france3" th:text="${posts_newest[2].location.name}"> </div>
+                </div>
+                <div class="label24">
+                  <button class="label25">
+                    <div class="caption32" th:text="${posts_newest[2].level.name}"></div>
+                  </button>
+                  <div class="label-child5"></div>
+                  <button class="label26">
+                    <div class="label-child6"></div>
+                    <div class="caption33" th:text="${posts_newest[2].categories[0].name}"></div>
+                  </button>
+                  <button class="label27">
+                    <div class="label-child7"></div>
+                    <div class="caption34" th:text="${posts[2].programingLanguages[0].name}"></div>
+                  </button>
+                </div>
+                  </a>
+              </div>
+            </div>
+            <div class="job-list11">
+              <img class="company-logo-icon11" alt="" th:src="@{/company/image/{id}(id=${posts_newest[3].getCompany().id})}" />
+
+              <div class="job-title4">
+                <a class="fill-div" th:href="@{/jobdetails(id=${posts_newest[3].getId()})}">
+                <div class="social-media-assistant3" th:text="${posts_newest[3].categories[0].name + ' Engineer'}" ></div>
+                <div class="company-name-location-job3">
+                  <div class="nomad3" th:text="${posts_newest[3].getCompany().getName()}"></div>
+                  <div class="company-name-location-job-inner1">
+                    <div class="frame-child11"></div>
+                  </div>
+                  <div class="paris-france4" th:text="${posts_newest[3].location.name}"></div>
+                </div>
+                <div class="label28">
+                  <button class="label29">
+                    <div class="caption35" th:text="${posts_newest[3].level.name}"></div>
+                  </button>
+                  <div class="label-child8"></div>
+                  <button class="label30">
+                    <div class="label-child9"></div>
+                    <div class="caption36" th:text="${posts_newest[3].categories[0].name}"></div>
+                  </button>
+                  <button class="label31">
+                    <div class="label-child10"></div>
+                    <div class="caption37" th:text="${posts_newest[3].programingLanguages[0].name}"></div>
+                  </button>
+                </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="job-list12">
+              <img class="company-logo-icon12" alt="" th:src="@{/company/image/{id}(id=${posts_newest[4].getCompany().id})}"/>
+
+              <div class="job-title5">
+                <a class="fill-div" th:href="@{/jobdetails(id=${posts_newest[4].getId()})}">
+                <div class="social-media-assistant4" th:text="${posts_newest[4].categories[0].name + 'Engineer'}"></div>
+                <div class="company-name-location-job4">
+                  <div class="nomad4" th:text="${posts_newest[4].getCompany().getName()}"></div>
+                  <div class="company-name-location-job-inner2">
+                    <div class="frame-child12"></div>
+                  </div>
+                  <div class="paris-france5" th:text="${posts_newest[4].location.name}"></div>
+                </div>
+                <div class="label32">
+                  <button class="label33">
+                    <div class="caption38" th:text="${posts_newest[4].level.name}"></div>
+                  </button>
+                  <div class="label-child11"></div>
+                  <button class="label34">
+                    <div class="label-child12"></div>
+                    <div class="caption39" th:text="${posts_newest[4].categories[0].name}"></div>
+                  </button>
+                  <button class="label35">
+                    <div class="label-child13"></div>
+                    <div class="caption40" th:text="${posts_newest[4].programingLanguages[0].name}"></div>
+                  </button>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="job-list13">
+              <img class="company-logo-icon13" alt="" th:src="@{/company/image/{id}(id=${posts_newest[5].getCompany().id})}" />
+
+              <div class="job-title6">
+                <a class="fill-div" th:href="@{/jobdetails(id=${posts_newest[5].getId()})}">
+                <div class="social-media-assistant5" th:text="${posts_newest[5].categories[0].name + ' Engineer'}"></div>
+                <div class="company-name-location-job5">
+                  <div class="nomad5" th:text="${posts_newest[5].getCompany().getName()}"></div>
+                  <div class="company-name-location-job-inner3">
+                    <div class="frame-child13"></div>
+                  </div>
+                  <div class="paris-france6" th:text="${posts_newest[5].location.name}"></div>
+                </div>
+                <div class="label36">
+                  <button class="label37">
+                    <div class="caption41" th:text="${posts_newest[5].level.name}"></div>
+                  </button>
+                  <div class="label-child14"></div>
+                  <button class="label38">
+                    <div class="label-child15"></div>
+                    <div class="caption42" th:text="${posts_newest[5].categories[0].name}"></div>
+                  </button>
+                  <button class="label39">
+                    <div class="label-child16"></div>
+                    <div class="caption43" th:text="${posts_newest[5].programingLanguages[0].name}"></div>
+                  </button>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="job-list14">
+              <img class="company-logo-icon14" alt="" th:src="@{/company/image/{id}(id=${posts_newest[6].getCompany().id})}" />
+
+              <div class="job-title7">
+                <a class="fill-div" th:href="@{/jobdetails(id=${posts_newest[6].getId()})}">
+                <div class="social-media-assistant6" th:text="${posts_newest[6].categories[0].name + ' Engineer'}">
+                </div>
+                <div class="company-name-location-job6">
+                  <div class="nomad6" th:text="${posts_newest[6].getCompany().getName()}"></div>
+                  <div class="company-name-location-job-inner4">
+                    <div class="frame-child14"></div>
+                  </div>
+                  <div class="paris-france7" th:text="${posts_newest[6].location.name}"></div>
+                </div>
+                <div class="label40">
+                  <button class="label41">
+                    <div class="caption44" th:text="${posts_newest[6].level.name}"></div>
+                  </button>
+                  <div class="label-child17"></div>
+                  <button class="label42">
+                    <div class="label-child18"></div>
+                    <div class="caption45" th:text="${posts_newest[6].categories[0].name}"></div>
+                  </button>
+                  <button class="label43">
+                    <div class="label-child19"></div>
+                    <div class="caption46" th:text="${posts_newest[6].programingLanguages[0].name}"></div>
+                  </button>
+                </div>
+                </a>
+              </div>
+            </div>
+            <div class="job-list15">
+              <img class="company-logo-icon15" alt="" th:src="@{/company/image/{id}(id=${posts_newest[7].getCompany().id})}" />
+              <div class="job-title8">
+                <a class="fill-div" th:href="@{/jobdetails(id=${posts_newest[7].getId()})}">
+                <div class="social-media-assistant7" th:text="${posts_newest[7].categories[0].name + ' Engineer'}"></div>
+                <div class="company-name-location-job7">
+                  <div class="nomad7" th:text="${posts_newest[7].getCompany().getName()}"></div>
+                  <div class="company-name-location-job-inner5">
+                    <div class="frame-child15"></div>
+                  </div>
+                  <div class="paris-france8" th:text="${posts_newest[7].location.name}"></div>
+                </div>
+                <div class="label44">
+                  <button class="label45">
+                    <div class="caption47" th:text="${posts_newest[7].level.name}"></div>
+                  </button>
+                  <div class="label-child20"></div>
+                  <button class="label46">
+                    <div class="label-child21"></div>
+                    <div class="caption48" th:text="${posts_newest[7].categories[0].name}"></div>
+                  </button>
+                  <button class="label47">
+                    <div class="label-child22"></div>
+                    <div class="caption49" th:text="${posts_newest[7].programingLanguages[0].name}"></div>
+                  </button>
+                </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="variable-store">
+        <div class="control-structure">
+          <div class="left">
+            <div class="logo-22">
+              <div class="assignment-operator2">
+                <img class="input-button-icon" alt="" th:src="@{/images/frame-3-3.svg}" />
+              </div>
+              <h3 class="jobhuntly3">JobHuntly</h3>
+            </div>
+            <div class="great-platform-for1">
+              Great platform for the job seeker that passionate about
+              startups. Find your dream job easier.
+            </div>
+          </div>
+        </div>
+        <div class="menu5">
+          <div class="first-column7">
+            <div class="statement-list">
+              <div class="about">About</div>
+            </div>
+            <div class="description">
+              <div class="companies">Companies</div>
+              <div class="pricing">Pricing</div>
+              <div class="terms">Terms</div>
+              <div class="advice">Advice</div>
+              <div class="privacy-policy">Privacy Policy</div>
+            </div>
+          </div>
+          <div class="second-column">
+            <div class="resources">Resources</div>
+            <div class="description1">
+              <div class="help-docs">Help Docs</div>
+              <div class="guide">Guide</div>
+              <div class="updates">Updates</div>
+              <div class="contact-us">Contact Us</div>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <div class="get-job-notifications-parent">
+            <div class="get-job-notifications">Get job notifications</div>
+            <div class="the-latest-job">
+              The latest job news, articles, sent to your inbox weekly.
+            </div>
+          </div>
+          <div class="subscribe">
+            <div class="input-button">
+              <div class="input">
+                <input class="this-is-placeholder" placeholder="Email Address" type="text" />
+              </div>
+              <button class="button10">
+                <b class="caption50">Subscribe</b>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lock-release">
+        <img class="divider-icon" alt="" th:src="@{/images/divider.svg}" />
+
+        <div class="futures">
+          <div class="promises">
+            <div class="copyright">
+              <div class="jobhuntly-all-rights">
+                2024 @ JobHuntly. All rights reserved.
+              </div>
+            </div>
+          </div>
+          <div class="social-media-icons">
+            <img class="facebook-icon" loading="lazy" alt="" th:src="@{/images/facebook.svg}" />
+
+            <img class="instagram-icon" loading="lazy" alt="" th:src="@{/images/instagram.svg}" />
+
+            <img class="dribbble-icon" loading="lazy" alt="" th:src="@{/images/dribbble.svg}" />
+
+            <img class="linkedin-icon" alt="" th:src="@{/images/linkedin.svg}" />
+
+            <img class="twitter-icon" alt="" th:src="@{/images/twitter.svg}" />
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>

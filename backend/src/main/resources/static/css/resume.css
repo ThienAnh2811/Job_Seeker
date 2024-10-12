@@ -1,0 +1,606 @@
+.child2 {
+    height: 542px;
+    width: 710.5px;
+    position: absolute;
+    margin: 0 !important;
+    top: -220px;
+    right: -255.5px;
+    object-fit: contain;
+}
+.image-265-icon {
+    height: 76px;
+    width: 76px;
+    position: relative;
+    border-radius: 250px;
+    object-fit: cover;
+}
+.image-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-6xs);
+}
+.experience {
+    position: relative;
+    text-transform: capitalize;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 59px;
+}
+.education-label {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 292px;
+}
+.education,
+.languages1,
+.links9,
+.skills1 {
+    position: relative;
+    text-transform: capitalize;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 53px;
+}
+.languages1,
+.links9,
+.skills1 {
+    min-width: 58px;
+}
+.links9,
+.skills1 {
+    min-width: 28px;
+}
+.image-holder-parent,
+.languages-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.languages-parent {
+    gap: var(--gap-11xl);
+}
+.image-holder-parent {
+    gap: 84px;
+}
+.div101,
+.ricktanggmailcom,
+.san-francisco-california {
+    position: relative;
+    display: inline-block;
+    min-width: 94px;
+    z-index: 1;
+}
+.div101,
+.ricktanggmailcom {
+    min-width: 59px;
+}
+.ricktanggmailcom {
+    min-width: 77px;
+    white-space: nowrap;
+}
+.designer-info,
+.university-info {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-8xs);
+}
+.designer-info {
+    flex-direction: column;
+    padding: 0 0 var(--padding-2xs);
+    gap: var(--gap-11xs);
+    font-size: var(--font-size-5xs);
+    color: var(--color-gray-200);
+}
+.rick-tang-product,
+.uxui-specialist-focused {
+    margin: 0;
+    position: relative;
+    font-family: inherit;
+    z-index: 1;
+}
+.rick-tang-product {
+    font-size: inherit;
+    text-transform: capitalize;
+    font-weight: 700;
+}
+.uxui-specialist-focused {
+    align-self: stretch;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--color-gray-300);
+}
+.english-italian-bg {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-mid);
+    gap: var(--gap-5xs);
+    font-size: 15px;
+}
+.mar-2015-,
+.product-designer-uber {
+    position: relative;
+    display: inline-block;
+    min-width: 114px;
+    z-index: 1;
+}
+.mar-2015- {
+    font-size: var(--font-size-4xs);
+    color: var(--color-gray-300);
+    min-width: 82px;
+}
+.product-design {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-8xs);
+}
+.designed-safety-focused-experi1,
+.physical-space-problem {
+    margin-bottom: 0;
+}
+.designed-safety-focused-experi {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding-left: var(--padding-xs);
+}
+.designed-safety-focused-experi-container {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--font-size-4xs);
+    line-height: 13px;
+    color: var(--color-gray-300);
+    z-index: 1;
+}
+.rider-safety-exp {
+    width: 299px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-6xs);
+    box-sizing: border-box;
+    gap: var(--gap-5xs);
+}
+.dec-2013-,
+.product-designer-ifttt {
+    position: relative;
+    display: inline-block;
+}
+.product-designer-ifttt {
+    min-width: 119px;
+    z-index: 1;
+}
+.dec-2013- {
+    font-size: var(--font-size-4xs);
+    color: var(--color-gray-300);
+    min-width: 90px;
+}
+.product-designer-ifttt-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-8xs);
+}
+.designed-both-consumer,
+.product-and-system {
+    margin-bottom: 0;
+}
+.product-and-system-design-for {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding-left: var(--padding-xs);
+}
+.product-and-system-container {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--font-size-4xs);
+    line-height: 13px;
+    color: var(--color-gray-300);
+}
+.rider-safety-exp1 {
+    width: 299px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-6xs);
+    box-sizing: border-box;
+    gap: var(--gap-5xs);
+}
+.june-2013-,
+.product-designer-facebook {
+    position: relative;
+}
+.june-2013- {
+    font-size: var(--font-size-4xs);
+    color: var(--color-gray-300);
+    display: inline-block;
+    min-width: 94px;
+}
+.product-designer-facebook-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-8xs);
+}
+.designer-and-prototyped,
+.worked-with-privacy {
+    margin-bottom: 0;
+}
+.designer-and-prototyped-intern {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding-left: var(--padding-xs);
+}
+.designer-and-prototyped-container {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--font-size-4xs);
+    line-height: 13px;
+    color: var(--color-gray-300);
+}
+.rider-safety-exp2 {
+    width: 299px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-6xs);
+    box-sizing: border-box;
+    gap: var(--gap-5xs);
+}
+.june-2012-,
+.uxui-design-intern {
+    position: relative;
+}
+.june-2012- {
+    font-size: var(--font-size-4xs);
+    color: var(--color-gray-300);
+    display: inline-block;
+    min-width: 94px;
+}
+.uxui-design-intern-google-ma-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-8xs);
+}
+.contributed-to-maps,
+.designed-and-prototyped {
+    margin-bottom: 0;
+}
+.contributed-to-maps-on-ios-wir {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    padding-left: var(--padding-xs);
+}
+.contributed-to-maps-container {
+    align-self: stretch;
+    position: relative;
+    font-size: var(--font-size-4xs);
+    line-height: 13px;
+    color: var(--color-gray-300);
+}
+.rider-safety-exp3 {
+    width: 299px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-mid);
+    box-sizing: border-box;
+    gap: var(--gap-5xs);
+}
+.rhode-island-school {
+    position: relative;
+}
+.bfa-industrial-design {
+    position: relative;
+    font-size: var(--font-size-4xs);
+    color: var(--color-gray-300);
+}
+.linked-in-dribbble-behance {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--gap-9xs);
+}
+.brown-university {
+    position: relative;
+    display: inline-block;
+    min-width: 84px;
+}
+.interdisciplinary-studies-sep {
+    position: relative;
+    font-size: var(--font-size-4xs);
+    color: var(--color-gray-300);
+}
+.brown-university-parent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-lgi);
+    gap: var(--gap-9xs);
+}
+.english-c2 {
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    min-width: 48px;
+}
+.icon492 {
+    width: 0.7px;
+    height: 8.4px;
+    position: relative;
+}
+.wrapper9 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-12xs) 0 0;
+}
+.italian-b2 {
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    min-width: 42px;
+}
+.english-c2-parent {
+    width: 105px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 var(--padding-mid);
+    box-sizing: border-box;
+    gap: 7.2px;
+    font-size: var(--font-size-4xs);
+}
+.figma {
+    position: relative;
+    display: inline-block;
+    min-width: 26px;
+}
+.icon493 {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 0.7px;
+    height: 8.4px;
+}
+.sketch {
+    position: absolute;
+    top: 0;
+    left: 8.7px;
+    display: inline-block;
+    min-width: 30px;
+}
+.parent9 {
+    height: 11px;
+    width: 45.4px;
+    position: relative;
+    flex-shrink: 0;
+    debug_commit: 1de1738;
+}
+.icon494 {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 0.7px;
+    height: 8.4px;
+}
+.photoshop {
+    position: absolute;
+    top: 0;
+    left: 8.8px;
+    display: inline-block;
+    min-width: 46px;
+}
+.parent10 {
+    height: 11px;
+    flex: 1;
+    position: relative;
+    flex-shrink: 0;
+    debug_commit: 1de1738;
+    margin-left: -0.7px;
+}
+.icon495,
+.icon496 {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 0.7px;
+    height: 8.4px;
+}
+.icon496 {
+    left: 56.7px;
+}
+.illustrator {
+    position: absolute;
+    top: 0;
+    left: 8.7px;
+    display: inline-block;
+    min-width: 41px;
+}
+.parent11 {
+    height: 11px;
+    flex: 1;
+    position: relative;
+    flex-shrink: 0;
+    debug_commit: 1de1738;
+    margin-left: -0.7px;
+}
+.icon497 {
+    position: absolute;
+    top: 2px;
+    left: 57.7px;
+    width: 0.7px;
+    height: 8.4px;
+}
+.adobe-xd {
+    position: absolute;
+    top: 0;
+    left: 8.7px;
+    display: inline-block;
+    min-width: 43px;
+}
+.parent12 {
+    height: 11px;
+    flex: 1;
+    position: relative;
+    flex-shrink: 0;
+    debug_commit: 1de1738;
+    margin-left: -0.7px;
+}
+.figma-parent,
+.frame-parent44 {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.frame-parent44 {
+    flex: 1;
+}
+.figma-parent {
+    align-self: stretch;
+    gap: var(--gap-5xs);
+}
+.linkedin {
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    min-width: 36px;
+}
+.icon498 {
+    width: 0.7px;
+    height: 8.4px;
+    position: relative;
+}
+.wrapper10 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-12xs) 0 0;
+}
+.dribbble {
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    min-width: 37px;
+}
+.icon499 {
+    width: 0.7px;
+    height: 8.4px;
+    position: relative;
+}
+.wrapper11 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: var(--padding-12xs) 0 0;
+}
+.behance {
+    flex: 1;
+    position: relative;
+    display: inline-block;
+    min-width: 38px;
+}
+.frame-parent43,
+.linkedin-parent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.linkedin-parent {
+    width: 145px;
+    flex-direction: row;
+    gap: var(--gap-4xs-2);
+}
+.frame-parent43 {
+    flex: 1;
+    flex-direction: column;
+    gap: var(--gap-13xl);
+}
+.principle {
+    position: relative;
+    display: inline-block;
+    min-width: 37px;
+}
+.frame-parent42 {
+    width: 300.6px;
+    flex-direction: row;
+    gap: var(--gap-5xs);
+    font-size: var(--font-size-4xs);
+}
+.div100,
+.frame-parent42,
+.p-d-u-bber {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.p-d-u-bber {
+    flex: 1;
+    flex-direction: column;
+    gap: var(--gap-smi);
+    max-width: calc(100% - 163px);
+    font-size: var(--font-size-3xs);
+    color: var(--color-black1);
+}
+.div100 {
+    width: 100%;
+    position: relative;
+    background-color: var(--color-white);
+    overflow: hidden;
+    flex-direction: row;
+    padding: var(--padding-26xl);
+    box-sizing: border-box;
+    gap: 87px;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: left;
+    font-size: var(--font-size-2xs);
+    color: var(--color-gray-100);
+    font-family: var(--body-small-regular);
+}
+@media screen and (max-width: 450px) {
+    .image-holder-parent {
+        display: none;
+    }
+    .frame-parent43 {
+        gap: var(--gap-base);
+    }
+    .p-d-u-bber {
+        max-width: 100%;
+    }
+    .div100 {
+        gap: var(--gap-24xl);
+        padding-left: var(--padding-xl);
+        padding-right: var(--padding-xl);
+        box-sizing: border-box;
+    }
+}

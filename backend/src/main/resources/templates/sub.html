@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1, width=device-width" />
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script> <!-- Add this line -->
+  <link rel="stylesheet" th:href="@{/css/global.css}" />
+  <link rel="stylesheet" th:href="@{/css/find-jobs.css}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap" />
+</head>
+
+<body>
+  <script th:src="@{/js/find-jobs.js}"></script> <!-- Move this line to here -->
+  <div class="find-jobs">
+    <section class="header-2-desktop">
+      <img class="bg-icon3" alt="" th:src="@{/images/bg.svg}" />
+
+      <header class="top-nav3">
+        <div class="menu12">
+          <div class="logo-wrapper1">
+            <div class="logo4">
+              <div class="logo-13">
+                <div class="logo-1-child">
+                  <img class="frame-child57" alt="" th:src="@{/images/frame-3.svg}" />
+                </div>
+                <h3 class="jobhuntly12">JobHuntly</h3>
+              </div>
+              <div class="logo-27">
+                <div class="logo-2-inner1">
+                  <img class="frame-child58" alt="" th:src="@{/images/frame-3-13.svg}" />
+                </div>
+                <h3 class="jobhuntly13">JobHuntly</h3>
+              </div>
+            </div>
+          </div>
+          <div class="menu13">
+            <div class="top-menu6">
+              <div class="caption135">Find Jobs</div>
+              <div class="fill-finder"></div>
+            </div>
+            <div class="top-menu7">
+              <div class="caption136">Browse Companies</div>
+              <div class="top-menu-child4"></div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons3">
+          <button class="button28">
+            <b class="caption137">Login</b>
+          </button>
+          <div class="proximity-provider">
+            <div class="divider10"></div>
+          </div>
+          <button class="button29">
+            <b class="caption138">Sign Up</b>
+          </button>
+        </div>
+      </header>
+      <div class="skew-shaper">
+        <div class="content7">
+          <div class="reflector">
+            <div class="headline">
+              <div class="headline1">
+                <div class="flip-flopper">
+                  <h1 class="find-your">Find your</h1>
+                  <div class="fade-fader">
+                    <h1 class="dream-job">dream job</h1>
+                    <img class="group-icon2" loading="lazy" alt="" th:src="@{/images/group1.svg}" />
+                  </div>
+                </div>
+                <div class="find-your-next">
+                  Find your next career at companies like
+                  HubSpot, Nike, and Dropbox
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="search1">
+            <div class="search-bar1">
+              <div class="job-title28">
+                <div class="icon-wrapper12">
+                  <img class="icon92" loading="lazy" alt="" th:src="@{/images/icon1.svg}" />
+                </div>
+                <div class="event-emitter">
+                  <input class="job-title-or1" placeholder="Job title or keyword" type="text" />
+
+                  <div class="link-loader"></div>
+                </div>
+              </div>
+              <div class="divider11"></div>
+              <div class="location1">
+                <div class="icon-wrapper13">
+                  <img class="icon93" alt="" th:src="@{/images/icon-110.svg}" />
+                </div>
+                <div class="frame-parent20">
+                  <div class="florence-italy-group">
+                    <div class="florence-italy1">
+                      Florence, Italy
+                    </div>
+                    <div class="transition-transactor">
+                      <img class="icon94" alt="" th:src="@{/images/icon-29.svg}" />
+                    </div>
+                  </div>
+                  <div class="frame-child59"></div>
+                </div>
+              </div>
+              <button class="button30">
+                <b class="caption139">Search</b>
+              </button>
+            </div>
+            <div class="popular-ui">
+              Popular : UI Designer, UX Researcher, Android,
+              Admin
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="landing-page-job-list-desk">
+      <div class="filter">
+        <div class="type-of-employment">
+          <div class="transition-timer">
+            <b class="type-of-employment1">Categories</b>
+            <img class="icon95" alt="" th:src="@{/images/icon-31.svg}" id="showMoreButton" />
+          </div>
+          <div id="moreContent" style="display: none;">
+            <div th:each="category : ${categories}">
+              <div class="checkbox1">
+                <input class="checkboxfalse1" type="checkbox1" />
+                <div class="caption1" th:text="${category.name + ' (' + category.quantity + ')'}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="job-level">
+          <div class="job-level-parent">
+            <b class="job-level1">Job Level</b>
+            <img id="toggleButton" class="icon97" alt="" th:src="@{/images/icon-31.svg}" />
+          </div>
+          <div id="levelsContainer" style="display: none;">
+            <div th:each="level : ${levels}" class="checkbox1">
+              <input class="checkboxfalse1" type="checkbox" />
+              <div class="caption1" th:text="${level.name + ' (' + level.quantity + ')'}"></div>
+            </div>
+          </div>
+        </div>
+        <div class="salary-range">
+          <div class="salary-range-parent">
+            <b class="salary-range1">Salary Range</b>
+            <img id="toggleButtonSalary" class="icon98" alt="" th:src="@{/images/icon-31.svg}" />
+          </div>
+          <div id="salaryContainer" style="display: none;">
+            <div class="checkbox19">
+              <input class="checkboxfalse15" type="checkbox" />
+              <div class="caption158">5M -> 10M </div>
+            </div>
+            <div class="checkbox20">
+              <input class="checkboxfalse16" type="checkbox" />
+              <div class="caption159">10M -> 15M</div>
+            </div>
+            <div class="checkbox21">
+              <input class="checkboxfalse17" type="checkbox" />
+              <div class="caption160">15M -> 20M</div>
+            </div>
+            <div class="checkbox22">
+              <input class="checkboxchecked34" type="checkbox" />
+              <div class="caption161">20M or above</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="job-list34">
+        <div class="headline2">
+          <div class="all-jobs-parent">
+            <h1 class="all-jobs">All Jobs</h1>
+            <div class="showing-73-results">
+              Showing 73 results
+            </div>
+          </div>
+          <div class="filter-wrapper">
+            <div class="filter1">
+              <div class="filter-sort-wrapper">
+                <div class="filter-sort">
+                  <div class="sort-by">Sort by:</div>
+                  <div class="most-relevant-parent">
+                    <div class="most-relevant">
+                      Most relevant
+                    </div>
+                    <div class="iconlylightarrow-down-2-wrapper">
+                      <img class="iconlylightarrow-down-2" alt="" th:src="@{/images/iconlylightarrow--down-2.svg}" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="divider-wrapper1">
+                <div class="divider12"></div>
+              </div>
+              <div class="view-option">
+                <img class="view-icon" loading="lazy" alt="" th:src="@{/images/view.svg}" />
+
+                <img class="view-icon1" alt="" th:src="@{/images/view-1.svg}" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lists">
+          <div th:each="post : ${page}" class="job-list35">
+            <div class="main-content">
+              <img class="company-logo-icon33" loading="lazy" alt="" th:src="@{/images/company-logo2.svg}" />
+
+              <div class="job-title29">
+                <div class="social-media-assistant29" th:text="${post.categories[0].name+' Engineer'}">
+                  <!-- Job title will be inserted here -->
+                </div>
+                <div class="company-name-location-job26">
+                  <div class="nomad27">
+                    Company Name
+                  </div>
+                  <div class="paris-france28" th:text="${post.location.name}">
+                    <!-- Job location will be inserted here -->
+                  </div>
+                </div>
+                <div class="label128">
+                  <button class="label129">
+                    <div class="caption162" th:text="${post.level.name}">
+                      <!-- Job type (e.g., Full-Time) will be inserted here -->
+                    </div>
+                  </button>
+                  <button class="label130">
+                    <div class="caption163" th:text="${post.programingLanguages[0].name}">
+                      <!-- Job category (e.g., Marketing) will be inserted here -->
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="button-parent">
+              <button class="button31">
+                <b class="caption165">Apply</b>
+              </button>
+              <div class="progress-bar-parent">
+                <div class="progress-bar4">
+                  <div class="progress-bar-item"></div>
+                  <div class="progress-bar-inner"></div>
+                  <div class="progress-bar-child1"></div>
+                  <div class="progress-bar-child2"></div>
+                  <div class="progress-bar-child3"></div>
+                </div>
+                <div class="applied-of-10-container2">
+                  <span class="applied2" th:text="${job.applied}">
+                    <!-- Number of applied will be inserted here -->
+                  </span>
+                  <span class="of-10-capacity2">
+                    <span class="span2"> </span>
+                    <span th:text="'of ' + ${job.capacity} + ' capacity'">
+                      <!-- Capacity will be inserted here -->
+                    </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pagination">
+          <a th:if="${jobs.hasPrevious()}" th:href="@{/display(page=${jobs.number - 1})}">Previous</a>
+          <span th:each="i : ${#numbers.sequence(0, jobs.totalPages)}">
+            <a th:href="@{/display(page=${i})}" th:text="${i + 1}">Page number</a>
+          </span>
+          <a th:if="${jobs.hasNext()}" th:href="@{/display(page=${jobs.number + 1})}">Next</a>
+        </div>
+        <!-- <div class="job-list36">
+                        <div class="main-content1">
+                            <img class="company-logo-icon34" alt="" th:src="@{/images/company-logo-16.svg}" />
+
+                            <div class="job-title30">
+                                <div class="social-media-assistant30">
+                                    Brand Designer
+                                </div>
+                                <div class="company-name-location-job27">
+                                    <div class="nomad28">Dropbox</div>
+                                    <div class="company-name-location-job-inner25">
+                                        <div class="frame-child61"></div>
+                                    </div>
+                                    <div class="paris-france29">
+                                        San Fransisco, USA
+                                    </div>
+                                </div>
+                                <div class="label132">
+                                    <button class="label133">
+                                        <div class="caption166">
+                                            Full-Time
+                                        </div>
+                                    </button>
+                                    <div class="label-child71"></div>
+                                    <button class="label134">
+                                        <div class="label-child72"></div>
+                                        <div class="caption167">
+                                            Marketing
+                                        </div>
+                                    </button>
+                                    <button class="label135">
+                                        <div class="label-child73"></div>
+                                        <div class="caption168">Design</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-group">
+                            <button class="button32">
+                                <b class="caption169">Apply</b>
+                            </button>
+                            <div class="progress-bar-group">
+                                <div class="progress-bar5">
+                                    <div class="progress-bar-child4"></div>
+                                    <div class="progress-bar-child5"></div>
+                                    <div class="progress-bar-child6"></div>
+                                    <div class="progress-bar-child7"></div>
+                                    <div class="progress-bar-child8"></div>
+                                </div>
+                                <div class="applied-of-10-container3">
+                                    <span class="applied3">2 applied</span>
+                                    <span class="of-10-capacity3">
+                                        <span class="span3"> </span>
+                                        <span>of 10 capacity</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list37">
+                        <div class="main-content2">
+                            <img class="company-logo-icon35" alt="" th:src="@{/images/company-logo-22.svg}" />
+
+                            <div class="job-title31">
+                                <div class="social-media-assistant31">
+                                    Interactive Developer
+                                </div>
+                                <div class="company-name-location-job28">
+                                    <div class="nomad29">Terraform</div>
+                                    <div class="company-name-location-job-inner26">
+                                        <div class="frame-child62"></div>
+                                    </div>
+                                    <div class="paris-france30">
+                                        Hamburg, Germany
+                                    </div>
+                                </div>
+                                <div class="label136">
+                                    <button class="label137">
+                                        <div class="caption170">
+                                            Full-Time
+                                        </div>
+                                    </button>
+                                    <div class="label-child74"></div>
+                                    <button class="label138">
+                                        <div class="label-child75"></div>
+                                        <div class="caption171">
+                                            Marketing
+                                        </div>
+                                    </button>
+                                    <button class="label139">
+                                        <div class="label-child76"></div>
+                                        <div class="caption172">Design</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-parent1">
+                            <button class="button33">
+                                <b class="caption173">Apply</b>
+                            </button>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar6">
+                                    <div class="progress-bar-child9"></div>
+                                    <div class="progress-bar-child10"></div>
+                                    <div class="progress-bar-child11"></div>
+                                    <div class="progress-bar-child12"></div>
+                                    <div class="progress-bar-child13"></div>
+                                </div>
+                                <div class="applied-of-10-container4">
+                                    <span class="applied4">8 applied</span>
+                                    <span class="of-12-capacity">
+                                        <span class="span4"> </span>
+                                        <span>of 12 capacity</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list38">
+                        <div class="main-content3">
+                            <img class="company-logo-icon36" alt="" th:src="@{/images/company-logo-32@2x.png}" />
+
+                            <div class="job-title32">
+                                <div class="social-media-assistant32">
+                                    Email Marketing
+                                </div>
+                                <div class="company-name-location-job29">
+                                    <div class="nomad30">Revolut</div>
+                                    <div class="company-name-location-job-inner27">
+                                        <div class="frame-child63"></div>
+                                    </div>
+                                    <div class="paris-france31">
+                                        Madrid, Spain
+                                    </div>
+                                </div>
+                                <div class="label140">
+                                    <button class="label141">
+                                        <div class="caption174">
+                                            Full-Time
+                                        </div>
+                                    </button>
+                                    <div class="label-child77"></div>
+                                    <button class="label142">
+                                        <div class="label-child78"></div>
+                                        <div class="caption175">
+                                            Marketing
+                                        </div>
+                                    </button>
+                                    <button class="label143">
+                                        <div class="label-child79"></div>
+                                        <div class="caption176">Design</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-parent2">
+                            <button class="button34">
+                                <b class="caption177">Apply</b>
+                            </button>
+                            <div class="progress-bar-parent1">
+                                <div class="progress-bar7">
+                                    <div class="progress-bar-child14"></div>
+                                    <div class="progress-bar-child15"></div>
+                                    <div class="progress-bar-child16"></div>
+                                    <div class="progress-bar-child17"></div>
+                                    <div class="progress-bar-child18"></div>
+                                </div>
+                                <div class="applied-of-10-container5">
+                                    <span class="applied5">0 applied</span>
+                                    <span class="of-10-capacity4">
+                                        <span class="span5"> </span>
+                                        <span>of 10 capacity</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list39">
+                        <div class="main-content4">
+                            <button class="company-logo6">
+                                <div class="input-processor"></div>
+                                <img class="v-6ghzad-400x400-icon1" alt="" th:src="@{/images/v6ghzad-400x400@2x.png}" />
+                            </button>
+                            <div class="job-title33">
+                                <div class="social-media-assistant33">
+                                    Lead Engineer
+                                </div>
+                                <div class="company-name-location-job30">
+                                    <div class="nomad31">Canva</div>
+                                    <div class="company-name-location-job-inner28">
+                                        <div class="frame-child64"></div>
+                                    </div>
+                                    <div class="paris-france32">
+                                        Ankara, Turkey
+                                    </div>
+                                </div>
+                                <div class="label144">
+                                    <button class="label145">
+                                        <div class="caption178">
+                                            Full-Time
+                                        </div>
+                                    </button>
+                                    <div class="label-child80"></div>
+                                    <button class="label146">
+                                        <div class="label-child81"></div>
+                                        <div class="caption179">
+                                            Marketing
+                                        </div>
+                                    </button>
+                                    <button class="label147">
+                                        <div class="label-child82"></div>
+                                        <div class="caption180">Design</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-parent3">
+                            <button class="button35">
+                                <b class="caption181">Apply</b>
+                            </button>
+                            <div class="progress-bar-parent2">
+                                <div class="progress-bar8">
+                                    <div class="progress-bar-child19"></div>
+                                    <div class="progress-bar-child20"></div>
+                                    <div class="progress-bar-child21"></div>
+                                    <div class="progress-bar-child22"></div>
+                                    <div class="progress-bar-child23"></div>
+                                </div>
+                                <div class="applied-of-10-container6">
+                                    <span class="applied6">5 applied</span>
+                                    <span class="of-10-capacity5">
+                                        <span class="span6"> </span>
+                                        <span>of 10 capacity</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list40">
+                        <div class="main-content5">
+                            <img class="company-logo-icon37" alt="" th:src="@{/images/company-logo-42@2x.png}" />
+
+                            <div class="job-title34">
+                                <div class="social-media-assistant34">
+                                    Product Designer
+                                </div>
+                                <div class="company-name-location-job31">
+                                    <div class="nomad32">ClassPass</div>
+                                    <div class="company-name-location-job-inner29">
+                                        <div class="frame-child65"></div>
+                                    </div>
+                                    <div class="paris-france33">
+                                        Berlin, Germany
+                                    </div>
+                                </div>
+                                <div class="label148">
+                                    <button class="label149">
+                                        <div class="caption182">
+                                            Full-Time
+                                        </div>
+                                    </button>
+                                    <div class="label-child83"></div>
+                                    <button class="label150">
+                                        <div class="label-child84"></div>
+                                        <div class="caption183">
+                                            Marketing
+                                        </div>
+                                    </button>
+                                    <button class="label151">
+                                        <div class="label-child85"></div>
+                                        <div class="caption184">Design</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-parent4">
+                            <button class="button36">
+                                <b class="caption185">Apply</b>
+                            </button>
+                            <div class="progress-bar-parent3">
+                                <div class="progress-bar9">
+                                    <div class="progress-bar-child24"></div>
+                                    <div class="progress-bar-child25"></div>
+                                    <div class="progress-bar-child26"></div>
+                                    <div class="progress-bar-child27"></div>
+                                    <div class="progress-bar-child28"></div>
+                                </div>
+                                <div class="applied-of-10-container7">
+                                    <span class="applied7">5 applied</span>
+                                    <span class="of-10-capacity6">
+                                        <span class="span7"> </span>
+                                        <span>of 10 capacity</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-list41">
+                        <div class="main-content6">
+                            <img class="company-logo-icon38" alt="" th:src="@{/images/company-logo-52@2x.png}" />
+
+                            <div class="job-title35">
+                                <div class="social-media-assistant35">
+                                    Customer Manager
+                                </div>
+                                <div class="company-name-location-job32">
+                                    <div class="nomad33">Pitch</div>
+                                    <div class="company-name-location-job-inner30">
+                                        <div class="frame-child66"></div>
+                                    </div>
+                                    <div class="paris-france34">
+                                        Berlin, Germany
+                                    </div>
+                                </div>
+                                <div class="label152">
+                                    <button class="label153">
+                                        <div class="caption186">
+                                            Full-Time
+                                        </div>
+                                    </button>
+                                    <div class="label-child86"></div>
+                                    <button class="label154">
+                                        <div class="label-child87"></div>
+                                        <div class="caption187">
+                                            Marketing
+                                        </div>
+                                    </button>
+                                    <button class="label155">
+                                        <div class="label-child88"></div>
+                                        <div class="caption188">Design</div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-parent5">
+                            <button class="button37">
+                                <b class="caption189">Apply</b>
+                            </button>
+                            <div class="progress-bar-parent4">
+                                <div class="progress-bar10">
+                                    <div class="progress-bar-child29"></div>
+                                    <div class="progress-bar-child30"></div>
+                                    <div class="progress-bar-child31"></div>
+                                    <div class="progress-bar-child32"></div>
+                                    <div class="progress-bar-child33"></div>
+                                </div>
+                                <div class="applied-of-10-container8">
+                                    <span class="applied8">5 applied</span>
+                                    <span class="of-10-capacity7">
+                                        <span class="span8"> </span>
+                                        <span>of 10 capacity</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+      </div>
+      <div class="pagination-wrapper">
+        <div class="pagination">
+          <img class="icon99" alt="" th:src="@{/images/icon-7.svg}" />
+
+          <div class="pagination-parent">
+            <div class="pagination1">
+              <div class="div3">1</div>
+            </div>
+            <div class="pagination2">
+              <div class="div4">2</div>
+            </div>
+            <div class="pagination3">
+              <div class="div5">3</div>
+            </div>
+            <div class="pagination4">
+              <div class="div6">4</div>
+            </div>
+            <div class="pagination5">
+              <div class="div7">5</div>
+            </div>
+            <div class="pagination6">
+              <div class="div8">...</div>
+            </div>
+            <div class="pagination7">
+              <div class="div9">33</div>
+            </div>
+          </div>
+          <img class="icon100" alt="" th:src="@{/images/icon-81.svg}" />
+        </div>
+      </div>
+  </div>
+  </section>
+  <footer class="footer3">
+    <div class="frame-parent21">
+      <div class="left-frame">
+        <div class="left3">
+          <div class="logo-28">
+            <div class="logo-2-inner2">
+              <img class="frame-child67" alt="" th:src="@{/images/frame-3-22.svg}" />
+            </div>
+            <h3 class="jobhuntly14">JobHuntly</h3>
+          </div>
+          <div class="great-platform-for4">
+            Great platform for the job seeker that
+            passionate about startups. Find your dream job
+            easier.
+          </div>
+        </div>
+      </div>
+      <div class="menu14">
+        <div class="first-column10">
+          <div class="about-container">
+            <div class="about3">About</div>
+          </div>
+          <div class="description10">
+            <div class="companies3">Companies</div>
+            <div class="pricing3">Pricing</div>
+            <div class="terms3">Terms</div>
+            <div class="advice3">Advice</div>
+            <div class="privacy-policy5">
+              Privacy Policy
+            </div>
+          </div>
+        </div>
+        <div class="second-column3">
+          <div class="resources3">Resources</div>
+          <div class="description11">
+            <div class="help-docs3">Help Docs</div>
+            <div class="guide3">Guide</div>
+            <div class="updates3">Updates</div>
+            <div class="contact-us3">Contact Us</div>
+          </div>
+        </div>
+      </div>
+      <div class="right3">
+        <div class="sequence-controller">
+          <div class="get-job-notifications3">
+            Get job notifications
+          </div>
+          <div class="the-latest-job3">
+            The latest job news, articles, sent to your
+            inbox weekly.
+          </div>
+        </div>
+        <div class="subscribe3">
+          <div class="number-calculator">
+            <div class="input14">
+              <input class="this-is-placeholder14" placeholder="Email Address" type="text" />
+            </div>
+            <button class="button38">
+              <b class="caption190">Subscribe</b>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="data-store">
+      <img class="divider-icon3" loading="lazy" alt="" th:src="@{/images/divider.svg}" />
+
+      <div class="data-writer">
+        <div class="decision-maker">
+          <div class="copyright3">
+            <div class="jobhuntly-all-rights3">
+              2021 @ JobHuntly. All rights reserved.
+            </div>
+          </div>
+        </div>
+        <div class="social-media-icons3">
+          <img class="facebook-icon3" loading="lazy" alt="" th:src="@{/images/facebook.svg}" />
+
+          <img class="instagram-icon3" loading="lazy" alt="" th:src="@{/images/instagram.svg}" />
+
+          <img class="dribbble-icon3" loading="lazy" alt="" th:src="@{/images/dribbble.svg}" />
+
+          <img class="linkedin-icon3" loading="lazy" alt="" th:src="@{/images/linkedin.svg}" />
+
+          <img class="twitter-icon3" loading="lazy" alt="" th:src="@{/images/twitter.svg}" />
+        </div>
+      </div>
+    </div>
+  </footer>
+  </div>
+</body>
+
+</html>

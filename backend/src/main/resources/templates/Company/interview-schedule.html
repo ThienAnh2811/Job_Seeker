@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" th:href="@{./css/Company/global.css}" />
+    <link rel="stylesheet" th:href="@{./css/Company/interview-schedule.css}" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap"
+    />
+</head>
+<body>
+<div class="dashboard-company-interview">
+    <div class="side-bar-dashboard-company5">
+        <div class="menu81">
+            <div class="logo-2-wrapper6">
+                <div class="logo-228">
+                    <div class="logo-2-inner15">
+                        <img
+                                class="frame-child150"
+                                loading="lazy"
+                                alt=""
+                                th:src="@{./images/Company/frame-33.svg}"
+                        />
+                    </div>
+                    <h3 class="jobhuntly36">JobHuntly</h3>
+                </div>
+            </div>
+            <div class="main-menu15">
+                <div class="menu82">
+                    <div class="sidebar-menu125">
+                        <img
+                                class="icon500"
+                                loading="lazy"
+                                alt=""
+                                th:src="@{./images/Company/icon-2.svg}"                        />
+
+                        <a th:href="@{/dashboard}" class="caption607">Dashboard/></a>
+                    </div>
+                    <div class="sidebar-menu127">
+                        <img class="icon502" alt=""th:src="@{./images/Company/icon-2.svg}" />
+
+                        <a th:href="@{/profile}" class="caption609">Company Profile</a>
+                    </div>
+                    <div class="sidebar-menu128">
+                        <img class="icon503" alt="" th:src="@{./images/Company/icon-3.svg}"/>
+
+                        <a th:href="@{/allApplicants}" class="caption610">All Applicants</a>
+                    </div>
+                    <div class="sidebar-menu129">
+                        <img class="icon504" alt="" th:src="@{./images/Company/icon-41.svg}" />
+
+                        <a th:href="@{/joblisting}" class="caption611">Job Listing</a>
+                    </div>
+                    <button class="sidebar-menu130">
+                        <div class="indicator-wrapper6">
+                            <img
+                                    class="indicator-icon15"
+                                    alt=""
+                                    th:src="@{./images/Company/indicator.svg}"
+                            />
+                        </div>
+                        <div class="menu83">
+                            <img class="icon505" alt="" th:src="@{./images/Company/icon-5.svg}" />
+
+                            <a th:href="@{/interviewSchedule}" class="caption612">My Schedule</a>
+                        </div>
+                    </button>
+                    <div class="sidebar-menu131">
+                        <img class="icon506" alt="" />
+
+                        <div class="caption613">Employee</div>
+                    </div>
+                </div>
+                <div class="main-menu-child9"></div>
+                <div class="settings34">
+                    <div class="settings-wrapper11">
+                        <div class="settings35">SETTINGS</div>
+                    </div>
+                    <div class="menu84">
+                        <div class="sidebar-menu132">
+                            <img class="icon507" alt="" th:src="@{./images/Company/icon-7.svg}" />
+
+                            <a th:href="@{/settings}" class="caption614">Settings</a>
+                        </div>
+                        <div class="sidebar-menu133">
+                            <img class="icon508" alt="" th:src="@{./images/Company/icon-8.svg}"/>
+
+                            <div class="caption615">Help Center</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="pattern-icon38" alt="" />
+
+        <div class="profile33">
+            <div class="line47"></div>
+            <div class="profile-wrapper6">
+                <div class="profile34">
+                    <div class="avatar-wrapper9">
+                        <img
+                                class="avatar-icon40"
+                                loading="lazy"
+                                alt=""
+                                th:src="@{./images/Company/avatar2@2x.png}"
+                        />
+                    </div>
+                    <div class="name-email15">
+                        <div class="maria-kelly6">Maria Kelly</div>
+                        <div class="mariakllyemailcom5">MariaKlly@email.com</div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-menu15">
+                <div class="rounded-rectangle17"></div>
+                <div class="frame16">
+                    <div class="logout30">
+                        <div class="logout31">Logout</div>
+                        <img class="icon509" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <main class="top-nav-parent7">
+        <header class="top-nav22">
+            <div class="job-list72">
+                <img
+                        class="company-logo-icon84"
+                        alt=""
+                        th:src="@{/company/image/{id}(id=${user.getCompany().getId()})}"
+
+                />
+
+                <div class="job-title80">
+                    <div class="company13">Company</div>
+                    <div class="nomad-container">
+                        <div class="nomad76" th:text="${user.getCompany().getName()}"></div>
+<!--                        <img class="icon510" alt="" th:src="@{./images/Company/icon-107.svg}" />-->
+                    </div>
+                </div>
+            </div>
+            <div class="action17">
+                <img
+                        class="notification-icon16"
+                        loading="lazy"
+                        alt=""
+                        th:src="@{./images/Company/notification4.svg}"
+                />
+
+                <button class="button126">
+                    <img class="icon511" alt="" th:src="@{./images/Company/icon-112.svg}" />
+
+                    <a th:href="@{/postjobs}" class="caption616">Post a job</a>
+                </button>
+            </div>
+        </header>
+        <div class="title52">
+            <div class="my-schedule-parent">
+                <h3 class="my-schedule">My Schedule</h3>
+            </div>
+        </div>
+        <form th:action="@{/interviewSchedule}" method="get">
+        <input type="date" name="date" required>
+        <button type="submit">Filter</button>
+      </form>
+        <section class="splitter">
+
+
+            <div class="transformer1">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Applicant</th>
+                        <th>Level</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="appl : ${upcomingApplications}">
+                        <td th:text="${appl.getPost().getTitle()}"></td>
+                        <td th:text="${appl.getUser().getUserDisplayName()}"></td>
+                        <td th:text="${appl.getPost().getLevel().getName()}"></td>
+                        <td th:text="${appl.getPost().getLocation().getName()}"></td>
+                        <td th:if="${appl.interviewStartTime != null}" th:text="${#temporals.format(appl.interviewStartTime, 'yyyy-MM-dd')}"></td>
+                        <td th:if="${appl.interviewStartTime == null}">No Interview Scheduled</td>
+                        <td th:if="${appl.interviewStartTime != null}" th:text="${#temporals.format(appl.interviewStartTime, 'HH:mm')}"></td>
+                        <td th:if="${appl.interviewStartTime == null}">No Time Scheduled</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+</div>
+</body>
+</html>

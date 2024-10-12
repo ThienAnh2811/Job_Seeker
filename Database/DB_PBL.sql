@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS DB_Website;
+USE DB_Website;
+
+CREATE TABLE Users (
+    UserID INT PRIMARY KEY AUTO_INCREMENT,
+    Username VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Role ENUM('admin', 'user') NOT NULL
+);

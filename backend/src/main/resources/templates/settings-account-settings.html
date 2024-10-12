@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"></html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" th:href="@{/css/global.css}" />
+    <link rel="stylesheet" th:href="@{/css/dashboard-settings-account-settings.css}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Red Hat Display:wght@700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Clash Display Variable:wght@600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Helvetica:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="dashboard-settings-account">
+      <div class="side-bar-dashboard-applica5">
+        <div class="menu35">
+          <div class="menu-instance">
+            <div class="logo-214">
+              <div class="logo-2-inner5">
+                <img
+                  class="frame-child113"
+                  loading="lazy"
+                  alt=""
+                  th:src="@{/images/frame-37.svg}"
+                />
+              </div>
+              <h3 class="jobhuntly20">JobHuntly</h3>
+            </div>
+          </div>
+          <div class="main-menu5">
+            <div class="menu36">
+              <div class="sidebar-menu40">
+                <img
+                  class="icon223"
+                  loading="lazy"
+                  alt=""
+                  th:src="@{/images/icon2.svg}"
+                />
+
+                <a th:href="@{/dashboard}" class="caption311">Dashboard</a>
+              </div>
+<!--              <div class="sidebar-menu41">-->
+<!--                <div class="icon-parent31">-->
+<!--                  <img class="icon224" alt="" th:src="@{/images/icon-111.svg}" />-->
+
+<!--                  <div class="caption312">Messages</div>-->
+<!--                </div>-->
+<!--                <div class="badge5">-->
+<!--                  <div class="avatar-instance"></div>-->
+<!--                  <div class="wrapper1">-->
+<!--                    <div class="div35">1</div>-->
+<!--                  </div>-->
+<!--                </div>-->
+<!--              </div>-->
+              <div class="sidebar-menu42">
+                <div class="icon225">
+                  <img
+                    class="vector-stroke-icon6"
+                    loading="lazy"
+                    alt=""
+                    th:src="@{/images/vector-stroke.svg}"
+                  />
+
+                  <div class="icon-child2"></div>
+                  <div class="icon-child3"></div>
+                </div>
+                <a  th:href="@{/jobApplied}" class="caption313">My Applications</a>
+              </div>
+              <div class="sidebar-menu43">
+                <img class="icon226" alt="" th:src="@{/images/icon-210.svg}" />
+
+                <a th:href="@{/findjobs}" class="caption314">Find Jobs</a>
+              </div>
+              <div class="sidebar-menu44">
+                <img class="icon227" alt="" th:src="@{/images/icon-32.svg}" />
+
+                <a th:href="@{/findCompany}" class="caption315">Browse Companies</a>
+              </div>
+              <div class="sidebar-menu45">
+                <img class="icon228" alt="" th:src="@{/images/icon-41.svg}" />
+
+                <a th:href="@{/profile}" class="caption316">My Profile</a>
+              </div>
+            </div>
+            <div class="main-menu-child1"></div>
+            <div class="settings14">
+              <div class="settings-wrapper2">
+                <div class="settings15">SETTINGS</div>
+              </div>
+              <div class="menu37">
+                <button class="sidebar-menu46">
+                  <img
+                    class="indicator-icon5"
+                    alt=""
+                    th:src="@{/images/indicator.svg}"
+                  />
+
+                  <div class="menu38">
+                    <img class="icon229" alt="" th:src="@{/images/icon-52.svg}" />
+
+                    <a th:href="@{/settings}" class="caption317">Settings</a>
+                  </div>
+                </button>
+                <div class="sidebar-menu47">
+                  <img class="icon230" alt="" th:src="@{/images/icon-61.svg}" />
+
+                  <div class="caption318">Help Center</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img class="pattern-icon22" alt="" />
+
+        <div class="profile11">
+          <div class="line23"></div>
+          <div class="caption319">
+            <div class="profile12">
+              <img
+                class="avatar-icon7"
+                loading="lazy"
+                alt=""
+                th:src="@{/user/image/{id}(id=${user.getID()})}"
+              />
+
+              <div class="name-email5">
+                <div class="jake-gyll-wrapper1">
+                  <div class="jake-gyll9" th:text="${user.getUserDisplayName()}"></div>
+                </div>
+                <div class="jakegyllemailcom9" th:text="${user.getEmail()}"></div>
+              </div>
+            </div>
+          </div>
+          <div class="profile-menu5">
+            <div class="rounded-rectangle6"></div>
+            <div class="frame6">
+              <div class="logout10">
+                <div class="logout11">Logout</div>
+                <img class="icon231" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="icon232">
+        <header class="top-nav9">
+          <img class="pattern-icon23" alt="" />
+
+          <div class="dashboard-wrapper1">
+            <h1 class="dashboard7">Settings</h1>
+          </div>
+          <div class="action5">
+            <button class="button67">
+              <a th:href="@{/home}" class="caption320">Back to homepage</a>
+            </button>
+            <div class="icon233">
+              <img
+                class="notification-icon6"
+                loading="lazy"
+                alt=""
+                th:src="@{/images/notification.svg}"
+              />
+            </div>
+          </div>
+        </header>
+        <div class="tabs-wrapper">
+          <div class="tabs1">
+            <div class="tab-menu5">
+              <a th:href="@{/settings}"  class="caption321">My Profile</a>
+            </div>
+            <a class="tab-menu6" th:href="@{/settings?type=education}">
+              <div class="caption322">Education</div>
+            </a>
+            <a  class="tab-menu7" th:href="@{/settings?type=experience}">
+              <div class="caption323">Experience</div>
+            </a>
+          </div>
+        </div>
+        <form class="applicant-dashboard-my-profi" method="post" action="/settings" enctype="multipart/form-data">
+          <div th:unless="${param.type}" class="basic-information">
+            <div class="basic-information1">Basic Information</div>
+            <input class="this-is-your" placeholder="This is your personal information that you can update anytime." th:field="*{user.bio}">
+            </input>
+          </div>
+          <div class="tab-menu-separator"></div>
+          <div th:unless="${param.type}" class="profile-photo">
+            <div class="profile-photo1">
+              <div class="profile-photo2">Profile Photo</div>
+              <div class="this-image-will">
+                This image will be shown as your profile picture, it will help recruiters recognize you!
+              </div>
+            </div>
+            <div class="photo">
+              <img class="avatar-icon8" th:if="${user.getPhoto() != null}" th:src="@{/user/image/{id}(id=${user.getID()})}" alt="User Avatar" />
+              <div class="textfield13">
+                <div class="name4">
+                  <img class="icon234" alt="" th:src="@{/images/icon-87.svg}" />
+                  <div class="click-to-replace-or-drag-and-d-parent">
+                    <div class="click-to-replace-container">
+                      <span class="click-to-replace">Click to replace</span>
+                      <span class="or-drag-and-drop">
+                <span class="span18"> </span>
+                <span class="or-drag-and">or drag and drop</span>
+              </span>
+                    </div>
+                    <div class="svg-png-jpg">SVG, PNG, JPG or GIF (max. 400 x 400px)</div>
+                    <input type="file" accept=".svg, .png, .jpg, .gif" name="avatarFile" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-menu-separator1"></div>
+          <div th:unless="${param.type}" class="personal-details">
+            <div class="personal-details1">Personal Details</div>
+            <div class="forms2">
+              <div class="textfield14">
+                <div class="label195">
+                  <span class="full-name">Full Name </span>
+                  <span class="span19">*</span>
+                </div>
+                <div class="input16">
+                  <input class="fill-div" placeholder="Jake Gyll" type="text" th:field="*{user.userDisplayName}" />
+                </div>
+              </div>
+              <div class="row-25">
+                <div class="textfield15">
+                  <div class="label196">
+                    <span class="phone-number">Phone Number </span>
+                    <span class="span20">*</span>
+                  </div>
+                  <div class="input17">
+                    <input class="fill-div" placeholder="+44 1245 572 135" type="text" th:field="*{user.contactNumber}" />
+                  </div>
+                </div>
+                <div class="textfield16">
+                  <div class="label197">
+                    <span class="email13">Email </span>
+                    <span class="span21">*</span>
+                  </div>
+                  <div class="input17">
+                    <input class="fill-div" placeholder="jobhuntly@gmail.com" type="text" th:field="*{user.email}"  readonly/>
+                  </div>
+                </div>
+              </div>
+              <div class="row-3">
+                <div class="textfield17">
+                  <div class="label198">
+                    <span class="date-of-birth">Date of Birth </span>
+                    <span class="span22">*</span>
+                  </div>
+                  <div class="dropdown2">
+                    <input class="this-is-placeholder20" placeholder="2004-09-19" type="date" th:field="*{user.dob}" />
+                    <img class="icon235" alt="" th:src="@{/images/icon-95.svg}" />
+                  </div>
+                </div>
+                <div class="textfield18">
+                  <div class="label199">
+                    <span class="gender">Gender </span>
+                    <span class="span23">*</span>
+                  </div>
+                  <div class="dropdown3">
+                    <select th:field="*{user.gender}">
+                      <option value="1">Male</option>
+                      <option value="0">Female</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-menu-separator1"></div>
+          <div th:unless="${param.type}" class="personal-details">
+            <div class="personal-details1">Additional Information</div>
+            <div class="forms2">
+              <div class="textfield14">
+                <div class="label195">
+                  <span class="full-name">Github Url</span>
+                  <span class="span19">*</span>
+                </div>
+                <div class="input16">
+                  <input class="fill-div" placeholder="github.com/Annguyn" type="text" th:field="*{user.github}" />
+                </div>
+              </div>
+              <div class="row-25">
+                <div class="textfield15">
+                  <div class="label196">
+                    <span class="phone-number">LinkedIn Url</span>
+                    <span class="span20">*</span>
+                  </div>
+                  <div class="input17">
+                    <input class="fill-div" placeholder="linkedin/annguyn" type="text" th:field="*{user.linkedin}" />
+                  </div>
+                </div>
+                <div class="textfield16">
+                  <div class="label197">
+                    <span class="email13">Major </span>
+                    <span class="span21">*</span>
+                  </div>
+                  <div class="input17">
+                    <input class="fill-div" placeholder="jobhuntly@gmail.com" type="text" th:field="*{user.major}" />
+                  </div>
+                </div>
+              </div>
+              <div class="row-3">
+                <div class="textfield17">
+                  <div class="label198">
+                    <span class="date-of-birth">Experience in year</span>
+                    <span class="span22">*</span>
+                  </div>
+                  <div class="dropdown2">
+                    <input class="this-is-placeholder20" placeholder="2" type="text" th:field="*{user.experienceInYears}" />
+                    <img class="icon235" alt="" th:src="@{/images/icon-95.svg}" />
+                  </div>
+                </div>
+                <div class="textfield18">
+                  <div class="label199">
+                    <span class="gender">Location </span>
+                    <span class="span23">*</span>
+                  </div>
+                  <div class="dropdown3">
+                    <select th:field="*{user.location.id}">
+                      <option th:each="location : ${locations}" th:value="${location.id}" th:text="${location.name}"></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div th:if="${param.type != null && param.type[0] == 'education'}" class="personal-details">
+            <div class="personal-details1">Education Information</div>
+            <div class="forms2">
+              <div class="textfield14">
+                <div class="label195">
+                  <span class="full-name">Certificate Degree Name</span>
+                  <span class="span19">*</span>
+                </div>
+                <select class="form-control" id="degreeName" name="Degree">
+                  <option value="">Select Degree</option>
+                  <option value="Bachelor's">Bachelor's</option>
+                  <option value="Master's">Master's</option>
+                  <option value="PhD">PhD</option>
+                </select>
+              </div>
+              <div class="row-25">
+                <div class="textfield15">
+                  <div class="label196">
+                    <span class="phone-number">Start year</span>
+                    <span class="span20">*</span>
+                  </div>
+                  <div class="input17">
+                    <input class="fill-div" placeholder="2022" type="text" name="startDate" />
+                  </div>
+                </div>
+              </div>
+              <div class="row-25">
+                <div class="textfield15">
+                  <div class="label196">
+                    <span class="phone-number">Graduate Year</span>
+                    <span class="span20">*</span>
+                  </div>
+                  <div class="input17">
+                    <input class="fill-div" placeholder="2026" type="text" name="endDate" />
+                  </div>
+                </div>
+              </div>
+              <div class="row-25">
+                <div class="textfield15">
+                  <div class="label196">
+                    <span class="phone-number">Major</span>
+                    <span class="span20">*</span>
+                  </div>
+                  <div class="input17">
+                    <input class="fill-div" placeholder="Information Technology(Japanese)" type="text" name="MajorUni" />
+                  </div>
+                </div>
+              </div>
+              <div class="row-3">
+                <div class="textfield18">
+                  <div class="label199">
+                    <span class="gender">University </span>
+                    <span class="span23">*</span>
+                  </div>
+                  <div class="dropdown3">
+                    <select name="UniversityId">
+                      <option th:each="uni : ${universities}" th:value="${uni.getId()}" th:text="${uni.name}"></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div th:if="${param.type != null && param.type[0] == 'experience'}" class="personal-details">
+            <div class="personal-details1">Experience Information</div>
+            <div class="forms2">
+              <div class="textfield14">
+                <div class="label195">
+                  <span class="full-name">Job Title</span>
+                  <span class="span19">*</span>
+                </div>
+                <input class="fill-div" placeholder="Designer" type="text" th:field="*{experience.title}" />
+              </div>
+              <div class="row-25">
+                <div class="textfield15">
+                  <div class="label196">
+                    <span class="phone-number">Start year</span>
+                    <span class="span20">*</span>
+                  </div>
+                  <input class="fill-div" placeholder="2022" type="text" th:field="*{experience.startDate}" />
+                </div>
+              </div>
+              <div class="row-25">
+                <div class="textfield15">
+                  <div class="label196">
+                    <span class="phone-number">End year</span>
+                    <span class="span20">*</span>
+                  </div>
+                  <input class="fill-div" placeholder="2026" type="text" th:field="*{experience.endDate}" />
+                </div>
+              </div>
+              <div class="row-3">
+                <div class="textfield18">
+                  <div class="label199">
+                    <span class="gender">Company </span>
+                    <span class="span23">*</span>
+                  </div>
+                  <div class="dropdown3">
+                    <select th:field="*{experience.companyId}">
+                      <option th:each="company : ${companies}" th:value="${company.id}" th:text="${company.name}"></option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-menu-separator2"></div>
+          <div th:unless="${param.type}" class="close-button">
+            <div class="account-type">
+              <div class="account-type1">Account Type</div>
+              <div class="you-can-update">You can update your account type</div>
+            </div>
+            <div class="account-type2">
+              <div class="job-seeker">
+                <div class="job-seeker1">
+                  <input class="radio-button" type="radio" th:field="*{user.role}" value="user" />
+                  <div class="content17">
+                    <div class="job-seeker2">Job Seeker</div>
+                    <div class="looking-for-a">Looking for a job</div>
+                  </div>
+                </div>
+              </div>
+              <div class="job-seeker3">
+                <div class="job-seeker4">
+                  <input class="radio-button1" type="radio" th:field="*{user.role}" value="company" />
+                  <div class="content18">
+                    <div class="employer">Employer</div>
+                    <div class="hiring-sourcing-candidates">
+                      Hiring, sourcing candidates, or posting a jobs
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-menu-separator3"></div>
+          <button type="submit" class="button68">
+            <b class="caption327">Save Profile</b>
+          </button>
+        </form>
+
+      </main>
+    </div>
+  </body>
+</html>
